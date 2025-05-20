@@ -37,7 +37,7 @@ export default function Navbar() {
     return (
         <div className="fixed top-0 left-0 right-0 z-50 bg-white/25 dark:bg-gray-900/20 backdrop-blur-xl border-b border-white/10 dark:border-gray-800/30 mt-6">
             <nav className="flex justify-between items-center max-w-5xl mx-auto py-3 px-4">
-                <div className="px-2 py-1 rounded-full bg-white/30 dark:bg-gray-800/30 backdrop-blur-lg shadow-md dark:shadow-blue-950/30 border border-white/20 dark:border-gray-700/20">
+                <div className="px-2 py-1 rounded-full hover:scale-110 duration-300 bg-white/30 dark:bg-gray-800/30 backdrop-blur-lg shadow-md dark:shadow-blue-950/30 border border-white/20 dark:border-gray-700/20">
                     <ThemeToggle />
                 </div>
                 
@@ -48,7 +48,7 @@ export default function Navbar() {
                             key={`desktop-nav-link-${idx}`}
                             href={item.link}
                             onClick={onItemClick}
-                            className='py-2 px-3 text-neutral-700 font-semibold text-md hover:text-black dark:text-neutral-300 dark:hover:text-white transition-colors relative group'
+                            className='py-2 px-3 text-neutral-700 font-semibold text-md hover:text-black dark:text-neutral-300 dark:hover:text-white transition-colors relative group hover:scale-110 duration-300 '
                         >
                             <span>{item.name}</span>
                             <span className="absolute inset-x-0 bottom-0 h-0.5 bg-gradient-to-r from-transparent via-black/20 to-transparent dark:via-white/20 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-in-out"></span>
