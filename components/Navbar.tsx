@@ -14,7 +14,7 @@ export default function Navbar() {
     const listItems = [
         {
             name: "Home",
-            link: "home"
+            link: "/"
         },{
             name: "Blog",
             link: "blog",
@@ -24,6 +24,9 @@ export default function Navbar() {
         },{
             name: "Resources",
             link: "resources"
+        },{
+            name: "Projects",
+            link: "projects"
         },{
             name: "Resume",
             link: '#'
