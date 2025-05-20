@@ -35,29 +35,30 @@ export default function Navbar() {
     };
 
     return (
-        <div className="fixed top-0 left-0 right-0 z-50 bg-white dark:bg-gray-900 ">
-            <nav className="flex justify-between items-center max-w-4xl mx-auto py-3 px-4">
-                <div className="p-2 rounded-full shadow-md dark:shadow-neutral-300">
+        <div className="fixed top-0 left-0 right-0 z-50 bg-white/25 dark:bg-gray-900/20 backdrop-blur-xl border-b border-white/10 dark:border-gray-800/30 mt-6">
+            <nav className="flex justify-between items-center max-w-5xl mx-auto py-3 px-4">
+                <div className="px-2 py-1 rounded-full bg-white/30 dark:bg-gray-800/30 backdrop-blur-lg shadow-md dark:shadow-blue-950/30 border border-white/20 dark:border-gray-700/20">
                     <ThemeToggle />
                 </div>
                 
                 {/* Desktop Navigation */}
-                <div className="hidden md:flex justify-center items-center gap-4 shadow-lg dark:shadow-neutral-400 dark:shadow-md rounded-full px-4">
+                <div className="hidden md:flex justify-center items-center gap-4 bg-white/20 dark:bg-gray-800/20 backdrop-blur-lg shadow-lg dark:shadow-blue-950/30 rounded-full px-4 border border-white/20 dark:border-gray-700/20">
                     {listItems.map((item, idx) => (
                         <Link
                             key={`desktop-nav-link-${idx}`}
                             href={item.link}
                             onClick={onItemClick}
-                            className='py-2 px-3 text-neutral-700 font-semibold hover:text-black dark:text-neutral-300 dark:hover:text-white transition-colors'
+                            className='py-2 px-3 text-neutral-700 font-semibold text-md hover:text-black dark:text-neutral-300 dark:hover:text-white transition-colors relative group'
                         >
                             <span>{item.name}</span>
+                            <span className="absolute inset-x-0 bottom-0 h-0.5 bg-gradient-to-r from-transparent via-black/20 to-transparent dark:via-white/20 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-in-out"></span>
                         </Link>
                     ))}
                 </div>
                 
                 {/* Mobile Menu Button */}
                 <button 
-                    className="md:hidden p-2 text-neutral-700 dark:text-white focus:outline-none"
+                    className="md:hidden p-2 text-neutral-700 dark:text-white focus:outline-none bg-white/30 dark:bg-gray-800/30 rounded-full backdrop-blur-lg border border-white/20 dark:border-gray-700/20"
                     onClick={toggleMenu}
                     aria-label="Toggle menu"
                 >
@@ -71,13 +72,13 @@ export default function Navbar() {
             
             {/* Mobile Navigation */}
             {isMenuOpen && (
-                <div className="md:hidden bg-white dark:bg-gray-800 py-2 px-4 shadow-lg">
+                <div className="md:hidden bg-white/30 dark:bg-gray-800/30 backdrop-blur-xl py-2 px-4 shadow-lg border-t border-white/10 dark:border-gray-700/20">
                     {listItems.map((item, idx) => (
                         <Link
                             key={`mobile-nav-link-${idx}`}
                             href={item.link}
                             onClick={onItemClick}
-                            className='block py-3 text-neutral-700 font-semibold hover:text-black dark:text-neutral-200 dark:hover:text-white transition-colors border-b dark:border-gray-700'
+                            className='block py-3 text-neutral-700 font-semibold hover:text-black dark:text-neutral-200 dark:hover:text-white transition-colors border-b dark:border-gray-700/20'
                         >
                             <span>{item.name}</span>
                         </Link>
