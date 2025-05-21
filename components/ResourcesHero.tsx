@@ -23,7 +23,7 @@ export default function ResourcesHero() {
         <ResourcesSection header="Youtube Channels" listItems={ytChannelItems}/>
         <ResourcesSection header="Podcasts & Knowledge" listItems={podcastList}/>
         <Divider />
-        <BookSection title='Research Papers & White Papers' bookItems={papersItems}/>
+        <BookSection title='Books, Research Papers, Whitepapers, Blogs' bookItems={papersItems}/>
     </main>
   )
 }

@@ -1,37 +1,11 @@
 import React from 'react'
 import Divider from './ui/divider'
 import SnippetsCard from './SnippetsCard'
+import { snippetsItem } from '@/data/content'
+
 
 export default function SnippetsHero() {
-    const snippetsItem = [
-        {
-            logoLink:"/nextjs-icon.png",
-            title: "Test 1",
-            content: "Implement Linear regression using this colab template",
-            href: "#"
-        },{
-            logoLink:"",
-            title: "",
-            content: "",
-            href: "#"
-        },{
-            logoLink:"",
-            title: "",
-            content: "",
-            href: "#"
-        },{
-            logoLink:"",
-            title: "",
-            content: "",
-            href: "#"
-        },{
-            logoLink:"/coming-soon.png",
-            title: "More Incoming",
-            content: "More component coming soon...",
-            href: "#"
-        }
-        
-    ]
+    
   return (
     <main >
         <h1 className="text-5xl font-bold mt-10">Snippets</h1>
@@ -39,6 +13,8 @@ export default function SnippetsHero() {
         <div className="relative mt-4">
             <Divider />
         </div>
+
+        
         <div className="flex flex-wrap gap-4 justify-between pt-8">
             {snippetsItem.map((item, idx) => (
                 <div
@@ -49,7 +25,7 @@ export default function SnippetsHero() {
                 title={item.title}
                 logoLink={item.logoLink}
                 content={item.content}
-                href={item.href}                
+                             
                 />
             </div>
             ))}

@@ -30,6 +30,31 @@ export const blogItems = [
     },
 ]
 
+// Footer Content 
+export const footerContent = [
+    {
+        title: "Github",
+        href: "https://github.com/Prateekk02"
+    },
+    {
+        title: "LinkedIn",
+        href: "https://www.linkedin.com/in/prateekk02/"
+    },
+    {
+        title: "Twitter",
+        href: "https://x.com/codeWalker66"
+    },
+    {
+        title: "Kaggle",
+        href: "https://www.kaggle.com/prateekk02"
+    },
+    {
+        title: "Medium",
+        href: "https://medium.com/@codeWalker66"
+    },
+    
+]
+
 
 
 // Resource contents
@@ -224,13 +249,42 @@ export const podcastList = [
 export const papersItems = [
     {
         title:"Attention is All You Need."
-    }, {
-        title:"Attention is All You Need."
-    }, {
-        title:"Attention is All You Need."
-    }, {
-        title:"Attention is All You Need."
-    }, {
-        title:"Attention is All You Need."
+    }, 
+    {
+        title:"Google Whitepaper: Foundational Large Language Models & Text Generation"
+    }, 
+    {
+        title:"Google Whitepaper: Vector Embeddings."
+    }, 
+    {
+        title:"Google Whitepaper: Agents."
+    }, 
+    {
+        title:"Google Whitepaper: Agents Companion."
+    },
+    {
+        title:"Google Whitepaper: Agents Companion."
+    },
+]
+
+// Snippet Content
+
+export const snippetsItem = [
+    {
+        logoLink:"/nextjs-icon.png",
+        title: "UI Components",
+        content: "Cool templates coming soon...",
+        // href: "#"
+    },{
+        logoLink:"/ml-icon.png",
+        title: "Machine Learning Templates",
+        content: "Machine Learning Colab notebook template coming soon...",
+        // href: "#"
+    },{
+        logoLink:"/coming-soon.png",
+        title: "More Incoming",
+        content: "More component coming soon...",
+        // href: "#"
     }
+    
 ]
