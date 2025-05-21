@@ -4,6 +4,7 @@ import Image from 'next/image'
 import { SnippetsCardProps } from '@/lib/types'
 
 
+
 const SnippetsCard: React.FC<SnippetsCardProps> = ({logoLink, title, content, href}) => {
   return (
     <div className=' relative bg-[#f3f4f6] dark:bg-blue-200 w-[350px] h-[180px] p-4 rounded-lg shadow-md hover:shadow-xl dark:hover:shadow-blue-950 dark:hover:bg-blue-300 duration-300 hover:bg-[#d1d1d2] border hover:scale-102 flex flex-col'>

@@ -30,4 +30,9 @@ export interface SnippetsCardProps {
     title: string,
     content: string,
     href?: string
-  }
+}
+
+export interface HeaderProps{
+    title: string,
+    content: string
+}
