@@ -1,7 +1,8 @@
 import React from 'react'
 import Divider from './ui/divider'
 import { uiItems, utilityItem, dsaItems, ytChannelItems, podcastList } from '@/data/content'
-import BookSection from './BookSection'
+import { BookSection } from './BookSection'
+import { papersItems } from '@/data/content'
 
 import ResourcesSection from './ResourcesSection'
 
@@ -22,7 +23,7 @@ export default function ResourcesHero() {
         <ResourcesSection header="Youtube Channels" listItems={ytChannelItems}/>
         <ResourcesSection header="Podcasts & Knowledge" listItems={podcastList}/>
         <Divider />
-        <BookSection />
+        <BookSection title='Research Papers & White Papers' bookItems={papersItems}/>
     </main>
   )
 }

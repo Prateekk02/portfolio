@@ -1,3 +1,37 @@
+
+// Home Page content
+
+export const projectItems = [{
+    logoLink: "/nextjs-icon.png",
+    title: "Content Catalyst",
+        content:"Elevate your content effortlessly! Content Catalyst empowers you to upload videos and apply AI-driven enhancements—be it summaries, highlights, or creative edits. No technical skills required—just upload and let AI do the rest.",
+        techList:['Next.js', 'Typescript', 'TailwindCSS',  'Cloudinary', 'Clerk', 'Docker', 'FalAI', 'DaisyUI'],
+        href:"https://content-catalyst-pi.vercel.app/",
+        githubLink:"https://github.com/Prateekk02/ai-saas" 
+    },{
+        logoLink: "/ai-logo.png",
+        title: "Diamond Price Predictor",
+        content:"Thinking of investing in a diamond? This AI-powered tool predicts diamond prices instantly based on quality factors—making you smarter, faster, and more confident in every deal.",
+        techList:["Python", "Machine Learning", "Deep Learning", "Streamlit", "Sci-kit Learn", "Numpy", "Pandas"],
+        href:"https://diamondpricepredictorgit-6ixkzifz3zewf67b8qp637.streamlit.app/",
+        githubLink:"https://github.com/Prateekk02/DiamondPricePredictor"
+    }
+]
+
+export const blogItems = [
+    {
+        title: "How To Remove Duplicates From Vector In R - Geeks for geeks",
+        views: "2,421",
+        link: "https://www.geeksforgeeks.org/how-to-remove-duplicates-from-vector-in-r/"
+    },{
+        title:"Data versus Algorithms: What Really Drives Machine Learning Success?",
+        views:"997",
+        link: "https://www.linkedin.com/pulse/data-versus-algorithms-what-really-drives-machine-learning-kumar-7ztuc/?trackingId=f1JYpYvYQauQ9U8N3dBddw%3D%3D"
+    },
+]
+
+
+
 // Resource contents
 export const utilityItem = [
     {
@@ -184,4 +218,19 @@ export const podcastList = [
         content: "Want to explore great tales of history, this is the channel for you",
         href:"https://www.youtube.com/@Jigyasium"
     },
+]
+
+
+export const papersItems = [
+    {
+        title:"Attention is All You Need."
+    }, {
+        title:"Attention is All You Need."
+    }, {
+        title:"Attention is All You Need."
+    }, {
+        title:"Attention is All You Need."
+    }, {
+        title:"Attention is All You Need."
+    }
 ]

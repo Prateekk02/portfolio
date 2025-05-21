@@ -4,36 +4,12 @@ import Link from 'next/link'
 import MoreOption from './ui/more-option'
 import Divider from './ui/divider'
 import ProjectCard from './ProjectCard'
+import { LongCard } from './LongCard'
+import { blogItems, projectItems } from '@/data/content'
 
 export default function Hero() {
     
-    const projectItems = [{
-            logoLink: "/nextjs-icon.png",
-            title: "Content Catalyst",
-            content:"Elevate your content effortlessly! Content Catalyst empowers you to upload videos and apply AI-driven enhancements—be it summaries, highlights, or creative edits. No technical skills required—just upload and let AI do the rest.",
-            techList:['Next.js', 'Typescript', 'TailwindCSS',  'Cloudinary', 'Clerk', 'Docker', 'FalAI', 'DaisyUI'],
-            href:"https://content-catalyst-pi.vercel.app/",
-            githubLink:"https://github.com/Prateekk02/ai-saas" 
-        },{
-            logoLink: "/ai-logo.png",
-            title: "Diamond Price Predictor",
-            content:"Thinking of investing in a diamond? This AI-powered tool predicts diamond prices instantly based on quality factors—making you smarter, faster, and more confident in every deal.",
-            techList:["Python", "Machine Learning", "Deep Learning", "Streamlit", "Sci-kit Learn", "Numpy", "Pandas"],
-            href:"https://diamondpricepredictorgit-6ixkzifz3zewf67b8qp637.streamlit.app/",
-            githubLink:"https://github.com/Prateekk02/DiamondPricePredictor"
-        }
-    ]
-    const blogItems = [
-        {
-            title: "How To Remove Duplicates From Vector In R - Geeks for geeks",
-            views: "2,421",
-            link: "https://www.geeksforgeeks.org/how-to-remove-duplicates-from-vector-in-r/"
-        },{
-            title:"Data versus Algorithms: What Really Drives Machine Learning Success?",
-            views:"997",
-            link: "https://www.linkedin.com/pulse/data-versus-algorithms-what-really-drives-machine-learning-kumar-7ztuc/?trackingId=f1JYpYvYQauQ9U8N3dBddw%3D%3D"
-        },
-    ]
+    
   return (
     <div className='w-screen mt-10'>
         <div className="relative flex justify-between items-center w-full ">
@@ -64,19 +40,7 @@ export default function Hero() {
 
         <div>
             <h1 className="text-4xl font-bold mt-10">Recent Blogs</h1>
-            <div className="">
-                {blogItems.map((item, idx) =>(
-                    <Link
-                        key={`blog-link-${idx}`}
-                        href={item.link}
-                        className='flex justify-between mt-5 dark:bg-blue-200 bg-[#f3f4f6] dark:shadow-blue-950 hover:bg-[#d1d1d2] dark:hover:bg-blue-300 border shadow-lg rounded-md p-8  items-center duration-300 dark:hover:shadow-xl dark:hover:shadow-blue-950 hover:shadow-xl'
-                        target='_blank'
-                    >
-                        <div className="font-semibold text-black text-md ">{item.title}</div>
-                        <div className="text-neutral-600 text-lg">{item.views} views</div>
-                    </Link>
-                ))}
-            </div>
+            <LongCard itemList={blogItems}/>
             <MoreOption title='See All Blogs' href='blog'/>
         </div>
         <div className="mt-5">

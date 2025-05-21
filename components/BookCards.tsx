@@ -1,7 +1,13 @@
 import React from 'react'
+import { BookCardsProps } from '@/lib/types';
 
-export default function BookCards() {
+
+const BookCards: React.FC<BookCardsProps> = ({title}) => {
   return (
-    <div>BookCards</div>
+    <div className=''>
+        <h1 className="">{title}</h1>
+    </div>
   )
 }
+
+export default BookCards;
