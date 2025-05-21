@@ -1,31 +1,12 @@
 import React from 'react'
 import Divider from './ui/divider'
+import { uiItems, utilityItem, dsaItems, ytChannelItems, podcastList } from '@/data/content'
+import BookSection from './BookSection'
 
 import ResourcesSection from './ResourcesSection'
 
 export default function ResourcesHero() {
-    const utilityItem = [
-        {
-            title: "Lucide-icons",
-            content: "Great for stylish icons",
-            href : "https://lucide.dev/guide/packages/lucide-react"
-        },
-        {
-            title: "React-icons",
-            content: "Great for simple icons",
-            href : "https://react-icons.github.io/react-icons/"
-        },{
-            title: "Postman",
-            content: "Best known for API testing.",
-            href : "https://www.postman.com/"
-        },{
-            title: "Overleaf",
-            content: "Great resource for writing acedamic papers and resumes.",
-            href : "https://www.overleaf.com/"
-        },
-
-        
-    ]
+    
   return (
     <main>
         <h1 className="text-5xl font-bold mt-10">Resources</h1>
@@ -36,6 +17,12 @@ export default function ResourcesHero() {
             <Divider />
         </div>
         <ResourcesSection header="Utilities" listItems={utilityItem} />
+        <ResourcesSection header="UI Libraries" listItems={uiItems}/>
+        <ResourcesSection header="DSA & CP Lovers" listItems={dsaItems}/>
+        <ResourcesSection header="Youtube Channels" listItems={ytChannelItems}/>
+        <ResourcesSection header="Podcasts & Knowledge" listItems={podcastList}/>
+        <Divider />
+        <BookSection />
     </main>
   )
 }

@@ -38,8 +38,8 @@ export default function Navbar() {
     };
 
     return (
-        <div className="fixed top-0 left-0 right-0 z-50 bg-white/25 dark:bg-gray-900/20 backdrop-blur-xl border-b border-white/10 dark:border-gray-800/30 mt-6">
-            <nav className="flex justify-between items-center max-w-5xl mx-auto py-3 px-4">
+        <div className="fixed top-0 left-0 right-0 z-50 bg-white/25 dark:bg-gray-900/20 backdrop-blur-xl border-b border-white/10 dark:border-gray-800/30 pt-6">
+            <nav className="flex justify-between items-center max-w-5xl mx-auto pt-3 px-4">
                 <div className="px-2 py-1 rounded-full hover:scale-110 duration-300 bg-white/30 dark:bg-gray-800/30 backdrop-blur-lg shadow-md dark:shadow-blue-950/30 border border-white/20 dark:border-gray-700/20">
                     <ThemeToggle />
                 </div>
