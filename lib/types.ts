@@ -6,6 +6,7 @@ export interface LongCardContent{
 }
 export interface LongCardProps{
     itemList: LongCardContent[]
+    
 }
 
 export interface BookCardsProps {
@@ -35,4 +36,19 @@ export interface SnippetsCardProps {
 export interface HeaderProps{
     title: string,
     content: string
+}
+
+interface ListItems {
+    title: string, 
+    content: string, 
+    href: string
+}
+
+export interface ResourcesSectionProps {
+    header: string,
+    listItems: ListItems[] 
+}
+
+export interface MoreOptionProps{
+    title: string,    
 }

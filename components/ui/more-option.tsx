@@ -1,19 +1,15 @@
-'use client'
+
 import React from 'react'
-import { useRouter } from 'next/navigation'
-import { ChevronDown } from 'lucide-react'
+import { ChevronDown, ChevronUp } from 'lucide-react'
+import { MoreOptionProps } from '@/lib/types'
 
-interface MoreOptionProps{
-    title: string,
-    href: string
-}
 
-const MoreOption: React.FC<MoreOptionProps> = ({title, href}) =>{
-    const router = useRouter();
+const MoreOption: React.FC<MoreOptionProps> = ({title}) =>{
+    
   return (
-    <div onClick={() => router.push(`${href}`)} className="flex justify-center items-center text-md font-semibold dark:text-neutral-300 mt-12 cursor-pointer"> 
+    <div className="flex justify-center items-center text-md font-semibold dark:text-neutral-300 mt-12 cursor-pointer"> 
         <div >{title}</div> 
-        <ChevronDown className='pt-1' />
+        {title !== 'Show Less' ? (<ChevronDown className='pt-1' />) : (<ChevronUp className='pt-1'/>)}
     </div>
   )
 }

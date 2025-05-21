@@ -1,6 +1,7 @@
 
 // Home Page content
 
+
 export const projectItems = [{
     logoLink: "/nextjs-icon.png",
     title: "Content Catalyst",
@@ -9,7 +10,7 @@ export const projectItems = [{
         href:"https://content-catalyst-pi.vercel.app/",
         githubLink:"https://github.com/Prateekk02/ai-saas" 
     },{
-        logoLink: "/ai-logo.png",
+        logoLink: "/ml-icon.png",
         title: "Diamond Price Predictor",
         content:"Thinking of investing in a diamond? This AI-powered tool predicts diamond prices instantly based on quality factors—making you smarter, faster, and more confident in every deal.",
         techList:["Python", "Machine Learning", "Deep Learning", "Streamlit", "Sci-kit Learn", "Numpy", "Pandas"],
@@ -28,6 +29,13 @@ export const blogItems = [
         views:"997",
         link: "https://www.linkedin.com/pulse/data-versus-algorithms-what-really-drives-machine-learning-kumar-7ztuc/?trackingId=f1JYpYvYQauQ9U8N3dBddw%3D%3D"
     },
+    
+]
+
+export const dummyBlogContent = [
+    {
+        title: "More blogs incoming..."
+    }
 ]
 
 // Footer Content 

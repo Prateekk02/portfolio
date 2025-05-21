@@ -1,10 +1,10 @@
 import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import MoreOption from './ui/more-option'
 import Divider from './ui/divider'
 import ProjectCard from './ProjectCard'
 import { LongCard } from './LongCard'
+import { ChevronDown } from 'lucide-react'
 import { blogItems, projectItems } from '@/data/content'
 
 export default function Hero() {
@@ -40,8 +40,8 @@ export default function Hero() {
 
         <div>
             <h1 className="text-4xl font-bold mt-10">Recent Blogs</h1>
-            <LongCard itemList={blogItems}/>
-            <MoreOption title='See All Blogs' href='blog'/>
+            <LongCard itemList={blogItems} />
+            
         </div>
         <div className="mt-5">
             <h1 className="text-4xl font-bold mt-10 mb-8">Projects</h1>
@@ -62,7 +62,10 @@ export default function Hero() {
                     </div>
                     ))}
             </div>
-            <MoreOption title='See More' href='projects' />
+            <Link href={"project"} className="flex justify-center items-center text-md font-semibold dark:text-neutral-300 mt-12 cursor-pointer"> 
+                <div >View More Projects</div> 
+                <ChevronDown className='pt-1' />
+            </Link>
         </div>
         
 
