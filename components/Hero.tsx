@@ -39,19 +39,16 @@ export default function Hero() {
                 <Link href={"https://www.linkedin.com/in/prateekk02/"} key={"prateek-linkedin"} target='_blank' className='text-black dark:text-white font-semibold px-3 py-1.5 sm:px-4 sm:py-2 text-sm sm:text-base bg-gray-100 dark:bg-gray-600 ml-1 rounded-xl shadow-lg dark:shadow-blue-950'>LinkedIn</Link></h2>
         </div>
 
-        <div>
-            <h1 className="text-4xl font-bold mt-10">Recent Blogs</h1>
+        <div className='mt-5 pt-5'>
+            <h1 className="text-4xl font-bold mb-8">Recent Blogs</h1>
             <LongCard itemList={blogItems} />
             
         </div>
-        <div className="mt-5">
-            <h1 className="text-4xl font-bold mt-10 mb-8">Projects</h1>
-            
+        <div className=" mt-5 pt-5">
+            <h1 className="text-4xl font-bold mb-8">Projects</h1>            
             <ProjectLister count={4}/>
-
-
-            <Link href={"project"} className="flex justify-center items-center text-md font-semibold dark:text-neutral-300 mt-12 cursor-pointer"> 
-                <div >View More Projects</div> 
+            <Link href={"projects"} className="flex hover:scale-105 duration-300 justify-center items-center text-md font-semibold dark:text-neutral-300 mt-12 cursor-pointer"> 
+                <div className='text-neutral-600 dark:text-neutral-300 hover:text-black dark:hover:text-white'>View More Projects</div> 
                 <ChevronDown className='pt-1' />
             </Link>
         </div>
