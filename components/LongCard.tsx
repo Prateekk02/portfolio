@@ -25,7 +25,7 @@ export const LongCard: React.FC<LongCardProps> = ({ itemList }) => {
           {item.link ? (
             <Link
               href={item.link}
-              className='flex justify-between mt-5 dark:bg-blue-200 hover:scale-105 bg-[#f3f4f6] dark:shadow-blue-950 hover:bg-[#d1d1d2] dark:hover:bg-blue-300 border shadow-lg rounded-md p-8 items-center duration-300 dark:hover:shadow-xl dark:hover:shadow-blue-950 hover:shadow-xl'
+              className='flex justify-between mt-5 p-8 items-center rounded-lg bg-gradient-to-br from-[#f3f4f6] via-[#d1d5db] to-[#f3f4f6] dark:bg-gradient-to-br dark:from-blue-300 dark:via-blue-400 dark:to-blue-300 dark:hover:shadow-blue-950 dark:hover:bg-blue-300 duration-300 hover:bg-[#d1d1d2] hover:shadow-xl hover:scale-105 border '
               target='_blank'
             >
               <div className="font-semibold text-black text-md">{item.title}</div>
@@ -34,7 +34,7 @@ export const LongCard: React.FC<LongCardProps> = ({ itemList }) => {
               )}
             </Link>
           ) : (
-            <div className='flex justify-between mt-5 dark:bg-blue-200 bg-[#f3f4f6] hover:scale-105 dark:shadow-blue-950 hover:bg-[#d1d1d2] dark:hover:bg-blue-300 border shadow-lg rounded-md p-4 items-center duration-300 dark:hover:shadow-xl dark:hover:shadow-blue-950 hover:shadow-xl'>
+            <div className='flex justify-between mt-5 p-4 items-center rounded-lg bg-gradient-to-br from-[#f3f4f6] via-[#d1d5db] to-[#f3f4f6] dark:bg-gradient-to-br dark:from-blue-300 dark:via-blue-400 dark:to-blue-300 dark:hover:shadow-blue-950 dark:hover:bg-blue-300 duration-300 hover:bg-[#d1d1d2] hover:shadow-xl border'>
               <div className="font-semibold text-black text-md">{item.title}</div>
             </div>
           )}

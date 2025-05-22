@@ -70,3 +70,22 @@ export interface BlinkerProps{
 export interface ProjectListerProps{
     count: number
 }
+
+export interface ExperienceProps{
+    organization: string,
+    role: string,
+    duration: string,
+    location: string,
+    techStack: string[],
+    responsibility: string[],
+}
+
+export interface AcademicProps{
+    organization: string,
+    degree: string,
+    duration: string,
+    grade?: string,
+    coursework: string[],
+    honors: string[],
+    location: string
+}

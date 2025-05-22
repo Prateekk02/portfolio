@@ -16,7 +16,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   showBlinker 
 }) => {
   return (
-    <div className="relative bg-[#f3f4f6] dark:bg-blue-200 w-[360px] h-[450px] p-4 rounded-lg shadow-md hover:shadow-xl dark:hover:shadow-blue-950 dark:hover:bg-blue-300 duration-300 hover:bg-[#d1d1d2] border hover:scale-102  flex flex-col">
+    <div className="relative rounded-lg bg-gradient-to-br from-[#f3f4f6] via-[#d1d5db] to-[#f3f4f6] dark:bg-gradient-to-br dark:from-blue-300 dark:via-blue-400 dark:to-blue-300 dark:hover:shadow-blue-950 dark:hover:bg-blue-300 duration-300 hover:bg-[#d1d1d2] hover:shadow-xl border hover:scale-102 w-[360px] h-[450px] p-4  flex flex-col">
       {githubLink && (
         <div className="absolute -top-4 -right-4 border-2 border-neutral-300 dark:border-neutral-700 rounded-full p-2 bg-white dark:bg-neutral-900 hover:bg-neutral-200 dark:hover:bg-neutral-800 transition-all duration-200 shadow-md hover:scale-105">
         <Link key={`title-${title}`} href={githubLink} target="_blank" rel="noopener noreferrer">

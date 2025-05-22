@@ -317,3 +317,84 @@ export const snippetsItem = [
     }
     
 ]
+
+// Experience content
+export const experienceItems = [
+    {
+        organization: 'BITS Pilani (Goa)',
+        role: 'AIML Intern',
+        duration: 'August 2024 - January 2025 ',
+        location: 'Remote',
+        techStack: ["Python", "Tensorflow", "Numpy", "Pandas", "Matplotlib", "LeTeX"],
+        responsibility: [
+            "Accelerated CFD simulation result output from 40 minutes to 4 minutes (10x speedup) using deep learning",
+            "Developed a deep learning ANN model that achieved 98% accuracy.",
+            "Optimized the ANN algorithm to efficiently process 50,000+ data points and improved computational performance.",
+            "Created 12+ data visualizations to track key performance metrics and support data-driven decision-making.",
+            "Collaborated with cross-functional teams to develop real-time API analytics solutions.",
+            "Leveraged Python ecosystem (TensorFlow, Pandas, NumPy) to build efficient data manipulation and analytical models."
+        ],
+    },
+    
+
+]
+
+
+export const academicItems = [
+    {
+        organization: "Lakshmi Narain College of Technology",
+        degree: "Bachelor's of Technology in Computer Science and Engineering ",
+        duration: "2021-2025",
+        grade: "8.73",
+        coursework: ['Data Structures', 'Algorithms', 'Database Management System', 'Computer Networking', 'Machine Learning', 'Deep Learning', 'Image Processing and Computer Vision'],
+        honors: [ 'GATE-DA 2024 AIR 6339', 'GDSC AIML Lead', 'Top 5% in NPTEL Discrete Mathematics','Achieved 1st Position as team in RGPV Nodels Table Tennis Championship.'],
+        location: "Bhopal"
+    },
+    {
+        organization: "St Michael's Higher Secondary School",
+        degree: "Class 12th",
+        duration: "2020",
+        grade: "83.4",
+        coursework: ['Physics', 'Chemistry', 'Mathematics', 'Computer Science', 'English'],
+        honors: ['Achieved Zonal Rank of 2 in Science Olympiad', 'State Level Table Tennis Player'],
+        location: "Satna, Madhya Pradesh"
+    },
+    {
+        organization: "St Michael's Higher Secondary School",
+        degree: "Class 10th",
+        duration: "2018",
+        grade: "85.4",
+        coursework: ['Science', 'Mathematics', 'Computer Science', 'Hindi', 'English'],
+        honors: ['State Level Table Tennis Player'],
+        location: "Satna, Madhya Pradesh"
+    },
+    {
+        organization: "Aditya Birla Public School",
+        degree: "Primary & Middle School",
+        duration: "2010 - 2016",        
+        coursework: ['Science', 'Mathematics', 'Computer Science', 'Hindi', 'English'],
+        honors: ['Secured 1st rank consecutively for 3 years in school level Table Tennis.'],
+        location: "Kharia Khangar, Jodhpur"
+    },
+]
+
+export const testimonials = [
+    {
+        quote:"I had the pleasure of working with Prateek during our research on Artificial Neural Networks. He showcased strong technical skills, clear communication, and a dependable work ethic. His collaborative nature and integrity make him a great asset to any team or research setting.",
+        name: "Aditya Ratley",
+        designation: "Credit Risk Analyst @ Deutsche Bank, BITS Pilani",
+        src: "/aditya.jpeg"
+    },
+    {
+        quote:"I've known Prateek through his academic journey and have always been impressed by his dedication and versatility in web development, data science, and cloud computing. His problem-solving skills and collaborative mindset make him a valuable asset to any team.",
+        name: "Krishna Agarwal",
+        designation: "Java Developer @ Yash Technology",
+        src: "/krishna.jpeg"
+    },
+    {
+        quote:"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy",
+        name: "Riddhi Jain",
+        designation: "Java Developer @ PWC",
+        src: "/riddhi.jpeg"
+    },
+]

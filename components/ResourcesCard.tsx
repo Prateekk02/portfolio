@@ -16,7 +16,7 @@ const ResourcesCard: React.FC<ResourcesCardProps> = ({title, content, href}) => 
         target="_blank" 
         rel="noopener noreferrer"        
         >
-            <div className='relative bg-[#f3f4f6] dark:bg-blue-200 lg:w-[400px] h-[215px] p-4 rounded-lg shadow-md hover:shadow-xl dark:hover:shadow-blue-950 dark:hover:bg-blue-300 duration-300 hover:bg-[#d1d1d2] border hover:scale-102 flex flex-col'>
+            <div className='relative lg:w-[400px] h-[215px] p-4 hover:scale-102 flex flex-col rounded-lg bg-gradient-to-br from-[#f3f4f6] via-[#d1d5db] to-[#f3f4f6] dark:bg-gradient-to-br dark:from-blue-300 dark:via-blue-400 dark:to-blue-300 dark:hover:shadow-blue-950 dark:hover:bg-blue-300 duration-300 hover:bg-[#d1d1d2] hover:shadow-xl border'>
                 <div className="absolute top-1 right-1"><ExternalLink /></div>
                 <div className="text-2xl font-semibold p-2 dark:text-black">{title}</div>
                 <div className="text-justify text-lg text-neutral-600 p-2 flex-grow overflow-y-auto">{content}</div>

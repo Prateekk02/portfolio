@@ -1,6 +1,6 @@
 'use client'
 import React, { useState } from 'react'
-import { ThemeToggle } from "./ui/ThemeToggle";
+import { ThemeToggle } from './ui/ThemeToggle';
 import Link from 'next/link';
 import { Menu, X } from 'lucide-react';
 

@@ -7,7 +7,9 @@ import { ChevronDown } from 'lucide-react'
 import ProjectLister from './ProjectLister'
 import { blogItems } from '@/data/content'
 import Experience from './Experience' 
-
+import Academic from './Academic'
+import { AnimatedTestimonials } from './ui/animated-testimonials'
+import { testimonials } from '@/data/content'
 
 export default function Hero() { 
     
@@ -26,7 +28,7 @@ export default function Hero() {
                     width={150}
                     height={150}
                     alt='Prateek Photo'
-                    src={"/prateekkumar2.png"}
+                    src={"/prateek.jpeg"}
                     className='rounded-full shadow-lg px-1 mt-2 mb-4'
                 />
             </div>
@@ -42,7 +44,6 @@ export default function Hero() {
         <div className='mt-5 pt-5'>
             <h1 className="text-4xl font-bold mb-8">Recent Blogs</h1>
             <LongCard itemList={blogItems} />
-            
         </div>
         <div className=" mt-5 pt-5">
             <h1 className="text-4xl font-bold mb-8">Projects</h1>            
@@ -51,13 +52,12 @@ export default function Hero() {
                 <div className='text-neutral-600 dark:text-neutral-300 hover:text-black dark:hover:text-white'>View More Projects</div> 
                 <ChevronDown className='pt-1' />
             </Link>
-        </div>
-
-        <div className="">
-            <Experience />
-        </div>
+        </div>        
+        <Experience />  
+        <Academic />  
+        <Divider />
+        <AnimatedTestimonials testimonials={testimonials} autoplay />
         
-
     </div>
   )
 }
