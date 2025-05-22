@@ -27,9 +27,6 @@ export default function Navbar() {
         },{
             name: "Projects",
             link: "projects"
-        },{
-            name: "Resume",
-            link: '#'
         }
     ];
 
