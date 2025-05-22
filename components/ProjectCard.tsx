@@ -3,15 +3,8 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Github } from 'lucide-react';
-
-interface ProjectCardProps {
-  logoLink: string;
-  title: string;
-  content: string;
-  techList: string[];
-  href: string,
-  githubLink: string
-}
+import { ProjectCardProps } from "@/lib/types";
+import Blinker from "./ui/blinker";
 
 const ProjectCard: React.FC<ProjectCardProps> = ({
   logoLink,
@@ -27,9 +20,9 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
         <Link key={`title-${title}`} href={githubLink} target="_blank" rel="noopener noreferrer">
           <Github size={28} className="text-black dark:text-white" />
         </Link>
-      </div>
-      
-      <Link target="_blank" href={href} className="flex flex-col h-full">
+      </div>       
+      {href ? (<Link target="_blank" href={href} className="flex flex-col h-full">
+        <Blinker color="green" />
         <div className="p-2">
           <Image src={logoLink} alt={`${title} logo`} width={50} height={50} />
         </div>
@@ -50,7 +43,30 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
             </span>
           ))}
         </div>
-      </Link>
+      </Link>) : (
+        <div className="flex flex-col h-full">
+        <div className="p-2">
+          <Image src={logoLink} alt={`${title} logo`} width={50} height={50} />
+        </div>
+
+        <div className="text-3xl font-bold p-2 dark:text-black">{title}</div>
+
+        <div className="text-justify text-md text-neutral-600 p-2 flex-grow overflow-y-auto">
+          {content}
+        </div>
+
+        <div className="p-2 flex flex-wrap gap-2 mt-auto">
+          {techList.map((tech, idx) => (
+            <span
+              key={idx}
+              className="bg-white text-sm text-blue-600 px-2 py-1 rounded-md shadow-lg"
+            >
+              {tech}
+            </span>
+          ))}
+        </div>
+      </div>
+      )}
     </div>
   );
 };

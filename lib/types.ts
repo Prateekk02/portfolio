@@ -52,3 +52,16 @@ export interface ResourcesSectionProps {
 export interface MoreOptionProps{
     title: string,    
 }
+
+export interface ProjectCardProps {
+    logoLink: string;
+    title: string;
+    content: string;
+    techList: string[];
+    href?: string,
+    githubLink: string
+}
+
+export interface BlinkerProps{
+    color: string
+}

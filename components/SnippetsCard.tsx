@@ -2,7 +2,7 @@ import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { SnippetsCardProps } from '@/lib/types'
-
+import Blinker from './ui/blinker'
 
 
 const SnippetsCard: React.FC<SnippetsCardProps> = ({logoLink, title, content, href}) => {
@@ -10,7 +10,7 @@ const SnippetsCard: React.FC<SnippetsCardProps> = ({logoLink, title, content, hr
     <div className=' relative bg-[#f3f4f6] dark:bg-blue-200 w-[350px] h-[180px] p-4 rounded-lg shadow-md hover:shadow-xl dark:hover:shadow-blue-950 dark:hover:bg-blue-300 duration-300 hover:bg-[#d1d1d2] border hover:scale-102 flex flex-col'>
       {href ? (
         <Link target="_blank" href={href} className="flex flex-col h-full">
-          <div className="absolute top-3 right-3 h-2 w-2 rounded-full animate-pulse bg-green-500"></div>
+          <Blinker color='green' />
         <div className="flex items-center mb-2">
           <div className="mr-2">
             <Image 
@@ -30,7 +30,7 @@ const SnippetsCard: React.FC<SnippetsCardProps> = ({logoLink, title, content, hr
       </Link>
       ) : (
         <div className="flex flex-col h-full">
-          <div className="absolute top-3 right-3 h-2 w-2 rounded-full animate-pulse bg-red-700"></div>
+          <Blinker color='red'/>
           <div className="flex items-center mb-2">
             <div className="mr-2">
               <Image 
