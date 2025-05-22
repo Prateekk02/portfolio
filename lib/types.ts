@@ -57,11 +57,16 @@ export interface ProjectCardProps {
     logoLink: string;
     title: string;
     content: string;
-    techList: string[];
+    techList?: string[];
     href?: string,
-    githubLink: string
+    githubLink?: string
+    showBlinker?: boolean
 }
 
 export interface BlinkerProps{
     color: string
+}
+
+export interface ProjectListerProps{
+    count: number
 }

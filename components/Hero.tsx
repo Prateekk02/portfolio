@@ -2,13 +2,14 @@ import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import Divider from './ui/divider'
-import ProjectCard from './ProjectCard'
 import { LongCard } from './LongCard'
 import { ChevronDown } from 'lucide-react'
-import { blogItems, projectItems } from '@/data/content'
+import ProjectLister from './ProjectLister'
+import { blogItems } from '@/data/content'
+import Experience from './Experience' 
 
-export default function Hero() {
-    
+
+export default function Hero() { 
     
   return (
     <div className='w-screen mt-10'>
@@ -45,27 +46,18 @@ export default function Hero() {
         </div>
         <div className="mt-5">
             <h1 className="text-4xl font-bold mt-10 mb-8">Projects</h1>
-            <div className="flex flex-wrap gap-4 justify-between">
-                    {projectItems.map((item, idx) => (
-                    <div
-                        key={idx}
-                        className="w-full sm:w-[48%] lg:w-[48%] p-2"
-                    >
-                        <ProjectCard
-                        title={item.title}
-                        logoLink={item.logoLink}
-                        content={item.content}
-                        href={item.href}
-                        techList={item.techList}
-                        githubLink={item.githubLink}
-                        />
-                    </div>
-                    ))}
-            </div>
+            
+            <ProjectLister count={4}/>
+
+
             <Link href={"project"} className="flex justify-center items-center text-md font-semibold dark:text-neutral-300 mt-12 cursor-pointer"> 
                 <div >View More Projects</div> 
                 <ChevronDown className='pt-1' />
             </Link>
+        </div>
+
+        <div className="">
+            <Experience />
         </div>
         
 

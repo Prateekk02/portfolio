@@ -8,15 +8,36 @@ export const projectItems = [{
         content:"Elevate your content effortlessly! Content Catalyst empowers you to upload videos and apply AI-driven enhancements—be it summaries, highlights, or creative edits. No technical skills required—just upload and let AI do the rest.",
         techList:['Next.js', 'Typescript', 'TailwindCSS',  'Cloudinary', 'Clerk', 'Docker', 'FalAI', 'DaisyUI'],
         href:"https://content-catalyst-pi.vercel.app/",
-        githubLink:"https://github.com/Prateekk02/ai-saas" 
+        githubLink:"https://github.com/Prateekk02/ai-saas" ,
+        showBlinker: true
     },{
         logoLink: "/ml-icon.png",
         title: "Diamond Price Predictor",
         content:"Thinking of investing in a diamond? This AI-powered tool predicts diamond prices instantly based on quality factors—making you smarter, faster, and more confident in every deal.",
         techList:["Python", "Machine Learning", "Deep Learning", "Streamlit", "Sci-kit Learn", "Numpy", "Pandas"],
         href:"https://diamondpricepredictorgit-6ixkzifz3zewf67b8qp637.streamlit.app/",
-        githubLink:"https://github.com/Prateekk02/DiamondPricePredictor"
-    }
+        githubLink:"https://github.com/Prateekk02/DiamondPricePredictor",
+        showBlinker: true
+    },
+    {
+        logoLink: "/ml-icon.png",
+        title: "Twitter Depression Prediction System",
+        content:"Are you concerned about your closed one about their mental health, Twitter depression prediction system gives you a way to enter username and check on your close one's mental health.",
+        techList:["Python", "React.js", "Deep Learning", "Machine Learning", "Sci-kit Learn", "NLP", "spaCy", "Flask"],
+        githubLink:"https://github.com/Prateekk02/Depression-Prediction-System",
+        showBlinker : true
+    },
+
+
+
+
+    {
+        logoLink: "/coming-soon.png",
+        title: "Incoming Cool Projects",
+        content:'Cool projects under construction! They\'re still in their awkward "just learned to crawl in React" phase, they\'re growing fast and full of potential! Stay tuned… greatness (and maybe a few bugs) is coming soon. '  
+        
+    },
+    
 ]
 
 export const blogItems = [
