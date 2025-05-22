@@ -10,6 +10,7 @@ import Experience from './Experience'
 import Academic from './Academic'
 import { AnimatedTestimonials } from './ui/animated-testimonials'
 import { testimonials } from '@/data/content'
+import { motion } from 'motion/react'
 
 export default function Hero() { 
     
