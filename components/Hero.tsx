@@ -12,65 +12,25 @@ import Academic from './Academic'
 import { AnimatedTestimonials } from './ui/animated-testimonials'
 import { testimonials } from '@/data/content'
 import { easeInOut, motion } from 'motion/react'
+import { textContainer, textVariant, textItem, headerVariant, blurUpVariant } from '@/lib/motion'
+
 
 const Hero = () => { 
-    const textVariant = {
-        hidden: { opacity: 0, y: 20, filter: 'blur(4px)' },
-        visible: (i: number) => ({
-          opacity: 1,
-          y: 0,
-          filter: 'blur(0px)',
-          transition: {
-            delay: i * 0.2,
-            duration: 0.6,
-            ease: 'easeOut',
-          },
-        }),
-      };
-
-      const textContainer = {
-        hidden: { opacity: 0, y: 30 },
-        show: {
-          opacity: 1,
-          y: 0,
-          transition: {
-            staggerChildren: 0.3,
-            duration: 0.8,
-            ease: 'easeOut'
-          }
-        }
-      };
-
-      const textItem = {
-        hidden: { opacity: 0, y: 20 },
-        show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } }
-      };
+    
+      
   return (
     <div className='w-screen mt-10'>
         <div className="relative flex justify-between items-center w-full ">
             <div>
                 <motion.h1 
-                    initial={{
-                        opacity: 0,
-                        y: 30,
-                        scale: 0.95,
-                        filter: "blur(4px)"
-                    }}
-                    animate={{
-                        opacity: 1,
-                        y: 0,
-                        scale: 1,
-                        filter: "blur(0px)"
-                    }}
-                    transition={{
-                        duration: 0.8,
-                        ease: "easeOut"
-                    }}
+                    initial="hidden"
+                    animate="visible"
+                    variants={headerVariant}
                     className="font-bold text-5xl text-black dark:text-white mb-2">Prateek Kumar</motion.h1>   
                 <motion.h2
-                    initial={{ opacity: 0, y: 20, filter: 'blur(4px)' }}
-                    animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-                    transition={{ duration: 0.8, ease: 'easeOut' }}
+                    initial='hidden'
+                    animate='visible'
+                    variants={blurUpVariant}
                     className="text-neutral-600 dark:text-neutral-300 px-1 py-2"
                     >
                     Building{" "}
@@ -181,7 +141,7 @@ const Hero = () => {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, ease: 'easeOut', delay: 0.3 }}
-                viewport={{ once: true }}
+                viewport={{ once: false, amount:0.2 }}
                 className="flex justify-center items-center text-md font-semibold dark:text-neutral-300 mt-12 cursor-pointer hover:scale-105 transition-transform duration-300"
                 >
                 <Link href={"projects"} className="flex items-center gap-1">
