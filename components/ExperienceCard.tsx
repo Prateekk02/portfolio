@@ -3,7 +3,7 @@ import { useRef } from "react"
 import { experienceItems } from "@/data/content"
 import { Badge } from "./ui/badge"
 import { ChevronRight } from "lucide-react"
-import { motion, useScroll, useTransform, useSpring } from "motion/react"
+import { motion, useScroll, useTransform } from "motion/react"
 
 export interface ExperienceProps {
   organization: string
@@ -23,29 +23,27 @@ const ExperienceCard = () => {
 
   const translateContent = useTransform(scrollYProgress, [0, 0.5, 1], [50, 0, -50]);
   
-  const opacityContent = useSpring(
-    useTransform(scrollYProgress, [0, 0.2, 0.5, 0.8, 1], [0, 0.8, 1, 0.8, 0]),
-    {
-      stiffness: 120,
-      damping: 30,
-      mass: 1.5,
-    }
-  );
+  // const opacityContent = useSpring(
+  //   useTransform(scrollYProgress, [0, 0.2, 0.5, 0.8, 1], [0, 0.8, 1, 0.8, 0]),
+  //   {
+  //     stiffness: 120,
+  //     damping: 30,
+  //     mass: 1.5,
+  //   }
+  // );
   
   const scaleContent = useTransform(
     scrollYProgress,
     [0, 0.2, 0.5, 0.8, 1],
     [0.8, 0.95, 1, 0.95, 0.8]
-  );
-  
- 
+  ); 
 
   return (
     <motion.div 
       ref={ref} 
       className="space-y-8"
       style={{
-        opacity: opacityContent,
+        
         scale: scaleContent,
         y: translateContent,
         
@@ -75,7 +73,7 @@ const ExperienceCard = () => {
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: false, amount: 0.5 }}
-            transition={{ duration: 0.5, delay: index * 0.1 + 0.2 }}
+            transition={{ duration: 0.3, delay: index * 0.1 + 0.1 }}
           >
             <div>
               <motion.h3 
@@ -83,7 +81,7 @@ const ExperienceCard = () => {
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: false, amount: 0.5 }}
-                transition={{ duration: 0.4, delay: index * 0.1 + 0.3 }}
+                transition={{ duration: 0.3, delay: index * 0.1 + 0.2 }}
               >
                 {experience.organization}
               </motion.h3>
@@ -92,7 +90,7 @@ const ExperienceCard = () => {
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: false, amount: 0.5 }}
-                transition={{ duration: 0.4, delay: index * 0.1 + 0.4 }}
+                transition={{ duration: 0.3, delay: index * 0.1 + 0.3 }}
               >
                 {experience.role}
               </motion.h4>
@@ -102,7 +100,7 @@ const ExperienceCard = () => {
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: false, amount: 0.5 }}
-              transition={{ duration: 0.5, delay: index * 0.1 + 0.2 }}
+              transition={{ duration: 0.3, delay: index * 0.1 + 0.2 }}
             >
               <p className="text-neutral-700 font-medium">{experience.duration}</p>
               <p className="text-neutral-700">{experience.location}</p>
@@ -114,7 +112,7 @@ const ExperienceCard = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, amount: 0.5 }}
-            transition={{ duration: 0.5, delay: index * 0.1 + 0.5 }}
+            transition={{ duration: 0.3, delay: index * 0.1 + 0.3 }}
           >
             <h5 className="text-lg font-semibold text-black mb-2">Tech Stack</h5>
             <div className="flex flex-wrap gap-2 mb-4">
@@ -146,7 +144,7 @@ const ExperienceCard = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, amount: 0.5 }}
-            transition={{ duration: 0.5, delay: index * 0.1 + 0.7 }}
+            transition={{ duration: 0.3, delay: index * 0.1 + 0.3 }}
           >
             <h5 className="text-lg font-semibold text-black mb-2">Responsibilities</h5>
             <ul className="space-y-2">
@@ -158,8 +156,8 @@ const ExperienceCard = () => {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: false, amount: 0.5 }}
                   transition={{ 
-                    duration: 0.4, 
-                    delay: index * 0.1 + 0.8 + respIndex * 0.1 
+                    duration: 0.3, 
+                    delay: index * 0.1 + 0.4 + respIndex * 0.1 
                   }}
                 >
                   <motion.div
@@ -168,7 +166,7 @@ const ExperienceCard = () => {
                     viewport={{ once: false, amount: 0.5 }}
                     transition={{ 
                       duration: 0.3, 
-                      delay: index * 0.1 + 0.8 + respIndex * 0.1 
+                      delay: index * 0.1 + 0.5 + respIndex * 0.1 
                     }}
                   >
                     <ChevronRight className="h-5 w-5 text-neutral-700 shrink-0 mt-0.5" />

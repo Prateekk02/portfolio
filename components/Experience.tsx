@@ -11,7 +11,7 @@ const Experience = () => {
         variants={fadeInUp}
         initial="hidden"
         whileInView="show"
-        viewport={{ once: false, amount: 0.1 }} 
+        viewport={{ once: false, amount: 0.3 }} 
         className="text-4xl font-bold mt-10 mb-8"
       >
         Experience
