@@ -380,6 +380,12 @@ export const academicItems = [
 
 export const testimonials = [
     {
+        quote:"Prateek stands out as a highly motivated and dedicated with a genuine enthusiasm for learning new technologies. His keen interest in Machine Learning, Deep Learning, and Artificial Intelligence is backed by a remarkable ability to grasp complex concepts quickly and apply them effectively.",
+        name:"Awanish Kumar",
+        designation:"Lead Software Engineer (Threat Intelligence Research) @ Incedo Inc.",
+        src:"/awanish.jpeg"
+    },
+    {
         quote:"I had the pleasure of working with Prateek during our research on Artificial Neural Networks. He showcased strong technical skills, clear communication, and a dependable work ethic. His collaborative nature and integrity make him a great asset to any team or research setting.",
         name: "Aditya Ratley",
         designation: "Credit Risk Analyst @ Deutsche Bank, BITS Pilani",
@@ -391,10 +397,5 @@ export const testimonials = [
         designation: "Java Developer @ Yash Technology",
         src: "/krishna.jpeg"
     },
-    {
-        quote:"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy",
-        name: "Riddhi Jain",
-        designation: "Java Developer @ PWC",
-        src: "/riddhi.jpeg"
-    },
+
 ]
