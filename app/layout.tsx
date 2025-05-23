@@ -4,6 +4,7 @@ import { ThemeProvider } from "../lib/providers/ThemeProviderWrapper";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { footerContent } from "@/data/content";
+import Resume from "@/components/ResumeBtn";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -32,7 +33,8 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} antialiased h-full`}
       suppressHydrationWarning
     >
-      <body className="font-serif h-full flex flex-col">
+      <body className="relative font-serif h-full flex flex-col">
+        <Resume />
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
