@@ -5,9 +5,6 @@ import { ProjectListerProps } from '@/lib/types';
 import { parentVariantStaggering, childVariantStaggering } from '@/lib/motion';
 import { motion } from 'motion/react';
 
-
-
-
 const ProjectLister: React.FC<ProjectListerProps> = ({count}) => {
     const visibleProjectItems = projectItems.slice(0,count);
 

@@ -29,10 +29,10 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
     offset: ["start 0.9", "end 0.1"], // Card enters when 90% down viewport, exits when 10% down
   });
 
-  // Smoother vertical translation - less movement
+  
   const translateContent = useTransform(scrollYProgress, [0, 0.5, 1], [50, 0, -50]);
   
-  // Opacity peaks at center (scrollYProgress = 0.5)
+  
   const opacityContent = useSpring(
     useTransform(scrollYProgress, [0, 0.2, 0.5, 0.8, 1], [0, 0.8, 1, 0.8, 0]),
     {
@@ -42,14 +42,14 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
     }
   );
   
-  // Scale is maximum at center
+ 
   const scaleContent = useTransform(
     scrollYProgress,
     [0, 0.2, 0.5, 0.8, 1],
     [0.8, 0.95, 1, 0.95, 0.8]
   );
   
-  // No blur at center, slight blur at edges
+ 
   const blurContent = useTransform(
     scrollYProgress,
     [0, 0.3, 0.5, 0.7, 1],

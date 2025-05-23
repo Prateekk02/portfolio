@@ -14,10 +14,11 @@ export const textVariant = {
   };
 
 export const textContainer = {
-    hidden: { opacity: 0, y: 30 },
+    hidden: { opacity: 0, y: 30 ,filter:'blur(10px)' },
     show: {
       opacity: 1,
       y: 0,
+      filter:'blur(0px)',
       transition: {
         staggerChildren: 0.3,
         duration: 0.8,
@@ -103,7 +104,7 @@ export const headerVariant = {
     animate: {
       scaleX: 1,
       transition: {
-        duration: 0.3,
+        duration: 1,
         ease: "easeInOut",
       },
     },
