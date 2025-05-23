@@ -23,7 +23,6 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   showBlinker,
 }) => {
   const ref = useRef<HTMLDivElement>(null);
-
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start 0.9", "end 0.1"], // Card enters when 90% down viewport, exits when 10% down

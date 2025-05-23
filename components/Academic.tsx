@@ -1,15 +1,48 @@
-import React from 'react'
-import AcademicCard from './AcademicCard'
+// Academic.tsx
+"use client";
+import React, { useRef } from "react";
+import { motion, useScroll, useTransform, useSpring, useMotionTemplate } from "motion/react";
+import AcademicCard from "./AcademicCard";
+import { fadeInUp } from "@/lib/motion";
 
 const Academic = () => {
-  return (
-    <div className='mt-5'>
-        <h1 className="text-4xl font-bold mt-10 mb-8">Academics</h1>
-        <div className="flex flex-col">
-            <AcademicCard />
-        </div>
-    </div>
-  )
-}
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start 0.9", "end 0.1"],
+  });
 
-export default Academic
+  const translateY = useTransform(scrollYProgress, [0, 0.5, 1], [50, 0, -50]);
+  const opacity = useSpring(useTransform(scrollYProgress, [0, 0.2, 0.5, 0.8, 1], [0, 0.8, 1, 0.8, 0]), {
+    stiffness: 120,
+    damping: 30,
+    mass: 1.5,
+  });
+  const scale = useTransform(scrollYProgress, [0, 0.2, 0.5, 0.8, 1], [0.8, 0.95, 1, 0.95, 0.8]);
+  const blur = useTransform(scrollYProgress, [0, 0.3, 0.5, 0.7, 1], [3, 0, 0, 0, 3]);
+
+  return (
+    <div className="mt-5">
+      <motion.h1 
+      variants={fadeInUp}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: false, amount: 0.1 }}
+      className="text-4xl font-bold mt-10 mb-8">Academics</motion.h1>
+      <motion.div
+        ref={ref}
+        style={{
+          y: translateY,
+          opacity,
+          scale,
+          filter: useMotionTemplate`blur(${blur}px)`,
+        }}
+        className="flex flex-col"
+      >
+        <AcademicCard />
+      </motion.div>
+    </div>
+  );
+};
+
+export default Academic;

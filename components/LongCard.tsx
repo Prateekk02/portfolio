@@ -38,9 +38,9 @@ export const LongCard: React.FC<LongCardProps> = ({ itemList }) => {
             </Link>
             </motion.div>
           ) : (
-            <div className='flex justify-between mt-5 p-4 items-center rounded-lg bg-gradient-to-br from-[#f3f4f6] via-[#d1d5db] to-[#f3f4f6] dark:bg-gradient-to-br dark:from-blue-300 dark:via-blue-400 dark:to-blue-300 dark:hover:shadow-blue-950 dark:hover:bg-blue-300 duration-300 hover:bg-[#d1d1d2] hover:shadow-xl border'>
+            <motion.div initial='initial'animate='animate' variants={childVariantStaggering} className='flex justify-between mt-5 p-4 items-center rounded-lg bg-gradient-to-br from-[#f3f4f6] via-[#d1d5db] to-[#f3f4f6] dark:bg-gradient-to-br dark:from-blue-300 dark:via-blue-400 dark:to-blue-300 dark:hover:shadow-blue-950 dark:hover:bg-blue-300 duration-300 hover:bg-[#d1d1d2] hover:shadow-xl border'>
               <div className="font-semibold text-black text-md">{item.title}</div>
-            </div>
+            </motion.div>
           )}
         </div>
       ))}

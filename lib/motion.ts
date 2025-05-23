@@ -111,3 +111,16 @@ export const headerVariant = {
   };
   
 
+  export const fadeInUp = {
+    hidden: { opacity: 0, y: 40, filter:'blur(10px)' },
+    show: {
+      opacity: 1,
+      y: 0,
+      filter:'blur(0px)',
+      transition: {
+        duration: 0.3,
+        ease: 'easeInOut',
+      },
+    },
+  };
+  
