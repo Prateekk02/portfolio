@@ -27,6 +27,7 @@ const Resume: React.FC = () => {
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
+    window.location.reload();
     toast.success("Resume downloaded successfully.", { autoClose: 1000 });
   };
 

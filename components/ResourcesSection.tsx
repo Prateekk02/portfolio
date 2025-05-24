@@ -42,8 +42,6 @@ const ResourcesSection: React.FC<ResourcesSectionProps> = ({header, listItems}) 
   );
 
 
-//   const headerY = useTransform(scrollYProgress, [0, 0.5, 1], [30, 0, -30]);
-
   return (
     <motion.div 
       ref={ref} 
@@ -90,11 +88,11 @@ const ResourcesSection: React.FC<ResourcesSectionProps> = ({header, listItems}) 
                                 scale: 1,
                                 transition: {
                                     duration: 0.3,
-                                    delay: index * 0.10,
+                                    delay: index * 0.02,
                                     ease: [0.25, 0.46, 0.45, 0.94]
                                 }
                             }}
-                            viewport={{ once: true, margin: "-100px" }}
+                            viewport={{ once: false, margin: "-300px" }}
                         >
                             <ResourcesCard
                                 title={item.title}                
