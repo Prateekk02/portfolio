@@ -87,12 +87,12 @@ const ResourcesSection: React.FC<ResourcesSectionProps> = ({header, listItems}) 
                                 x: 0,
                                 scale: 1,
                                 transition: {
-                                    duration: 0.3,
-                                    delay: index * 0.02,
-                                    ease: [0.25, 0.46, 0.45, 0.94]
+                                    duration: 0.10,
+                                    delay: index * 0.01,
+                                    ease: [0.4, 0, 0.2, 1]
                                 }
                             }}
-                            viewport={{ once: false, margin: "-300px" }}
+                            viewport={{ once: false, margin: "-100px" }}
                         >
                             <ResourcesCard
                                 title={item.title}                
