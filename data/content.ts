@@ -381,6 +381,12 @@ export const academicItems = [
 
 export const testimonials = [
     {
+        quote: "I have know Prateek from 1st year of his B.Tech journey and have mentored him in his development journy, he has been very fast at understanding complex logics of system. The thing which differentiate him is his curiousity and passion for coding. He is flexible in understanding various techs be it Machine Learning, Deep Learning, NLP, Computer Vision and Web development making him a excellent candidate for any project.",
+        name: "Piyush Kumar",
+        designation:"Team Lead @ Browser Stack",
+        src:"/piyush.jpeg"
+    },
+    {
         quote:"Prateek stands out as a highly motivated and dedicated with a genuine enthusiasm for learning new technologies. His keen interest in Machine Learning, Deep Learning, and Artificial Intelligence is backed by a remarkable ability to grasp complex concepts quickly and apply them effectively.",
         name:"Awanish Kumar",
         designation:"Lead Software Engineer (Threat Intelligence Research) @ Incedo Inc.",
@@ -393,7 +399,7 @@ export const testimonials = [
         src: "/aditya.jpeg"
     },
     {
-        quote:"I've known Prateek through his academic journey and have always been impressed by his dedication and versatility in web development, data science, and cloud computing. His problem-solving skills and collaborative mindset make him a valuable asset to any team.",
+        quote:"I've known Prateek through his academic journey and have always been impressed by his dedication and versatility in web development, data science, and AI. His problem-solving skills and collaborative mindset make him a valuable asset to any team.",
         name: "Krishna Agarwal",
         designation: "Java Developer @ Yash Technology",
         src: "/krishna.jpeg"
