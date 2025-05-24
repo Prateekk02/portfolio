@@ -143,9 +143,7 @@ const Hero = () => {
               >
                 <FaLinkedinIn size={18} />
               </Link>
-            </div>
-            
-           
+            </div>        
           </div>
           <MessageBtn />
           
