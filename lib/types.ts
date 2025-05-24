@@ -89,3 +89,11 @@ export interface AcademicProps{
     honors: string[],
     location: string
 }
+
+export type MessageCard = {
+    name: string, 
+    subject?: string,
+    phone?: string, 
+    message: string,
+    email : string
+}

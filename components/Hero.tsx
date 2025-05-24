@@ -21,7 +21,7 @@ import {
 } from "@/lib/motion";
 import { Badge } from "./ui/badge";
 import { FaXTwitter, FaLinkedinIn } from "react-icons/fa6";
-import MessageBtn from "./MessageBtn";
+// import MessageBtn from "./MessageBtn";
 
 const Hero = () => {
   return (
@@ -143,13 +143,10 @@ const Hero = () => {
               >
                 <FaLinkedinIn size={18} />
               </Link>
-            </div>
-            
-           
+            </div>        
           </div>
-          <MessageBtn />
-          
         </div>
+        
       </motion.div>
 
       <div className="mt-5 pt-5">
