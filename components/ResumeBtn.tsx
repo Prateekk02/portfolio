@@ -41,26 +41,30 @@ const Resume: React.FC = () => {
         onMouseLeave={() => setIsHovered(false)}
         onClick={handleDownload}
       >
-        <motion.div
-          className="flex items-center justify-center h-full w-12"
-          initial={{ opacity: 1, x: 70 }}
-          whileHover={{ opacity: 0 }}
-          transition={{ duration: 0.2 }}
-        >
-          {!isHovered && (
-            <Download className="text-neutral-600 dark:text-white" size={25} />
+        <AnimatePresence mode="wait">
+          {!isHovered ? (
+            <motion.div
+              key="icon"
+              className="flex items-center justify-center"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+            >
+              <Download className="text-neutral-600 dark:text-white" size={25} />
+            </motion.div>
+          ) : (
+            <motion.span
+              key="text"
+              className="flex justify-center items-center text-sm font-medium text-neutral-600 dark:text-white whitespace-nowrap px-2"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+            >
+              Download Resume
+            </motion.span>
           )}
-        </motion.div>
-
-        <AnimatePresence>
-          <motion.span
-            className="ml-2 p-2 flex justify-center items-center text-sm font-medium text-neutral-600 dark:text-white whitespace-nowrap"
-            initial={{ opacity: 0 }}
-            whileHover={{ opacity: 1, x: -10 }}
-            transition={{ delay: 0.1, duration: 0.3 }}
-          >
-            Download Resume
-          </motion.span>
         </AnimatePresence>
       </motion.div>
       <ToastContainer />
