@@ -21,7 +21,7 @@ import {
 } from "@/lib/motion";
 import { Badge } from "./ui/badge";
 import { FaXTwitter, FaLinkedinIn } from "react-icons/fa6";
-import { FaMessage } from "react-icons/fa6";
+import MessageBtn from "./MessageBtn";
 
 const Hero = () => {
   return (
@@ -144,11 +144,11 @@ const Hero = () => {
                 <FaLinkedinIn size={18} />
               </Link>
             </div>
-            <div className=""></div>
+            
+           
           </div>
-          <div className="pr-2 shadow-lg hover:shadow-xl">
-            <FaMessage className='text-neutral-600 hover:text-blue-600 duration-300 cursor-pointer dark:text-white dark:hover:text-blue-600' size={18}/>
-          </div>
+          <MessageBtn />
+          
         </div>
       </motion.div>
 

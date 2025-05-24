@@ -37,7 +37,7 @@ const Resume: React.FC = () => {
         initial={{ width: 48 }}
         whileHover={{ width: 160 }}
         transition={{ type: "spring", stiffness: 300, damping: 20 }}
-        className="fixed flex items-center justify-center bottom-10 right-8 h-12 rounded-full border border-neutral-400 dark:border-blue-800 shadow-lg dark:shadow-blue-950 cursor-pointer"
+        className="fixed flex items-center z-50 justify-center bottom-10 right-8 h-12 rounded-full border border-neutral-400 dark:border-blue-800 shadow-lg dark:shadow-blue-950 cursor-pointer"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
         onClick={handleDownload}
