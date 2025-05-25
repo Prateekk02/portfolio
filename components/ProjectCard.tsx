@@ -28,31 +28,31 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
     offset: ["start 0.9", "end 0.1"], // Card enters when 90% down viewport, exits when 10% down
   });
 
-  
-  const translateContent = useTransform(scrollYProgress, [0, 0.5, 1], [50, 0, -50]);
-  
-  
+  const translateContent = useTransform(
+    scrollYProgress,
+    [0, 0.5, 1],
+    [50, 0, -50]
+  );
+
   const opacityContent = useSpring(
     useTransform(scrollYProgress, [0, 0.2, 0.5, 0.8, 1], [0, 0.8, 1, 0.8, 0]),
     {
-      stiffness: 120,
-      damping: 30,
-      mass: 1.5,
+      stiffness: 180,
+      damping: 18,
+      mass: 1.2,
     }
   );
-  
- 
+
   const scaleContent = useTransform(
     scrollYProgress,
-    [0, 0.2, 0.5, 0.8, 1],
-    [0.8, 0.95, 1, 0.95, 0.8]
+    [0, 0.3, 0.5, 0.7, 1],
+    [0.85, 0.95, 1, 0.95, 0.85]
   );
-  
- 
+
   const blurContent = useTransform(
     scrollYProgress,
     [0, 0.3, 0.5, 0.7, 1],
-    [3, 0, 0, 0, 3]
+    [2, 0, 0, 0, 2]
   );
 
   return (
@@ -64,7 +64,10 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
         scale: scaleContent,
         filter: useMotionTemplate`blur(${blurContent}px)`,
       }}
-      className="relative rounded-lg bg-gradient-to-br from-[#f3f4f6] via-[#d1d5db] to-[#f3f4f6] dark:bg-gradient-to-br dark:from-blue-300 dark:via-blue-400 dark:to-blue-300 dark:hover:shadow-blue-950 dark:hover:bg-blue-300 duration-300 hover:bg-[#d1d1d2] hover:shadow-xl border hover:scale-102 w-[360px] h-[450px] p-4 flex flex-col"
+      className="relative rounded-lg bg-gradient-to-br from-[#f3f4f6] via-[#d1d5db] to-[#f3f4f6] dark:bg-gradient-to-br
+               dark:from-[#D8E1FF]  dark:to-[#F4F6FA] dark:hover:shadow-blue-950
+               dark:hover:bg-blue-400 duration-300 hover:bg-[#d1d1d2] hover:shadow-xl border hover:scale-102
+                w-[360px] h-[450px] p-4 flex flex-col"
     >
       {githubLink && (
         <div className="absolute -top-4 -right-4 border-2 border-neutral-300 dark:border-neutral-700 rounded-full p-2 bg-white dark:bg-neutral-900 hover:bg-neutral-200 dark:hover:bg-neutral-800 transition-all duration-200 shadow-md hover:scale-105">

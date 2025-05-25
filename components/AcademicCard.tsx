@@ -9,7 +9,9 @@ const AcademicCard = () => {
   return (
     <div className="relative w-full">
       {/* Vertical timeline line */}
-      <div className="absolute left-[24px] top-6 bottom-6 w-0.5 bg-gradient-to-b from-primary via-blue-400 to-gray-200 dark:from-primary dark:via-blue-500 dark:to-gray-700" />
+      <div className="absolute left-[24px] top-6 bottom-6 w-0.5 
+      bg-gradient-to-b from-primary via-blue-400 to-gray-200 
+      dark:from-primary dark:via-blue-500 dark:to-gray-700" />
       
       {/* Academic items */}
       <div className="space-y-12">
@@ -33,7 +35,7 @@ const AcademicItem = ({ item }: { item: AcademicProps; isLast: boolean }) => {
 
       {/* Content card */}
       <div className={cn(
-        "relative p-6 rounded-lg bg-gradient-to-br from-[#f3f4f6] via-[#d1d5db] to-[#f3f4f6] dark:bg-gradient-to-br dark:from-blue-300 dark:via-blue-400 dark:to-blue-300 dark:hover:shadow-blue-950 dark:hover:bg-blue-300 duration-300 hover:bg-[#d1d1d2] hover:shadow-xl border",
+        "relative p-6 rounded-lg bg-gradient-to-br from-[#f3f4f6] via-[#d1d5db] to-[#f3f4f6] dark:bg-gradient-to-br dark:from-[#D8E1FF]  dark:to-[#F4F6FA] dark:hover:shadow-blue-950 dark:hover:bg-blue-300 duration-300 hover:bg-[#d1d1d2] hover:shadow-xl border",
         "transform transition-all duration-300 hover:shadow-xl",
       )}>
         {/* Institution and duration header */}

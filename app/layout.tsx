@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import { footerContent } from "@/data/content";
 import Resume from "@/components/ResumeBtn";
 import "./globals.css";
+import MessageBtn from "@/components/MessageBtn";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -35,6 +36,7 @@ export default function RootLayout({
     >
       <body className="relative font-serif h-full flex flex-col">
         <Resume />
+        <MessageBtn />
         <ThemeProvider
           attribute="class"
           defaultTheme="system"

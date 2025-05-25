@@ -21,7 +21,7 @@ import {
 } from "@/lib/motion";
 import { Badge } from "./ui/badge";
 import { FaXTwitter, FaLinkedinIn } from "react-icons/fa6";
-// import MessageBtn from "./MessageBtn";
+
 
 const Hero = () => {
   return (
@@ -145,6 +145,7 @@ const Hero = () => {
               </Link>
             </div>        
           </div>
+          
         </div>
         
       </motion.div>
