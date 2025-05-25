@@ -2,7 +2,7 @@
 import { Badge } from "./ui/badge"
 import { ChevronRight } from "lucide-react"
 import React, { useRef } from "react"
-import { motion, useScroll, useSpring, useTransform } from "motion/react"
+import { motion, useScroll, useTransform } from "motion/react"
 import { ExperienceCardProps } from "@/lib/types"
 
 
@@ -18,14 +18,8 @@ const ExperienceCard = ({experienceItems}: ExperienceCardProps) => {
 
 
 
-  const translateContent = useSpring(
-    useTransform(scrollYProgress, [0, 0.5, 1], [-50, 0, 50]),
-    { stiffness: 120, damping: 30, mass: 1.5 }
-  );
-  const scaleContent = useSpring(
-    useTransform(scrollYProgress, [0, 0.5, 0.8, 1], [0.98, 1, 1.01, 0.99]),
-    { stiffness: 180, damping: 40, mass: 2 }
-  );
+  const translateContent = useTransform(scrollYProgress, [0, 0.5, 1], [-50, 0, 50])
+  const scaleContent = useTransform(scrollYProgress, [0, 0.5, 0.8, 1], [0.98, 1, 1.01, 0.99])
 
   return (
     <motion.div
