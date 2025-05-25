@@ -59,7 +59,7 @@ const ResourcesSection: React.FC<ResourcesSectionProps> = ({header, listItems}) 
               variants={scaleXVariant} 
               initial="initial"
               whileInView="animate"
-              viewport={{ once: false, amount: 0.2 }}
+              
               className="absolute left-0 -bottom-2 h-1 w-full rounded-xl bg-gradient-to-r from-neutral-700 via-neutral-500 to-neutral-200 dark:from-blue-800 dark:via-blue-400 dark:to-blue-200"
             ></motion.div>
         </div>

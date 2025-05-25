@@ -20,11 +20,11 @@ const ExperienceCard = ({experienceItems}: ExperienceCardProps) => {
 
   const translateContent = useSpring(
     useTransform(scrollYProgress, [0, 0.5, 1], [-50, 0, 50]),
-    { stiffness: 180, damping: 30, mass: 1.2 }
+    { stiffness: 120, damping: 30, mass: 1.5 }
   );
   const scaleContent = useSpring(
     useTransform(scrollYProgress, [0, 0.5, 0.8, 1], [0.95, 1, 1.03, 0.97]),
-    { stiffness: 180, damping: 18, mass: 1.2 }
+    { stiffness: 120, damping: 18, mass: 1.5 }
   );
 
   return (
