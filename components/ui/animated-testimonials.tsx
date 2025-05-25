@@ -145,7 +145,8 @@ export const AnimatedTestimonials = ({
               ))}
             </motion.p>
           </motion.div>
-          <div className="flex gap-4 pt-12 mt-4 md:pt-0">
+
+          <div className=" flex gap-4 pt-12 mt-4 md:pt-0">
             <button
               onClick={handlePrev}
               className="group/button flex h-7 w-7 items-center justify-center rounded-full bg-gray-100 dark:bg-neutral-800"
