@@ -51,7 +51,7 @@ export default function RootLayout({
           </main>
           <Footer itemList={footerContent} />
         </ThemeProvider>
-        <BackgroundBeams className="z-[-10] text-neutral-300" />
+        <BackgroundBeams className="z-[-10] min-h-screen text-neutral-300" />
       </body>
     </html>
   );

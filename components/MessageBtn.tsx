@@ -26,11 +26,11 @@ const MessageBtn = () => {
               ease: 'easeInOut',
               delay: 0.3,
             }}
-            className="absolute -bottom-6 right-0 mb-4 w-[90vw] max-w-[360px] sm:max-w-[400px] md:max-w-[420px] mx-auto rounded-2xl bg-gradient-to-br from-[#f3f4f6] via-[#d1d5db] to-[#f3f4f6] dark:from-[#2f2f2f] dark:via-[#3b3b3b] dark:to-[#2f2f2f] z-50 shadow-lg"
+            className="absolute -bottom-6 right-0 mb-4 w-[90vw] max-w-[360px] sm:max-w-[400px] md:max-w-[420px] mx-auto rounded-2xl bg-gradient-to-br from-[#f3f4f6] via-[#d1d5db] to-[#f3f4f6] dark:bg-gradient-to-br dark:from-[#D8E1FF]  dark:to-[#F4F6FA] dark:hover:shadow-blue-950 z-50 shadow-lg"
           >
             <div>
               <div className="flex w-full justify-center px-4 pt-3 mt-4 pb-1">
-                <motion.div className="text-base sm:text-lg font-bold text-neutral-800 dark:text-white text-center leading-tight px-2">
+                <motion.div className="text-base sm:text-lg font-bold text-neutral-800 dark:text-black text-center leading-tight px-2">
                   Have a question? Drop your message.
                 </motion.div>
               </div>
@@ -38,35 +38,35 @@ const MessageBtn = () => {
               <form className="p-4 sm:p-5 flex flex-col gap-3">
                 {/* Name */}
                 <div className="flex flex-col">
-                  <label className="mb-1 text-neutral-700 dark:text-gray-200 text-sm sm:text-base">Name *</label>
+                  <label className="mb-1 text-neutral-700 text-sm sm:text-base">Name *</label>
                   <input
                     type="text"
                     name="name"
                     required
-                    className="w-full px-3 py-2 text-sm sm:text-base rounded-md border border-neutral-300 dark:border-neutral-700 bg-white/90 dark:bg-neutral-800 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-200 shadow-sm"
+                    className="w-full px-3 py-2 text-sm sm:text-base rounded-md border text-black border-neutral-300 dark:border-neutral-700 bg-white/90  backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-200 shadow-sm"
                     placeholder="Your full name"
                   />
                 </div>
 
                 {/* Email */}
                 <div className="flex flex-col">
-                  <label className="mb-1 text-neutral-700 dark:text-gray-200 text-sm sm:text-base">Email *</label>
+                  <label className="mb-1 text-neutral-700  text-sm sm:text-base">Email *</label>
                   <input
                     type="email"
                     name="email"
                     required
-                    className="w-full px-3 py-2 text-sm sm:text-base rounded-md border border-neutral-300 dark:border-neutral-700 bg-white/90 dark:bg-neutral-800 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-200 shadow-sm"
+                    className="w-full px-3 py-2 text-sm sm:text-base rounded-md border border-neutral-300 dark:border-neutral-700 bg-white/90 text-black backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-200 shadow-sm"
                     placeholder="your.email@example.com"
                   />
                 </div>
 
                 {/* Message */}
                 <div className="flex flex-col">
-                  <label className="mb-1 text-neutral-700 dark:text-gray-200 text-sm sm:text-base">Message *</label>
+                  <label className="mb-1 text-neutral-700  text-sm sm:text-base">Message *</label>
                   <textarea
                     name="message"
                     required
-                    className="w-full px-3 py-2 text-sm sm:text-base rounded-md border border-neutral-300 dark:border-neutral-700 bg-white/90 dark:bg-neutral-800 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-200 shadow-sm resize-none min-h-[90px] sm:min-h-[110px]"
+                    className="w-full px-3 py-2 text-sm sm:text-base rounded-md border border-neutral-300 dark:border-neutral-700 bg-white/90 text-black backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-200 shadow-sm resize-none min-h-[90px] sm:min-h-[110px]"
                     placeholder="Tell me about your project or opportunity..."
                   ></textarea>
                 </div>
@@ -83,9 +83,7 @@ const MessageBtn = () => {
                   <EmailBtn />
                 </div>
 
-                <p className="text-xs text-neutral-600 dark:text-neutral-400 text-center mt-1">
-                  * Required fields
-                </p>
+                
               </form>
             </div>
           </motion.div>
