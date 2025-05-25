@@ -2,13 +2,13 @@
 
 import React from 'react'
 import Link from 'next/link'
-import { FaWhatsapp } from 'react-icons/fa6'
+import { MdEmail } from 'react-icons/md'
 import { motion } from 'motion/react'
 
-const phone = process.env.NEXT_PUBLIC_PHONE_NUMBER
+const email = process.env.NEXT_PUBLIC_EMAIL_ADDRESS
 
-function WhatsAppBtn() {
-  if (!phone) return null 
+function EmailBtn() {
+  if (!email) return null
 
   return (
     <div className="flex justify-center items-center mt-2">
@@ -16,19 +16,19 @@ function WhatsAppBtn() {
         whileTap={{ scale: 0.9 }}
         whileHover={{ scale: 1.2 }}
         transition={{ duration:0.3, ease:'easeInOut' }}
-        className="bg-green-500 dark:bg-green-600 p-2 rounded-full shadow-md hover:shadow-lg transition duration-300 ease-in-out"
+        className="bg-blue-500 dark:bg-blue-600 p-2 rounded-full shadow-md hover:shadow-lg transition duration-300 ease-in-out"
       >
         <Link
-          href={`https://wa.me/${phone}`}
+          href={`mailto:${email}`}
           target="_blank"
           rel="noopener noreferrer"
-          aria-label="Chat on WhatsApp"
+          aria-label="Send Email"
         >
-          <FaWhatsapp className="text-white dark:text-white text-2xl sm:text-3xl" />
+          <MdEmail className="text-white dark:text-white text-2xl sm:text-3xl" />
         </Link>
       </motion.div>
     </div>
   )
 }
 
-export default WhatsAppBtn
+export default EmailBtn
