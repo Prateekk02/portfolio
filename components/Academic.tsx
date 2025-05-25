@@ -19,7 +19,7 @@ const Academic = () => {
     mass: 1.5,
   });
   const scale = useTransform(scrollYProgress, [0, 0.2, 0.5, 0.8, 1], [0.8, 0.95, 1, 0.95, 0.8]);
-  const blur = useTransform(scrollYProgress, [0, 0.3, 0.5, 0.7, 1], [3, 0, 0, 0, 3]);
+ 
 
   return (
     <div className="mt-5">
@@ -35,7 +35,7 @@ const Academic = () => {
           y: translateY,
           opacity,
           scale,
-          filter: useMotionTemplate`blur(${blur}px)`,
+          
         }}
         className="flex flex-col"
       >
