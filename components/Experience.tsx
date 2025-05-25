@@ -1,10 +1,11 @@
 'use client';
+import { experienceItems } from "@/data/content"
 import React from 'react';
 import ExperienceCard from './ExperienceCard';
 import { motion } from 'motion/react'; 
 import { fadeInUp } from '@/lib/motion';
 
-const Experience = () => {
+const Experience: React.FC = () => {
   return (
     <div className='mt-5'>
       <motion.h1
@@ -18,7 +19,7 @@ const Experience = () => {
       </motion.h1>
 
       <div className="flex flex-col">
-        <ExperienceCard />
+        <ExperienceCard experienceItems={experienceItems} />
       </div>
     </div>
   );
