@@ -39,7 +39,7 @@ export default function RootLayout({
         <MessageBtn />
         <ThemeProvider
           attribute="class"
-          defaultTheme="system"
+          defaultTheme="light"
           enableSystem
           disableTransitionOnChange
         >
