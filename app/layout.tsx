@@ -7,6 +7,7 @@ import { footerContent } from "@/data/content";
 import Resume from "@/components/ResumeBtn";
 import "./globals.css";
 import MessageBtn from "@/components/MessageBtn";
+import { BackgroundBeams } from "@/components/ui/background-beams";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -50,6 +51,7 @@ export default function RootLayout({
           </main>
           <Footer itemList={footerContent} />
         </ThemeProvider>
+        <BackgroundBeams className="z-[-10] text-neutral-300" />
       </body>
     </html>
   );
