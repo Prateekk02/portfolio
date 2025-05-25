@@ -100,7 +100,7 @@ export default function Navbar() {
                         variants={navContainer}
                         initial="initial"
                         animate="animate"
-                        className="hidden md:flex justify-center items-center gap-4 bg-white/20 dark:bg-gray-800/20 backdrop-blur-lg shadow-lg dark:shadow-blue-950/30 rounded-full px-4 border border-white/20 dark:border-gray-700/20">
+                        className="hidden md:flex py-2 justify-center items-center gap-4 bg-white/20 dark:bg-gray-800/20 backdrop-blur-lg shadow-lg dark:shadow-blue-950/30 rounded-full px-4 border border-white/20 dark:border-gray-700/20">
                         {listItems.map((item, idx) => (
                             <motion.div key={`desktop-nav-link-${idx}`} variants={navItem} >
                                 <Link                                
