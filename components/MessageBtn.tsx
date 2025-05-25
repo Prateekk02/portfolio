@@ -96,7 +96,7 @@ const MessageBtn = () => {
           className="group flex justify-center items-center"
           onClick={() => setCurrent({} as MessageCard)}
         >
-          <div className="group-hover:scale-110 transition-all ease-in-out p-3 shadow-md border border-blue-800 dark:shadow-lg dark:shadow-blue-950 rounded-full">
+          <div className="group-hover:scale-110 transition-all ease-in-out p-3 shadow-md border dark:shadow-lg dark:shadow-blue-950 rounded-full">
             <FaMessage
               className="text-neutral-600 hover:text-blue-600 dark:text-white dark:hover:text-blue-500 transition duration-300 cursor-pointer"
               size={20}

@@ -37,7 +37,7 @@ const Resume: React.FC = () => {
         initial={{ width: 48 }}
         whileHover={{ width: 160 }}
         transition={{ type: "spring", stiffness: 300, damping: 20 }}
-        className="fixed flex items-center z-50 justify-center bottom-10 right-8 h-12 rounded-full border border-neutral-400 dark:border-blue-800 shadow-lg dark:shadow-blue-950 cursor-pointer"
+        className="fixed flex items-center z-50 justify-center  bottom-10 right-4 sm:bottom-17 sm:right-6 md:bottom-14 md:right-8 h-12 rounded-full border  shadow-md dark:shadow-lg shadow-neutral-300 dark:shadow-blue-950 cursor-pointer"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
         onClick={handleDownload}
@@ -52,7 +52,7 @@ const Resume: React.FC = () => {
               exit={{ opacity: 0 }}
               transition={{ duration: 0.2 }}
             >
-              <Download className="text-neutral-600 dark:text-white" size={25} />
+              <Download className="text-neutral-600 dark:text-white" size={24} />
             </motion.div>
           ) : (
             <motion.span
