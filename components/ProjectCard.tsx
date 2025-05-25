@@ -9,7 +9,7 @@ import {
   motion,
   useTransform,
   useScroll,
-  useSpring,
+  
   useMotionTemplate,
 } from "motion/react";
 
@@ -34,14 +34,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
     [50, 0, -50]
   );
 
-  const opacityContent = useSpring(
-    useTransform(scrollYProgress, [0, 0.2, 0.5, 0.8, 1], [0, 0.8, 1, 0.8, 0]),
-    {
-      stiffness: 180,
-      damping: 18,
-      mass: 1.2,
-    }
-  );
+  const opacityContent = useTransform(scrollYProgress, [0, 0.2, 0.5, 0.8, 1], [0, 0.8, 1, 0.8, 0])
 
   const scaleContent = useTransform(
     scrollYProgress,
