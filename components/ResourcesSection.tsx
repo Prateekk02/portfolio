@@ -10,7 +10,7 @@ const ResourcesSection: React.FC<ResourcesSectionProps> = ({header, listItems}) 
 
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ["start 0.9", "end 0.1"]
+    offset: ["start end", "end start"]
   });
 
 
