@@ -1,7 +1,7 @@
 // Academic.tsx
 "use client";
 import React, { useRef } from "react";
-import { motion, useScroll, useTransform, useSpring, useMotionTemplate } from "motion/react";
+import { motion, useScroll, useTransform, useSpring } from "motion/react";
 import AcademicCard from "./AcademicCard";
 import { fadeInUp } from "@/lib/motion";
 

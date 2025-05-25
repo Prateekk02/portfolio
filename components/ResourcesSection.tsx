@@ -2,7 +2,7 @@
 import React, { useRef } from 'react'
 import ResourcesCard from './ResourcesCard'
 import { ResourcesSectionProps } from '@/lib/types'
-import { motion, useScroll, useTransform, useSpring, useMotionTemplate } from 'motion/react'
+import { motion, useScroll, useTransform, useSpring  } from 'motion/react'
 import { scaleXVariant, textItem } from '@/lib/motion'
 
 const ResourcesSection: React.FC<ResourcesSectionProps> = ({header, listItems}) => {
