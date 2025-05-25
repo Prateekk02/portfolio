@@ -35,11 +35,7 @@ const ResourcesSection: React.FC<ResourcesSectionProps> = ({header, listItems}) 
     [0.9, 0.98, 1, 0.98, 0.9]
   );
 
-  const sectionBlur = useTransform(
-    scrollYProgress,
-    [0, 0.3, 0.5, 0.7, 1],
-    [2, 0, 0, 0, 2]
-  );
+  
 
 
   return (
@@ -49,7 +45,7 @@ const ResourcesSection: React.FC<ResourcesSectionProps> = ({header, listItems}) 
       style={{
         opacity: sectionOpacity,
         scale: sectionScale,
-        filter: useMotionTemplate`blur(${sectionBlur}px)`,
+        
       }}
     >
         <div className="inline-block relative"          
