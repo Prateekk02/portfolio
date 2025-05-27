@@ -242,7 +242,7 @@ export const ytChannelItems = [
     },
     {
         title:"Arpit Bhayani",
-        content:"Best resource to find an Software Engineer inside you. Learn system design and dissect technical whitepapers and research papers.",
+        content:"Best resource to find a Software Engineer inside you. Learn system design and dissect technical whitepapers and research papers.",
         href: "https://www.youtube.com/@krishnaik06"
     }
 
