@@ -25,8 +25,8 @@ export async function sendMessage(data: {
 
     revalidatePath('/')
     return { success: true }
-  } catch (error) {
-    console.error('[sendMessage ERROR]', error)
+  } catch {
+    
     throw new Error('Message sending failed. Please try again.')
   }
 }

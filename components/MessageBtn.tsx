@@ -1,62 +1,55 @@
-'use client';
+"use client";
 
-import React, { useState } from 'react';
-import { FaMessage } from 'react-icons/fa6';
-import { MessageCard } from '@/lib/types';
-import { useOutsideClick } from '@/hooks/useOutsideClick';
-import { motion } from 'motion/react';
-import EmailBtn from './ui/EmailBtn';
-import WhatsAppBtn from './ui/WhatsAppBtn';
-import { toast, ToastContainer } from 'react-toastify';
-
-
-
+import React, { useState } from "react";
+import { FaMessage } from "react-icons/fa6";
+import { MessageCard } from "@/lib/types";
+import { useOutsideClick } from "@/hooks/useOutsideClick";
+import { motion } from "motion/react";
+import EmailBtn from "./ui/EmailBtn";
+import WhatsAppBtn from "./ui/WhatsAppBtn";
+import { toast, ToastContainer } from "react-toastify";
 
 const MessageBtn = () => {
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const [current, setCurrent] = useState<MessageCard | null>(null);
   const ref = useOutsideClick(() => setCurrent(null));
-
-  const handleSubmit = async(e:React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setIsLoading(true);
     const form = e.currentTarget;
-    const formData = new FormData(form)  
-    
-    const name = formData.get('name') as string;
-    const email = formData.get('email') as string;
-    const message = formData.get('message') as string;
-
-    try{
-      const res = await fetch('api/message', {
-          method:'POST',
-          body: JSON.stringify({name, email, message}),
-          headers:{
-            'Content-Type' : 'application/json'
-          }
-      })
-
-      if(res.ok){
+    const formData = new FormData(form);
+    const name = formData.get("name") as string;
+    const email = formData.get("email") as string;
+    const message = formData.get("message") as string;
+    try {
+      const res = await fetch("api/message", {
+        method: "POST",
+        body: JSON.stringify({ name, email, message }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      if (res.ok) {
         toast.success("I have got your message, will reach out to you soon.", {
-          position: 'bottom-left',
-          autoClose: 5000
-        })
-        form.reset()
-      }else{
-        toast.error("Something went wrong. Please try again.",{
-          position: 'bottom-left',
-          autoClose: 5000
-        })
+          position: "bottom-left",
+          autoClose: 5000,
+        });
+        form.reset();
+      } else {
+        toast.error("Something went wrong. Please try again.", {
+          position: "bottom-left",
+          autoClose: 5000,
+        });
       }
+    } catch {
+      toast.error("Something went wrong. Please try again.", {
+        position: "bottom-left",
+        autoClose: 5000,
+      });
+    } finally {
+      setIsLoading(false);
     }
-    catch(error){
-      console.log(error)
-      toast.error("Something went wrong. Please try again.",{
-        position: 'bottom-left',
-        autoClose: 5000
-      })
-    }
-
-
-  }
+  };
 
   return (
     <div className="fixed bottom-24 right-4 sm:bottom-24 sm:right-6 md:bottom-28 md:right-8 z-30">
@@ -65,11 +58,11 @@ const MessageBtn = () => {
           <motion.div
             layoutId="message-card"
             ref={ref}
-            initial={{ opacity: 0, filter: 'blur(10px)', y: -10 }}
-            animate={{ y: 0, opacity: 1, filter: 'blur(0px)' }}
+            initial={{ opacity: 0, filter: "blur(10px)", y: -10 }}
+            animate={{ y: 0, opacity: 1, filter: "blur(0px)" }}
             transition={{
               duration: 0.3,
-              ease: 'easeInOut',
+              ease: "easeInOut",
               delay: 0.3,
             }}
             className="absolute -bottom-6 right-0 mb-4 w-[90vw] max-w-[360px] sm:max-w-[400px] md:max-w-[420px] mx-auto rounded-2xl bg-gradient-to-br from-[#f3f4f6] via-[#d1d5db] to-[#f3f4f6] dark:bg-gradient-to-br dark:from-[#D8E1FF]  dark:to-[#F4F6FA] dark:hover:shadow-blue-950 z-50 shadow-lg"
@@ -81,10 +74,15 @@ const MessageBtn = () => {
                 </motion.div>
               </div>
 
-              <form onSubmit={handleSubmit} className="p-4 sm:p-5 flex flex-col gap-3">
+              <form
+                onSubmit={handleSubmit}
+                className="p-4 sm:p-5 flex flex-col gap-3"
+              >
                 {/* Name */}
                 <div className="flex flex-col">
-                  <label className="mb-1 text-neutral-700 text-sm sm:text-base">Name *</label>
+                  <label className="mb-1 text-neutral-700 text-sm sm:text-base">
+                    Name *
+                  </label>
                   <input
                     type="text"
                     name="name"
@@ -96,7 +94,9 @@ const MessageBtn = () => {
 
                 {/* Email */}
                 <div className="flex flex-col">
-                  <label className="mb-1 text-neutral-700  text-sm sm:text-base">Email *</label>
+                  <label className="mb-1 text-neutral-700  text-sm sm:text-base">
+                    Email *
+                  </label>
                   <input
                     type="email"
                     name="email"
@@ -108,7 +108,9 @@ const MessageBtn = () => {
 
                 {/* Message */}
                 <div className="flex flex-col">
-                  <label className="mb-1 text-neutral-700  text-sm sm:text-base">Message *</label>
+                  <label className="mb-1 text-neutral-700  text-sm sm:text-base">
+                    Message *
+                  </label>
                   <textarea
                     name="message"
                     required
@@ -119,15 +121,20 @@ const MessageBtn = () => {
 
                 <button
                   type="submit"
-                  className="w-full mt-2 sm:mt-3 px-4 py-2.5 sm:py-3 text-sm sm:text-base bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-lg shadow-lg hover:from-blue-700 hover:to-purple-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all duration-200 transform hover:scale-[1.02] active:scale-[0.98] active:duration-75"
+                  disabled={isLoading}
+                  className="w-full mt-2 sm:mt-3 px-4 py-2.5 sm:py-3 text-sm sm:text-base bg-gradient-to-r
+                   from-blue-600 to-purple-600 text-white font-semibold rounded-lg shadow-lg 
+                   hover:from-blue-700 hover:to-purple-700 focus:outline-none focus:ring-2 
+                   focus:ring-blue-500 focus:ring-offset-2 transition-all duration-200 transform 
+                   hover:scale-[1.02] active:scale-[0.98] active:duration-75 cursor-pointer"
                 >
-                  Send Message
+                  {isLoading ? "Sending..." : "Send Message"}
                 </button>
 
                 <div className="flex justify-center items-center gap-4">
                   <WhatsAppBtn />
                   <EmailBtn />
-                </div>                
+                </div>
               </form>
             </div>
           </motion.div>
@@ -146,7 +153,7 @@ const MessageBtn = () => {
           </div>
         </motion.button>
       </div>
-      <ToastContainer/>
+      <ToastContainer />
     </div>
   );
 };
