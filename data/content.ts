@@ -349,7 +349,7 @@ export const academicItems = [
         organization: "Lakshmi Narain College of Technology",
         degree: "Bachelor's of Technology in Computer Science and Engineering ",
         duration: "2021-2025",
-        grade: "8.73",
+        grade: "8.75",
         coursework: ['Data Structures', 'Algorithms', 'Database Management System', 'Computer Networking', 'Machine Learning', 'Deep Learning', 'Image Processing and Computer Vision'],
         honors: [ 'GATE-DA 2024 AIR 6339', 'GDSC AIML Lead', 'Top 5% in NPTEL Discrete Mathematics','Achieved 1st Position as team in RGPV Nodels Table Tennis Championship.'],
         location: "Bhopal"
@@ -358,7 +358,7 @@ export const academicItems = [
         organization: "St Michael's Higher Secondary School",
         degree: "Class 12th",
         duration: "2020",
-        grade: "83.4",
+        grade: "82.4",
         coursework: ['Physics', 'Chemistry', 'Mathematics', 'Computer Science', 'English'],
         honors: ['Achieved Zonal Rank of 2 in Science Olympiad', 'State Level Table Tennis Player'],
         location: "Satna, Madhya Pradesh"
