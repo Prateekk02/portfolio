@@ -43,3 +43,19 @@ export async function sendMail({ name, email, message }: ContactFormData) {
     throw error;
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

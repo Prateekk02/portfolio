@@ -92,6 +92,9 @@ const MessageBtn = () => {
                   />
                 </div>
 
+                {/* Honey pot field  */}
+
+                <input type="text" name="website" className="hidden" tabIndex={-1} autoComplete="off" />
                 {/* Email */}
                 <div className="flex flex-col">
                   <label className="mb-1 text-neutral-700  text-sm sm:text-base">
