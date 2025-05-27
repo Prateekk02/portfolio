@@ -20,7 +20,7 @@ import {
   blurUpVariant,
 } from "@/lib/motion";
 import { Badge } from "./ui/badge";
-import { FaXTwitter, FaLinkedinIn } from "react-icons/fa6";
+import { FaXTwitter, FaLinkedinIn, FaGithub } from "react-icons/fa6";
 
 
 const Hero = () => {
@@ -132,9 +132,9 @@ const Hero = () => {
                 rel="noopener noreferrer"
                 className="inline-flex items-center hover:text-blue-500 transition-colors duration-200"
               >
-                <FaXTwitter size={18} />
+                <FaXTwitter size={17} />
               </Link>
-              <span className="text-neutral-400">&</span>
+              <span className="text-neutral-300">,</span>
               <Link
                 href="https://www.linkedin.com/in/prateekk02/"
                 target="_blank"
@@ -142,6 +142,15 @@ const Hero = () => {
                 className="inline-flex items-center hover:text-blue-600 transition-colors duration-200"
               >
                 <FaLinkedinIn size={18} />
+              </Link>
+              <span className="text-neutral-300">&</span>
+              <Link
+                href="https://github.com/Prateekk02"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center hover:text-blue-500 transition-colors duration-200"
+              >
+                <FaGithub size={19} />
               </Link>
             </div>        
           </div>
