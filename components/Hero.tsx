@@ -134,7 +134,7 @@ const Hero = () => {
               >
                 <FaXTwitter size={17} />
               </Link>
-              <span className="text-neutral-300">,</span>
+              <span className="dark:text-neutral-300 text-neutral-600">,</span>
               <Link
                 href="https://www.linkedin.com/in/prateekk02/"
                 target="_blank"
@@ -143,7 +143,7 @@ const Hero = () => {
               >
                 <FaLinkedinIn size={18} />
               </Link>
-              <span className="text-neutral-300">&</span>
+              <span className="dark:text-neutral-300 text-neutral-600">&</span>
               <Link
                 href="https://github.com/Prateekk02"
                 target="_blank"
