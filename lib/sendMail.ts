@@ -34,6 +34,7 @@ export async function sendMail({ name, email, message }: ContactFormData) {
     });
 
     if (error) {
+      console.log(error);
       throw new Error(error.message);
     }
 
