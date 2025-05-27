@@ -1,7 +1,7 @@
+import { FaXTwitter, FaLinkedinIn, FaGithub } from "react-icons/fa6";
+
 
 // Home Page content
-
-
 export const projectItems = [{
     logoLink: "/nextjs-icon.png",
     title: "Content Catalyst",
@@ -53,6 +53,7 @@ export const blogItems = [
     
 ]
 
+ 
 export const dummyBlogContent = [
     {
         title: "More blogs incoming..."
@@ -81,10 +82,12 @@ export const footerContent = [
         title: "Medium",
         href: "https://medium.com/@codeWalker66"
     },
+    {
+        title: "Leetcode",
+        href: "https://leetcode.com/u/codeWalker66/"
+    }
     
 ]
-
-
 
 // Resource contents
 export const utilityItem = [
@@ -340,7 +343,7 @@ export const experienceItems = [
 
 ]
 
-
+// Academic content
 export const academicItems = [
     {
         organization: "Lakshmi Narain College of Technology",
@@ -379,6 +382,7 @@ export const academicItems = [
     },
 ]
 
+// Testimonial content
 export const testimonials = [
     {
         quote: "I have know Prateek from 1st year of his B.Tech journey and have mentored him in his development journy, he has been very fast at understanding complex logics of system. The thing which differentiate him is his curiousity and passion for coding. He is flexible in understanding various techs be it Machine Learning, Deep Learning, NLP, Computer Vision and Web development making him a excellent candidate for any project.",
@@ -405,4 +409,23 @@ export const testimonials = [
         src: "/krishna.jpeg"
     },
 
+]
+
+// Social Media content
+export const socialMediaIems = [
+    {
+        href: "https://x.com/codeWalker66", 
+        Icon: FaXTwitter,
+        size: 17
+    },
+    {
+        href: "https://www.linkedin.com/in/prateekk02/", 
+        Icon: FaLinkedinIn,
+        size: 18
+    },
+    {
+        href: "https://github.com/Prateekk02", 
+        Icon: FaGithub,
+        size: 19
+    }
 ]
