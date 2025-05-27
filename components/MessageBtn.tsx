@@ -5,8 +5,7 @@ import { FaMessage } from "react-icons/fa6";
 import { MessageCard } from "@/lib/types";
 import { useOutsideClick } from "@/hooks/useOutsideClick";
 import { motion } from "motion/react";
-import EmailBtn from "./ui/EmailBtn";
-import WhatsAppBtn from "./ui/WhatsAppBtn";
+import { EmailBtn, WhatsAppBtn, TwitterBtn, LinkedinBtn } from "./ui/SocialBtn";
 import { toast, ToastContainer } from "react-toastify";
 
 const MessageBtn = () => {
@@ -137,6 +136,8 @@ const MessageBtn = () => {
                 <div className="flex justify-center items-center gap-4">
                   <WhatsAppBtn />
                   <EmailBtn />
+                  <TwitterBtn />
+                  <LinkedinBtn />
                 </div>
               </form>
             </div>

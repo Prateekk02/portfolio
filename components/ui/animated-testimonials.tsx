@@ -35,7 +35,7 @@ export const AnimatedTestimonials = ({
 
   useEffect(() => {
     if (autoplay) {
-      const interval = setInterval(handleNext, 5000);
+      const interval = setInterval(handleNext, 10000);
       return () => clearInterval(interval);
     }
   }, [autoplay]);
@@ -149,15 +149,15 @@ export const AnimatedTestimonials = ({
           <div className=" flex gap-4 pt-12 mt-4 md:pt-0">
             <button
               onClick={handlePrev}
-              className="group/button flex h-7 w-7 items-center justify-center rounded-full bg-gray-100 dark:bg-neutral-800"
+              className="group/button flex h-7 w-7 items-center justify-center rounded-full bg-gray-100 dark:bg-blue-950 cursor-pointer "
             >
-              <IconArrowLeft className="h-5 w-5 text-black transition-transform duration-300 group-hover/button:rotate-12 dark:text-neutral-400" />
+              <IconArrowLeft className="h-5 w-5 text-black transition-transform duration-300 group-hover/button:rotate-12 dark:text-neutral-300" />
             </button>
             <button
               onClick={handleNext}
-              className="group/button flex h-7 w-7  items-center justify-center rounded-full bg-gray-100 dark:bg-neutral-800"
+              className="group/button flex h-7 w-7  items-center justify-center rounded-full bg-gray-100 dark:bg-blue-950"
             >
-              <IconArrowRight className="h-5 w-5 text-black transition-transform duration-300 group-hover/button:-rotate-12 dark:text-neutral-400" />
+              <IconArrowRight className="h-5 w-5 text-black transition-transform duration-300 group-hover/button:-rotate-12 dark:text-neutral-300 cursor-pointer" />
             </button>
           </div>
         </div>

@@ -47,23 +47,23 @@ const Footer: React.FC<FooterProps> = ({ itemList }) => {
         
         <div className="flex justify-center items-center gap-3">
           <span>Find me on</span>
-          <a
+          <Link
             href="https://x.com/codeWalker66"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-black dark:hover:text-white transition-colors"
           >
             <FaXTwitter size={18} />
-          </a>
+          </Link>
           <span>and</span>
-          <a
+          <Link
             href="https://www.linkedin.com/in/prateekk02/"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-black dark:hover:text-white transition-colors"
           >
             <FaLinkedinIn size={18} />
-          </a>
+          </Link>
         </div>
 
         

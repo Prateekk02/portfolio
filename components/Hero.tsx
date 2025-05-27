@@ -208,7 +208,7 @@ const Hero = () => {
       <Experience />
       <Academic />
       <Divider />
-      <AnimatedTestimonials testimonials={testimonials} autoplay />
+      <AnimatedTestimonials testimonials={testimonials}  />
     </div>
   );
 };
