@@ -4,11 +4,12 @@ import { FaXTwitter, FaLinkedinIn } from "react-icons/fa6";
 import Link from "next/link";
 import { motion } from "motion/react";
 import { MdEmail } from "react-icons/md";
-import { FaWhatsapp } from 'react-icons/fa6'
-
+import { FaWhatsapp } from "react-icons/fa6";
+import React from "react";
+import { SocialMediaBtnProps } from "@/lib/types";
 
 const email = process.env.NEXT_PUBLIC_EMAIL_ADDRESS;
-const phone = process.env.NEXT_PUBLIC_PHONE_NUMBER
+const phone = process.env.NEXT_PUBLIC_PHONE_NUMBER;
 
 export const TwitterBtn = () => {
   return (
@@ -16,7 +17,7 @@ export const TwitterBtn = () => {
       <motion.div
         whileTap={{ scale: 0.9 }}
         whileHover={{ scale: 1.2 }}
-        transition={{ duration: 0.3, ease: 'easeInOut' }}
+        transition={{ duration: 0.3, ease: "easeInOut" }}
         className="bg-black dark:bg-gray-800 p-2 rounded-full shadow-md hover:shadow-lg transition duration-300 ease-in-out"
       >
         <Link
@@ -38,7 +39,7 @@ export const LinkedinBtn = () => {
       <motion.div
         whileTap={{ scale: 0.9 }}
         whileHover={{ scale: 1.2 }}
-        transition={{ duration: 0.3, ease: 'easeInOut' }}
+        transition={{ duration: 0.3, ease: "easeInOut" }}
         className="bg-blue-600 dark:bg-blue-700 p-2 rounded-full shadow-md hover:shadow-lg transition duration-300 ease-in-out"
       >
         <Link
@@ -76,18 +77,17 @@ export const EmailBtn = () => {
       </motion.div>
     </div>
   );
-}
-
+};
 
 export const WhatsAppBtn = () => {
-  if (!phone) return null 
+  if (!phone) return null;
 
   return (
     <div className="flex justify-center items-center mt-2">
       <motion.div
         whileTap={{ scale: 0.9 }}
         whileHover={{ scale: 1.2 }}
-        transition={{ duration:0.3, ease:'easeInOut' }}
+        transition={{ duration: 0.3, ease: "easeInOut" }}
         className="bg-green-500 dark:bg-green-600 p-2 rounded-full shadow-md hover:shadow-lg transition duration-300 ease-in-out"
       >
         <Link
@@ -100,9 +100,22 @@ export const WhatsAppBtn = () => {
         </Link>
       </motion.div>
     </div>
-  )
-}
+  );
+};
 
-
-
-
+export const SocialMediaBtn: React.FC<SocialMediaBtnProps> = ({
+  href,
+  Icon,
+  size,
+}) => {
+  return <>
+    <Link
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="inline-flex items-center hover:text-blue-500 transition-colors duration-200"
+    >
+      <Icon size={size} />
+    </Link>
+  </>;
+};

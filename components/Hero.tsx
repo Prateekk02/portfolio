@@ -20,8 +20,8 @@ import {
   blurUpVariant,
 } from "@/lib/motion";
 import { Badge } from "./ui/badge";
-import { FaXTwitter, FaLinkedinIn, FaGithub } from "react-icons/fa6";
-
+import { SocialMediaBtn } from "./ui/SocialBtn";
+import { socialMediaIems } from "@/data/content";
 
 const Hero = () => {
   return (
@@ -123,40 +123,20 @@ const Hero = () => {
         </motion.h1>
 
         <div className="flex justify-between mt-4 text-neutral-600 dark:text-neutral-300">
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-4">
             <span>Find me on:</span>
-            <div className="flex items-center gap-3">
-              <Link
-                href="https://x.com/codeWalker66"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center hover:text-blue-500 transition-colors duration-200"
-              >
-                <FaXTwitter size={17} />
-              </Link>
-              <span className="dark:text-neutral-300 text-neutral-600">,</span>
-              <Link
-                href="https://www.linkedin.com/in/prateekk02/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center hover:text-blue-600 transition-colors duration-200"
-              >
-                <FaLinkedinIn size={18} />
-              </Link>
-              <span className="dark:text-neutral-300 text-neutral-600">&</span>
-              <Link
-                href="https://github.com/Prateekk02"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center hover:text-blue-500 transition-colors duration-200"
-              >
-                <FaGithub size={19} />
-              </Link>
-            </div>        
+            <div className="flex items-center gap-6">
+              {socialMediaIems.map((item, index) => (
+                <SocialMediaBtn
+                  key={index}
+                  href={item.href}
+                  Icon={item.Icon}
+                  size={item.size}
+                />
+              ))}
+            </div>
           </div>
-          
         </div>
-        
       </motion.div>
 
       <div className="mt-5 pt-5">
@@ -176,7 +156,7 @@ const Hero = () => {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3, ease: "easeOut", delay: 0.1 }}
-          viewport={{ once: true, amount:0.2 }}
+          viewport={{ once: true, amount: 0.2 }}
         >
           <LongCard itemList={blogItems} />
         </motion.div>
@@ -217,7 +197,7 @@ const Hero = () => {
       <Experience />
       <Academic />
       <Divider />
-      <AnimatedTestimonials testimonials={testimonials}  />
+      <AnimatedTestimonials testimonials={testimonials} />
     </div>
   );
 };

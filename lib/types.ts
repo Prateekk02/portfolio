@@ -1,3 +1,5 @@
+import { IconType } from "react-icons"
+
 
 export interface LongCardContent{
     title: string, 
@@ -99,4 +101,10 @@ export interface ExperienceItem {
 
 export interface ExperienceCardProps {
     experienceItems: ExperienceItem[]
-  }
+}
+
+export interface SocialMediaBtnProps{
+    href: string, 
+    Icon: IconType,
+    size?: number
+}
