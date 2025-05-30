@@ -42,6 +42,14 @@ export const projectItems = [{
 
 export const blogItems = [
     {
+        title: "How You Integrate and Test Webhooks for AI-SaaS.",
+        link: "https://www.linkedin.com/posts/prateekk02_nextjs-nodejs-localtunnel-activity-7334241669862555649-S9Hj?utm_source=share&utm_medium=member_desktop&rcm=ACoAADjQ0GwBVkn1-hFDTeCUEjpnxgUNQDeH4dw"
+    },
+    {
+        title: "WebSockets, Webhooks and Long Polling. What's difference?",
+        link:"https://www.linkedin.com/posts/prateekk02_websocket-webhook-longpolling-activity-7333804824741806082-llpw?utm_source=share&utm_medium=member_desktop&rcm=ACoAADjQ0GwBVkn1-hFDTeCUEjpnxgUNQDeH4dw"
+    },
+    {
         title: "How To Remove Duplicates From Vector In R - Geeks for geeks",
         views: "2,421",
         link: "https://www.geeksforgeeks.org/how-to-remove-duplicates-from-vector-in-r/"
@@ -50,10 +58,8 @@ export const blogItems = [
         views:"997",
         link: "https://www.linkedin.com/pulse/data-versus-algorithms-what-really-drives-machine-learning-kumar-7ztuc/?trackingId=f1JYpYvYQauQ9U8N3dBddw%3D%3D"
     },
-    {
-        title: "WebSockets, Webhooks and Long Polling. What's difference?",
-        link:"https://www.linkedin.com/posts/prateekk02_websocket-webhook-longpolling-activity-7333804824741806082-llpw?utm_source=share&utm_medium=member_desktop&rcm=ACoAADjQ0GwBVkn1-hFDTeCUEjpnxgUNQDeH4dw"
-    }
+    
+    
     
 ]
 
