@@ -33,9 +33,7 @@ const ResourcesSection: React.FC<ResourcesSectionProps> = ({header, listItems}) 
     scrollYProgress,
     [0, 0.2, 0.5, 0.8, 1],
     [0.9, 0.98, 1, 0.98, 0.9]
-  );
-
-  
+  ); 
 
 
   return (

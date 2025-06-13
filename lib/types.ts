@@ -71,6 +71,7 @@ export interface BlinkerProps{
 
 export interface ProjectListerProps{
     count: number
+    projectItem: ProjectCardProps[]
 }
 
 

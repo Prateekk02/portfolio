@@ -22,6 +22,8 @@ import {
 import { Badge } from "./ui/badge";
 import { SocialMediaBtn } from "./ui/SocialBtn";
 import { socialMediaIems } from "@/data/content";
+import { projectItems } from '@/data/content';
+import { upcomingProjectItems } from "@/data/content"; 
 
 const Hero = () => {
   return (
@@ -177,7 +179,7 @@ const Hero = () => {
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.15 }}
           viewport={{ once: true }}
         >
-          <ProjectLister count={4} />
+          <ProjectLister count={4} projectItem={projectItems}/>
         </motion.div>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -194,6 +196,28 @@ const Hero = () => {
           </Link>
         </motion.div>
       </div>
+
+      <div className=" mt-5 pt-5">
+        <motion.h1
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
+          viewport={{ once: true }}
+          className="text-4xl font-bold mb-8"
+        >
+          Upcoming Projects
+        </motion.h1>
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut", delay: 0.15 }}
+          viewport={{ once: true }}
+        >
+          <ProjectLister count={1} projectItem={upcomingProjectItems} />
+        </motion.div>
+        
+      </div>
+      
       <Experience />
       <Academic />
       <Divider />

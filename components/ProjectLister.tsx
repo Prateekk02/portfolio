@@ -1,13 +1,11 @@
 'use client'
 import ProjectCard from './ProjectCard'
-import { projectItems } from '@/data/content';
 import { ProjectListerProps } from '@/lib/types';
 import { parentVariantStaggering, childVariantStaggering } from '@/lib/motion';
 import { motion } from 'motion/react';
 
-const ProjectLister: React.FC<ProjectListerProps> = ({count}) => {
-    const visibleProjectItems = projectItems.slice(0,count);
-
+const ProjectLister: React.FC<ProjectListerProps> = ({count, projectItem}) => {
+    const visibleProjectItems = projectItem.slice(0,count);
 
   return (
     <motion.div initial='initial' animate='animate' variants={parentVariantStaggering} className="flex flex-wrap gap-4 justify-between">

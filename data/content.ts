@@ -2,15 +2,26 @@ import { FaXTwitter, FaLinkedinIn, FaGithub } from "react-icons/fa6";
 
 
 // Home Page content
-export const projectItems = [{
-    logoLink: "/nextjs-icon.png",
-    title: "Content Catalyst",
+export const projectItems = [
+    {
+        logoLink: "/nextjs-icon.png",
+        title: "Personal Portfolio Website",
+        content:"A single platform that enables you to know about me, my projects, blogs, experiences & resources which I use. Want to hire me or consult regarding your cool project. Just a message away.",
+        techList:['Next.js', 'Typescript', 'TailwindCSS',  'Prisma ORM', 'PostgreSQL', 'Framer-motion', 'Resend', 'Cloudflare'],
+        href:"https://www.prateekkumar.dev",
+        githubLink:"https://github.com/Prateekk02/portfolio" ,
+        showBlinker: true
+    },
+    {
+        logoLink: "/nextjs-icon.png",
+        title: "Content Catalyst",
         content:"Elevate your content effortlessly! Content Catalyst empowers you to upload videos and apply AI-driven enhancements—be it summaries, highlights, or creative edits. No technical skills required—just upload and let AI do the rest.",
         techList:['Next.js', 'Typescript', 'TailwindCSS',  'Cloudinary', 'Clerk', 'Docker', 'FalAI', 'DaisyUI'],
         href:"https://content-catalyst-pi.vercel.app/",
         githubLink:"https://github.com/Prateekk02/ai-saas" ,
         showBlinker: true
-    },{
+    },
+    {
         logoLink: "/ml-icon.png",
         title: "Diamond Price Predictor",
         content:"Thinking of investing in a diamond? This AI-powered tool predicts diamond prices instantly based on quality factors—making you smarter, faster, and more confident in every deal.",
@@ -26,18 +37,18 @@ export const projectItems = [{
         techList:["Python", "React.js", "Deep Learning", "Machine Learning", "Sci-kit Learn", "NLP", "spaCy", "Flask"],
         githubLink:"https://github.com/Prateekk02/Depression-Prediction-System",
         showBlinker : true
-    },
-
-
-
-
-    {
-        logoLink: "/coming-soon.png",
-        title: "Incoming Cool Projects",
-        content:'Cool projects under construction! They\'re still in their awkward "just learned to crawl in React" phase, they\'re growing fast and full of potential! Stay tuned… greatness (and maybe a few bugs) is coming soon. '  
-        
-    },
+    },    
     
+]
+export const upcomingProjectItems = [
+    {
+        logoLink: "/ml-icon.png",
+        title: "Real-time YouTube RAG Chatbot",
+        content:"Want to have a chat with the YouTube videos you are watching. Simply paste YouTube video URL and start chatting.  ",
+        techList:["Python", "LangChain", "PineCone", "OpenAI", "RAG", "Streamlit", "FAISS", "Pydantic", "Pytest"],
+        githubLink:"https://github.com/Prateekk02/youtube-chatbot",
+        showBlinker : true
+    },   
 ]
 
 export const blogItems = [

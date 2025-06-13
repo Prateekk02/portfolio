@@ -10,8 +10,7 @@ import ResourcesSection from './ResourcesSection'
 export default function ResourcesHero() {
     
   return (
-    <main>
-        
+    <main>        
         <Header title='Resources' content='Resources which has helped me make my life easier. These resources includes the youtube channels, blogs, documentation, utilities etc which I follow.'/>
         <ResourcesSection header="Utilities" listItems={utilityItem} />
         <ResourcesSection header="UI Libraries" listItems={uiItems}/>
