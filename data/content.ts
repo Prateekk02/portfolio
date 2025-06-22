@@ -23,11 +23,28 @@ export const projectItems = [
     },
     {
         logoLink: "/ml-icon.png",
+        title: "Real-time YouTube RAG Chatbot",
+        content:"Want to have a chat with the YouTube videos you are watching. Simply paste YouTube video URL and start chatting.  ",
+        techList:["Python", "LangChain", "PineCone", "OpenAI", "RAG", "Streamlit", "FAISS", "Pydantic"],
+        githubLink:"https://github.com/Prateekk02/youtube-chatbot",
+        showBlinker : true
+    }, 
+    {
+        logoLink: "/ml-icon.png",
         title: "Diamond Price Predictor",
         content:"Thinking of investing in a diamond? This AI-powered tool predicts diamond prices instantly based on quality factors—making you smarter, faster, and more confident in every deal.",
         techList:["Python", "Machine Learning", "Deep Learning", "Streamlit", "Sci-kit Learn", "Numpy", "Pandas"],
         href:"https://diamondpricepredictorgit-6ixkzifz3zewf67b8qp637.streamlit.app/",
         githubLink:"https://github.com/Prateekk02/DiamondPricePredictor",
+        showBlinker: true
+    },
+    {
+        logoLink: "/ml-icon.png",
+        title: "ANN Customer Churn Prediction",
+        content:"The predictor tool will tell you weather the whether the customer will churn or not.",
+        techList:["Python", "Machine Learning", "Deep Learning", "Streamlit", "Sci-kit Learn", "Numpy", "Pandas"],
+        href:"https://ann-churn-prediction-codewalker66.streamlit.app/",
+        githubLink:"https://github.com/Prateekk02/ann_churn_prediction",
         showBlinker: true
     },
     {
@@ -43,10 +60,10 @@ export const projectItems = [
 export const upcomingProjectItems = [
     {
         logoLink: "/ml-icon.png",
-        title: "Real-time YouTube RAG Chatbot",
-        content:"Want to have a chat with the YouTube videos you are watching. Simply paste YouTube video URL and start chatting.  ",
-        techList:["Python", "LangChain", "PineCone", "OpenAI", "RAG", "Streamlit", "FAISS", "Pydantic", "Pytest"],
-        githubLink:"https://github.com/Prateekk02/youtube-chatbot",
+        title: "Smart Research Assistant",
+        content:"Struggling with your research paper, lot of resource to consult. Here's your once step solution ",
+        techList:["Python", "LangChain", "PineCone", "OpenAI", "RAG", "Fast API", "FAISS", "Pydantic", "Next.js", "PostgreSQL", "Prisma", "Docker"],
+        githubLink:"https://github.com/Prateekk02/research-assistant",
         showBlinker : true
     },   
 ]
