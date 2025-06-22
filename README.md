@@ -108,7 +108,6 @@ vercel
 Follow the prompts to deploy the application.
 
 
-5. Open a pull request.
 
 # License
 
