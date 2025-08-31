@@ -107,28 +107,7 @@ vercel
 
 Follow the prompts to deploy the application.
 
-# Contributing
 
-Contributions are welcome. Please follow these steps:
-
-1. Fork the repository.
-
-2. Create a new branch:
-   ```bash
-   git checkout -b feature/YourFeature
-   ```
-
-3. Commit your changes:
-   ```bash
-   git commit -m 'Add YourFeature'
-   ```
-
-4. Push to the branch:
-   ```bash
-   git push origin feature/YourFeature
-   ```
-
-5. Open a pull request.
 
 # License
 
