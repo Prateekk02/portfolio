@@ -70,6 +70,10 @@ export const upcomingProjectItems = [
 
 export const blogItems = [
     {
+        title: "How will KDNs change LLMs?",
+        link: "https://medium.com/@codeWalker66/how-will-kdns-change-llms-f8ac13e97c50"
+    },
+    {
         title: "How You Integrate and Test Webhooks for AI-SaaS.",
         link: "https://www.linkedin.com/posts/prateekk02_nextjs-nodejs-localtunnel-activity-7334241669862555649-S9Hj?utm_source=share&utm_medium=member_desktop&rcm=ACoAADjQ0GwBVkn1-hFDTeCUEjpnxgUNQDeH4dw"
     },
@@ -86,6 +90,7 @@ export const blogItems = [
         views:"997",
         link: "https://www.linkedin.com/pulse/data-versus-algorithms-what-really-drives-machine-learning-kumar-7ztuc/?trackingId=f1JYpYvYQauQ9U8N3dBddw%3D%3D"
     },
+
     
     
     
@@ -361,6 +366,16 @@ export const snippetsItem = [
 
 // Experience content
 export const experienceItems = [
+    {
+        organization:"Tata Consultancy Services Ltd.",
+        role: "Systems Engineer - Prime",
+        duration: "July 2025 - Present",
+        techStack:["Python", "Java", "Generative AI", "Machine Learning", "Automation", "Backend Development", "Testing", "RFID", "Agile Method"],
+        responsibility:[
+            "Prime profile role at client location, constributing to SDKs & Tools Testing/Validation throught Python and Java development, automation framework and process optimization.",
+            "Supporting Generative AI initiatives by designing and integrating AI-driven solutions to enhance client workflows and productivity."
+        ]
+    },
     {
         organization: 'BITS Pilani (Goa)',
         role: 'AIML Intern',

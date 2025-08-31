@@ -1,10 +1,12 @@
-"use client";
-import React, { useRef } from "react";
+'use client'
 import { motion, useScroll, useTransform } from "motion/react";
-import AcademicCard from "./AcademicCard";
+import React, { useRef } from "react";
+import { AnimatedTestimonials } from "./ui/animated-testimonials";
+import { testimonials } from "@/data/content";
 import { fadeInUp } from "@/lib/motion";
 
-const Academic = () => {
+
+const Testimonial = () => {
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -23,7 +25,7 @@ const Academic = () => {
       initial="hidden"
       whileInView="show"
       viewport={{ once: false, amount: 0.2 }}
-      className="text-4xl font-bold mt-10 mb-8">Academics</motion.h1>
+      className="text-4xl font-bold mt-10 mb-8">Feedback & Endorsements</motion.h1>
       <motion.div
         ref={ref}
         style={{
@@ -34,10 +36,10 @@ const Academic = () => {
         }}
         className="flex flex-col"
       >
-        <AcademicCard />
+        <AnimatedTestimonials testimonials={testimonials} />
       </motion.div>
     </div>
   );
 };
 
-export default Academic;
+export default Testimonial

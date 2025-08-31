@@ -9,8 +9,6 @@ import ProjectLister from "./ProjectLister";
 import { blogItems } from "@/data/content";
 import Experience from "./Experience";
 import Academic from "./Academic";
-import { AnimatedTestimonials } from "./ui/animated-testimonials";
-import { testimonials } from "@/data/content";
 import { easeInOut, motion } from "motion/react";
 import {
   textContainer,
@@ -23,7 +21,8 @@ import { Badge } from "./ui/badge";
 import { SocialMediaBtn } from "./ui/SocialBtn";
 import { socialMediaIems } from "@/data/content";
 import { projectItems } from '@/data/content';
-import { upcomingProjectItems } from "@/data/content"; 
+import { upcomingProjectItems } from "@/data/content";
+import Testimonial from "./Testimonial"; 
 
 const Hero = () => {
   return (
@@ -221,7 +220,8 @@ const Hero = () => {
       <Experience />
       <Academic />
       <Divider />
-      <AnimatedTestimonials testimonials={testimonials} />
+      <Testimonial />
+      
     </div>
   );
 };
