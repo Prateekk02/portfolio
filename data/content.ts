@@ -370,6 +370,7 @@ export const experienceItems = [
         organization:"Tata Consultancy Services Ltd.",
         role: "Systems Engineer - Prime",
         duration: "July 2025 - Present",
+        location:"Bengaluru",
         techStack:["Python", "Java", "Generative AI", "Machine Learning", "Automation", "Backend Development", "Testing", "RFID", "Agile Method"],
         responsibility:[
             "Prime profile role at client location, constributing to SDKs & Tools Testing/Validation throught Python and Java development, automation framework and process optimization.",
