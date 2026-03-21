@@ -20,9 +20,6 @@ export default function Navbar() {
             name: "Blog",
             link: "blog",
         },{
-            name: "Snippets",
-            link: "snippets"
-        },{
             name: "Resources",
             link: "resources"
         },{

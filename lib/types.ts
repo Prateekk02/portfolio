@@ -28,13 +28,6 @@ export interface FooterProps{
     itemList: socialMediaHandle[]
 }
 
-export interface SnippetsCardProps {
-    logoLink: string,
-    title: string,
-    content: string,
-    href?: string
-}
-
 export interface HeaderProps{
     title: string,
     content: string

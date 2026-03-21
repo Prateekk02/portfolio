@@ -339,28 +339,6 @@ export const papersItems = [
     },
 ]
 
-// Snippet Content
-
-export const snippetsItem = [
-    {
-        logoLink:"/nextjs-icon.png",
-        title: "UI Components",
-        content: "Cool templates coming soon...",
-        // href: "#"
-    },{
-        logoLink:"/ml-icon.png",
-        title: "Machine Learning Templates",
-        content: "Machine Learning Colab notebook template coming soon...",
-        // href: "#"
-    },{
-        logoLink:"/coming-soon.png",
-        title: "More Incoming",
-        content: "More component coming soon...",
-        // href: "#"
-    }
-    
-]
-
 // Experience content
 export const experienceItems = [
     {
