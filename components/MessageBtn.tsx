@@ -6,7 +6,7 @@ import { MessageCard } from "@/lib/types";
 import { useOutsideClick } from "@/hooks/useOutsideClick";
 import { motion } from "motion/react";
 import { EmailBtn, WhatsAppBtn, TwitterBtn, LinkedinBtn } from "./ui/SocialBtn";
-import { toast, ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
 
 const MessageBtn = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -21,7 +21,7 @@ const MessageBtn = () => {
     const email = formData.get("email") as string;
     const message = formData.get("message") as string;
     try {
-      const res = await fetch("api/message", {
+      const res = await fetch("/api/message", {
         method: "POST",
         body: JSON.stringify({ name, email, message }),
         headers: {
@@ -79,10 +79,11 @@ const MessageBtn = () => {
               >
                 {/* Name */}
                 <div className="flex flex-col">
-                  <label className="mb-1 text-neutral-700 text-sm sm:text-base">
+                  <label htmlFor="contact-name" className="mb-1 text-neutral-700 text-sm sm:text-base">
                     Name *
                   </label>
                   <input
+                    id="contact-name"
                     type="text"
                     name="name"
                     required
@@ -96,10 +97,11 @@ const MessageBtn = () => {
                 <input type="text" name="website" className="hidden" tabIndex={-1} autoComplete="off" />
                 {/* Email */}
                 <div className="flex flex-col">
-                  <label className="mb-1 text-neutral-700  text-sm sm:text-base">
+                  <label htmlFor="contact-email" className="mb-1 text-neutral-700  text-sm sm:text-base">
                     Email *
                   </label>
                   <input
+                    id="contact-email"
                     type="email"
                     name="email"
                     required
@@ -110,10 +112,11 @@ const MessageBtn = () => {
 
                 {/* Message */}
                 <div className="flex flex-col">
-                  <label className="mb-1 text-neutral-700  text-sm sm:text-base">
+                  <label htmlFor="contact-message" className="mb-1 text-neutral-700  text-sm sm:text-base">
                     Message *
                   </label>
                   <textarea
+                    id="contact-message"
                     name="message"
                     required
                     className="w-full px-3 py-2 text-sm sm:text-base rounded-md border border-neutral-300 dark:border-neutral-700 bg-white/90 text-black backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-200 shadow-sm resize-none min-h-[90px] sm:min-h-[110px]"
@@ -145,7 +148,7 @@ const MessageBtn = () => {
         )}
 
         <motion.button
-          layoutId="message-card"
+          layoutId="message-trigger"
           className="group flex justify-center items-center"
           onClick={() => setCurrent({} as MessageCard)}
         >
@@ -157,7 +160,6 @@ const MessageBtn = () => {
           </div>
         </motion.button>
       </div>
-      <ToastContainer />
     </div>
   );
 };

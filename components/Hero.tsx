@@ -19,14 +19,14 @@ import {
 } from "@/lib/motion";
 import { Badge } from "./ui/badge";
 import { SocialMediaBtn } from "./ui/SocialBtn";
-import { socialMediaIems } from "@/data/content";
+import { socialMediaItems } from "@/data/content";
 import { projectItems } from '@/data/content';
 import { upcomingProjectItems } from "@/data/content";
 import Testimonial from "./Testimonial"; 
 
 const Hero = () => {
   return (
-    <div className="w-screen mt-10">
+    <div className="w-full mt-10">
       <div className="relative flex justify-between items-center w-full ">
         <div>
           <motion.h1
@@ -102,6 +102,7 @@ const Hero = () => {
             height={150}
             alt="Prateek Photo"
             src={"/prateek.jpeg"}
+            priority
             className="rounded-full shadow-lg px-1 mt-2 mb-4"
           />
         </motion.div>
@@ -127,7 +128,7 @@ const Hero = () => {
           <div className="flex items-center gap-4">
             <span>Find me on:</span>
             <div className="flex items-center gap-6">
-              {socialMediaIems.map((item, index) => (
+              {socialMediaItems.map((item, index) => (
                 <SocialMediaBtn
                   key={index}
                   href={item.href}

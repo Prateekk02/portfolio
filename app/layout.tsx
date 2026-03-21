@@ -8,6 +8,7 @@ import Resume from "@/components/ResumeBtn";
 import "./globals.css";
 import MessageBtn from "@/components/MessageBtn";
 import { BackgroundBeams } from "@/components/ui/background-beams";
+import { ToastContainer } from "react-toastify";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -20,8 +21,33 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Prateek Kumar",
-  description: "Prateek Kumar portfolio website",
+  title: {
+    default: "Prateek Kumar — Fullstack Developer & AI Engineer",
+    template: "%s | Prateek Kumar",
+  },
+  description:
+    "Full-stack developer bridging AI research and software engineering. Building intelligent systems with Next.js, Node.js, NLP, GenAI, and computer vision.",
+  metadataBase: new URL("https://www.prateekkumar.dev"),
+  openGraph: {
+    title: "Prateek Kumar — Fullstack Developer & AI Engineer",
+    description:
+      "Full-stack developer bridging AI research and software engineering.",
+    url: "https://www.prateekkumar.dev",
+    siteName: "Prateek Kumar",
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Prateek Kumar — Fullstack Developer & AI Engineer",
+    description:
+      "Full-stack developer bridging AI research and software engineering.",
+    creator: "@codeWalker66",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({
@@ -36,20 +62,21 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className="relative font-serif h-full flex flex-col">
-        <Resume />
-        <MessageBtn />
         <ThemeProvider
           attribute="class"
           defaultTheme="light"
           enableSystem
           disableTransitionOnChange
         >
+          <Resume />
+          <MessageBtn />
           <Navbar />
-          
+
           <main className="flex-1 container lg:max-w-4xl mx-auto pt-20 px-4">
             {children}
           </main>
           <Footer itemList={footerContent} />
+          <ToastContainer />
         </ThemeProvider>
         <BackgroundBeams className="z-[-10] min-h-screen text-neutral-300" />
       </body>

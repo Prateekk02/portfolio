@@ -41,7 +41,7 @@ export const projectItems = [
     {
         logoLink: "/ml-icon.png",
         title: "ANN Customer Churn Prediction",
-        content:"The predictor tool will tell you weather the whether the customer will churn or not.",
+        content:"The predictor tool will tell you whether the customer will churn or not.",
         techList:["Python", "Machine Learning", "Deep Learning", "Streamlit", "Sci-kit Learn", "Numpy", "Pandas"],
         href:"https://ann-churn-prediction-codewalker66.streamlit.app/",
         githubLink:"https://github.com/Prateekk02/ann_churn_prediction",
@@ -61,7 +61,7 @@ export const upcomingProjectItems = [
     {
         logoLink: "/ml-icon.png",
         title: "Smart Research Assistant",
-        content:"Struggling with your research paper, lot of resource to consult. Here's your once step solution ",
+        content:"Struggling with your research paper, lot of resources to consult. Here's your one-step solution.",
         techList:["Python", "LangChain", "PineCone", "OpenAI", "RAG", "Fast API", "FAISS", "Pydantic", "Next.js", "PostgreSQL", "Prisma", "Docker"],
         githubLink:"https://github.com/Prateekk02/research-assistant",
         showBlinker : true
@@ -154,7 +154,7 @@ export const utilityItem = [
         href : "https://www.postman.com/"
     },{
         title: "Overleaf",
-        content: "Great resource for writing acedamic papers and resumes.",
+        content: "Great resource for writing academic papers and resumes.",
         href : "https://www.overleaf.com/"
     },        
     {
@@ -163,7 +163,7 @@ export const utilityItem = [
         href : "https://mermaid.live/"
     },
     {
-        title: "Excelidraw",
+        title: "Excalidraw",
         content: "Perfect for representing your thought process with diagram.",
         href : "https://excalidraw.com/"
     },
@@ -196,7 +196,7 @@ export const utilityItem = [
 
 export const uiItems = [
     {
-        title:"Aceterniy UI",
+        title:"Aceternity UI",
         content:"Use trending pre-styled components with built-in animations effortlessly in your websites.",
         href: "https://ui.aceternity.com/"
     },
@@ -268,7 +268,7 @@ export const ytChannelItems = [
     },
     {
         title:"3Blue1Brown",
-        content:"Best youtube channel to learn mathematics by vizualizing it, great for maths used in AI.",
+        content:"Best youtube channel to learn mathematics by visualizing it, great for maths used in AI.",
         href: "https://www.youtube.com/@3blue1brown"
     },
     {
@@ -289,7 +289,7 @@ export const ytChannelItems = [
     {
         title:"Arpit Bhayani",
         content:"Best resource to find a Software Engineer inside you. Learn system design and dissect technical whitepapers and research papers.",
-        href: "https://www.youtube.com/@krishnaik06"
+        href: "https://www.youtube.com/@AsliEngineering"
     }
 
 ]
@@ -337,9 +337,6 @@ export const papersItems = [
     {
         title:"Google Whitepaper: Agents Companion."
     },
-    {
-        title:"Google Whitepaper: Agents Companion."
-    },
 ]
 
 // Snippet Content
@@ -373,7 +370,7 @@ export const experienceItems = [
         location:"Bengaluru",
         techStack:["Python", "Java", "Generative AI", "Machine Learning", "Automation", "Backend Development", "Testing", "RFID", "Agile Method"],
         responsibility:[
-            "Prime profile role at client location, constributing to SDKs & Tools Testing/Validation throught Python and Java development, automation framework and process optimization.",
+            "Prime profile role at client location, contributing to SDKs & Tools Testing/Validation through Python and Java development, automation framework and process optimization.",
             "Supporting Generative AI initiatives by designing and integrating AI-driven solutions to enhance client workflows and productivity."
         ]
     },
@@ -466,7 +463,7 @@ export const testimonials = [
 ]
 
 // Social Media content
-export const socialMediaIems = [
+export const socialMediaItems = [
     {
         href: "https://x.com/codeWalker66", 
         Icon: FaXTwitter,

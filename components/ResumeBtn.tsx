@@ -2,7 +2,7 @@
 import React, { useState, useRef } from "react";
 import { Download } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
-import { toast, ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
 
 const Resume: React.FC = () => {
   const [isHovered, setIsHovered] = useState<boolean>(false);
@@ -13,7 +13,7 @@ const Resume: React.FC = () => {
     const now = Date.now();
 
     if (now - lastClick.current < THROTTLE_INTERVAL) {
-      toast.warn("You're are clicking too fast! Chill....", {
+      toast.warn("You're clicking too fast! Chill....", {
         position: "bottom-center",
         autoClose: 1500,
       });
@@ -27,7 +27,6 @@ const Resume: React.FC = () => {
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
-    window.location.reload();
     toast.success("Resume downloaded successfully.", { autoClose: 1000 });
   };
 
@@ -68,7 +67,6 @@ const Resume: React.FC = () => {
           )}
         </AnimatePresence>
       </motion.div>
-      <ToastContainer />
     </>
   );
 };
