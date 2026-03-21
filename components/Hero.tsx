@@ -9,7 +9,7 @@ import ProjectLister from "./ProjectLister";
 import { blogItems } from "@/data/content";
 import Experience from "./Experience";
 import Academic from "./Academic";
-import { easeInOut, motion } from "motion/react";
+import { motion } from "motion/react";
 import {
   textContainer,
   textVariant,
@@ -22,18 +22,18 @@ import { SocialMediaBtn } from "./ui/SocialBtn";
 import { socialMediaItems } from "@/data/content";
 import { projectItems } from '@/data/content';
 import { upcomingProjectItems } from "@/data/content";
-import Testimonial from "./Testimonial"; 
+import Testimonial from "./Testimonial";
 
 const Hero = () => {
   return (
     <div className="w-full mt-10">
-      <div className="relative flex justify-between items-center w-full ">
+      <div className="relative flex flex-col-reverse sm:flex-row justify-between items-center w-full gap-4">
         <div>
           <motion.h1
             initial="hidden"
             animate="visible"
             variants={headerVariant}
-            className="font-bold text-5xl text-black dark:text-white mb-2"
+            className="font-bold text-3xl sm:text-4xl md:text-5xl text-black dark:text-white mb-2"
           >
             Prateek Kumar
           </motion.h1>
@@ -41,40 +41,37 @@ const Hero = () => {
             initial="hidden"
             animate="visible"
             variants={blurUpVariant}
-            className="text-neutral-600 dark:text-neutral-300 px-1 py-2"
+            className="text-neutral-600 dark:text-neutral-300 px-1 py-2 text-sm sm:text-base"
           >
             Building{" "}
-            <Badge className="mx-0.5 text-black dark:text-white font-semibold  text-sm sm:text-base bg-gray-100 dark:bg-gray-600  rounded-xl shadow-lg dark:shadow-blue-950">
+            <Badge className="mx-0.5 text-black dark:text-white font-semibold text-sm sm:text-base bg-gray-100 dark:bg-gray-600 rounded-xl shadow-lg dark:shadow-blue-950 whitespace-normal">
               <motion.span
                 custom={1}
                 initial="hidden"
                 animate="visible"
                 variants={textVariant}
-                className=""
               >
                 Fullstack
               </motion.span>{" "}
             </Badge>
             apps, exploring{" "}
-            <Badge className="mx-0.5 text-black dark:text-white font-semibold  text-sm sm:text-base bg-gray-100 dark:bg-gray-600  rounded-xl shadow-lg dark:shadow-blue-950">
+            <Badge className="mx-0.5 text-black dark:text-white font-semibold text-sm sm:text-base bg-gray-100 dark:bg-gray-600 rounded-xl shadow-lg dark:shadow-blue-950 whitespace-normal">
               <motion.span
                 custom={1}
                 initial="hidden"
                 animate="visible"
                 variants={textVariant}
-                className=""
               >
                 GenAI
               </motion.span>{" "}
             </Badge>
-            side quests and
-            <Badge className="mx-0.5 text-black dark:text-white font-semibold  text-sm sm:text-base bg-gray-100 dark:bg-gray-600  rounded-xl shadow-lg dark:shadow-blue-950">
+            side quests and{" "}
+            <Badge className="mx-0.5 text-black dark:text-white font-semibold text-sm sm:text-base bg-gray-100 dark:bg-gray-600 rounded-xl shadow-lg dark:shadow-blue-950 whitespace-normal">
               <motion.span
                 custom={1}
                 initial="hidden"
                 animate="visible"
                 variants={textVariant}
-                className=""
               >
                 other cool things
               </motion.span>
@@ -85,15 +82,15 @@ const Hero = () => {
         <motion.div
           initial={{
             scale: 0,
-            filter: "blur(10px)",
+            filter: "blur(8px)",
           }}
           animate={{
             scale: 1,
             filter: "blur(0px)",
           }}
           transition={{
-            duration: 0.3,
-            ease: easeInOut,
+            duration: 0.6,
+            ease: "easeOut",
             delay: 0.4,
           }}
         >
@@ -103,14 +100,14 @@ const Hero = () => {
             alt="Prateek Photo"
             src={"/prateek.jpeg"}
             priority
-            className="rounded-full shadow-lg px-1 mt-2 mb-4"
+            className="rounded-full shadow-lg px-1 mt-2 mb-4 w-[100px] h-[100px] sm:w-[120px] sm:h-[120px] md:w-[150px] md:h-[150px]"
           />
         </motion.div>
       </div>
       <motion.div
         variants={textContainer}
         initial="hidden"
-        animate="show"
+        animate="visible"
         className="pt-4 px-1 w-full mx-auto"
       >
         <motion.h1
@@ -143,41 +140,38 @@ const Hero = () => {
 
       <div className="mt-5 pt-5">
         <motion.h1
-          initial={{
-            opacity: 0,
-            y: 30,
-          }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: "easeOut" }}
-          viewport={{ once: true }}
-          className="text-4xl font-bold mb-8"
+          initial={{ opacity: 0, y: 20, filter: "blur(8px)" }}
+          whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          viewport={{ once: false, amount: 0.2 }}
+          className="text-2xl sm:text-3xl md:text-4xl font-bold mb-8"
         >
           Recent Blogs
         </motion.h1>
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.3, ease: "easeOut", delay: 0.1 }}
-          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
+          viewport={{ once: false, amount: 0.2 }}
         >
           <LongCard itemList={blogItems} />
         </motion.div>
       </div>
       <div className=" mt-5 pt-5">
         <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: "easeOut" }}
-          viewport={{ once: true }}
-          className="text-4xl font-bold mb-8"
+          initial={{ opacity: 0, y: 20, filter: "blur(8px)" }}
+          whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          viewport={{ once: false, amount: 0.2 }}
+          className="text-2xl sm:text-3xl md:text-4xl font-bold mb-8"
         >
           Projects
         </motion.h1>
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut", delay: 0.15 }}
-          viewport={{ once: true }}
+          transition={{ duration: 0.6, ease: "easeOut", delay: 0.15 }}
+          viewport={{ once: false, amount: 0.2 }}
         >
           <ProjectLister count={4} projectItem={projectItems}/>
         </motion.div>
@@ -199,30 +193,30 @@ const Hero = () => {
 
       <div className=" mt-5 pt-5">
         <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: "easeOut" }}
-          viewport={{ once: true }}
-          className="text-4xl font-bold mb-8"
+          initial={{ opacity: 0, y: 20, filter: "blur(8px)" }}
+          whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          viewport={{ once: false, amount: 0.2 }}
+          className="text-2xl sm:text-3xl md:text-4xl font-bold mb-8"
         >
           Upcoming Projects
         </motion.h1>
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut", delay: 0.15 }}
-          viewport={{ once: true }}
+          transition={{ duration: 0.6, ease: "easeOut", delay: 0.15 }}
+          viewport={{ once: false, amount: 0.2 }}
         >
           <ProjectLister count={1} projectItem={upcomingProjectItems} />
         </motion.div>
-        
+
       </div>
-      
+
       <Experience />
       <Academic />
       <Divider />
       <Testimonial />
-      
+
     </div>
   );
 };

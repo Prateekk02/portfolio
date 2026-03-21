@@ -10,7 +10,7 @@ const ResourcesSection: React.FC<ResourcesSectionProps> = ({header, listItems}) 
 
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ["start end", "end start"]
+    offset: ["start 0.9", "end 0.1"]
   });
 
 
@@ -19,7 +19,7 @@ const ResourcesSection: React.FC<ResourcesSectionProps> = ({header, listItems}) 
   const leftCardRotate = useTransform(scrollYProgress, [0, 1], [-2, 2]);
   const rightCardRotate = useTransform(scrollYProgress, [0, 1], [2, -2]);
 
- 
+
   const sectionOpacity = useSpring(
     useTransform(scrollYProgress, [0, 0.2, 0.5, 0.8, 1], [0, 0.8, 1, 0.8, 0]),
     {
@@ -33,36 +33,34 @@ const ResourcesSection: React.FC<ResourcesSectionProps> = ({header, listItems}) 
     scrollYProgress,
     [0, 0.2, 0.5, 0.8, 1],
     [0.9, 0.98, 1, 0.98, 0.9]
-  ); 
+  );
 
 
   return (
-    <motion.div 
-      ref={ref} 
+    <motion.div
+      ref={ref}
       className="mt-10 pt-5 pl-1"
       style={{
         opacity: sectionOpacity,
         scale: sectionScale,
-        
       }}
     >
-        <div className="inline-block relative"          
+        <div className="inline-block relative"
         >
-            <motion.h1 initial="hidden" animate='show' viewport={{ once: false, amount: 0.2 }} variants={textItem} className="text-3xl font-bold mt-1">{header}</motion.h1>
-            <motion.div 
-              variants={scaleXVariant} 
-              initial="initial"
-              whileInView="animate"
-              
+            <motion.h1 initial="hidden" animate='visible' viewport={{ once: false, amount: 0.2 }} variants={textItem} className="text-3xl font-bold mt-1">{header}</motion.h1>
+            <motion.div
+              variants={scaleXVariant}
+              initial="hidden"
+              whileInView="visible"
               className="absolute left-0 -bottom-2 h-1 w-full rounded-xl bg-gradient-to-r from-neutral-700 via-neutral-500 to-neutral-200 dark:from-blue-800 dark:via-blue-400 dark:to-blue-200"
             ></motion.div>
         </div>
-        
+
         <div>
             <div className="flex flex-wrap gap-4 justify-between pt-8">
                 {listItems.map((item, index) => {
                     const isLeftCard = index % 2 === 0;
-                    
+
                     return (
                         <motion.div
                             key={item.title}
@@ -71,34 +69,34 @@ const ResourcesSection: React.FC<ResourcesSectionProps> = ({header, listItems}) 
                                 y: isLeftCard ? leftCardY : rightCardY,
                                 rotate: isLeftCard ? leftCardRotate : rightCardRotate,
                             }}
-                            initial={{ 
-                                opacity: 0, 
+                            initial={{
+                                opacity: 0,
                                 x: isLeftCard ? -50 : 50,
                                 scale: 0.9
                             }}
-                            whileInView={{ 
-                                opacity: 1, 
+                            whileInView={{
+                                opacity: 1,
                                 x: 0,
                                 scale: 1,
                                 transition: {
-                                    duration: 0.10,
-                                    delay: index * 0.01,
-                                    ease: [0.4, 0, 0.2, 1]
+                                    duration: 0.6,
+                                    delay: index * 0.05,
+                                    ease: 'easeOut'
                                 }
                             }}
-                            viewport={{ once: false, margin: "-100px" }}
+                            viewport={{ once: false, amount: 0.2 }}
                         >
                             <ResourcesCard
-                                title={item.title}                
+                                title={item.title}
                                 content={item.content}
-                                href={item.href}                
+                                href={item.href}
                             />
                         </motion.div>
                     )
                 })}
             </div>
         </div>
-    </motion.div>   
+    </motion.div>
   )
 }
 

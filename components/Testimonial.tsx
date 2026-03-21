@@ -23,9 +23,9 @@ const Testimonial = () => {
       <motion.h1 
       variants={fadeInUp}
       initial="hidden"
-      whileInView="show"
+      whileInView="visible"
       viewport={{ once: false, amount: 0.2 }}
-      className="text-4xl font-bold mt-10 mb-8">Feedback & Endorsements</motion.h1>
+      className="text-2xl sm:text-3xl md:text-4xl font-bold mt-10 mb-8">Feedback & Endorsements</motion.h1>
       <motion.div
         ref={ref}
         style={{

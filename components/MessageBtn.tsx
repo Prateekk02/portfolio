@@ -57,11 +57,11 @@ const MessageBtn = () => {
           <motion.div
             layoutId="message-card"
             ref={ref}
-            initial={{ opacity: 0, filter: "blur(10px)", y: -10 }}
+            initial={{ opacity: 0, filter: "blur(8px)", y: -10 }}
             animate={{ y: 0, opacity: 1, filter: "blur(0px)" }}
             transition={{
-              duration: 0.3,
-              ease: "easeInOut",
+              duration: 0.6,
+              ease: "easeOut",
               delay: 0.3,
             }}
             className="absolute -bottom-6 right-0 mb-4 w-[90vw] max-w-[360px] sm:max-w-[400px] md:max-w-[420px] mx-auto rounded-2xl bg-gradient-to-br from-[#f3f4f6] via-[#d1d5db] to-[#f3f4f6] dark:bg-gradient-to-br dark:from-[#D8E1FF]  dark:to-[#F4F6FA] dark:hover:shadow-blue-950 z-50 shadow-lg"

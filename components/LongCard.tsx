@@ -22,8 +22,8 @@ export const LongCard: React.FC<LongCardProps> = ({ itemList }) => {
 
   return (
     <motion.div
-      initial="initial"
-      animate="animate"
+      initial="hidden"
+      animate="visible"
       variants={parentVariantStaggering}
     >
       {visibleItems.map((item, idx) => (
@@ -31,14 +31,14 @@ export const LongCard: React.FC<LongCardProps> = ({ itemList }) => {
           {item.link ? (
             <motion.div
               key={`long-card-${item.title}`}
-              initial="initial"
-              animate="animate"
+              initial="hidden"
+              animate="visible"
               variants={childVariantStaggering}
-              viewport={{once:false, amount:0.3}}
+              viewport={{once:false, amount:0.2}}
             >
               <Link
                 href={item.link}
-                className="flex justify-between mt-5 p-8 items-center rounded-lg bg-gradient-to-br from-[#f3f4f6] via-[#d1d5db] to-[#f3f4f6] 
+                className="flex justify-between mt-5 p-4 sm:p-8 items-center rounded-lg bg-gradient-to-br from-[#f3f4f6] via-[#d1d5db] to-[#f3f4f6]
              dark:bg-gradient-to-br dark:from-[#D8E1FF]  dark:to-[#F4F6FA] dark:hover:shadow-blue-950
                dark:hover:bg-blue-300 duration-300 hover:bg-[#d1d1d2] hover:shadow-xl hover:scale-105 border "
                 target="_blank"
@@ -55,11 +55,11 @@ export const LongCard: React.FC<LongCardProps> = ({ itemList }) => {
             </motion.div>
           ) : (
             <motion.div
-              initial="initial"
-              animate="animate"
+              initial="hidden"
+              animate="visible"
               variants={childVariantStaggering}
-              viewport={{once:false, amount:0.3}}
-              className="flex justify-between mt-5 p-4 items-center rounded-lg bg-gradient-to-br from-[#f3f4f6] via-[#d1d5db] to-[#f3f4f6] 
+              viewport={{once:false, amount:0.2}}
+              className="flex justify-between mt-5 p-4 items-center rounded-lg bg-gradient-to-br from-[#f3f4f6] via-[#d1d5db] to-[#f3f4f6]
               dark:bg-gradient-to-br dark:from-[#D8E1FF]  dark:to-[#F4F6FA] dark:hover:shadow-blue-950 dark:hover:bg-blue-300 duration-300 hover:bg-[#d1d1d2] hover:shadow-xl border"
             >
               <div className="font-semibold text-black text-md">

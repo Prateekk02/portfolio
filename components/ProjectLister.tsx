@@ -8,13 +8,13 @@ const ProjectLister: React.FC<ProjectListerProps> = ({count, projectItem}) => {
     const visibleProjectItems = projectItem.slice(0,count);
 
   return (
-    <motion.div initial='initial' animate='animate' variants={parentVariantStaggering} className="flex flex-wrap gap-4 justify-between">
+    <motion.div initial='hidden' animate='visible' variants={parentVariantStaggering} className="flex flex-wrap gap-4 justify-between">
       {visibleProjectItems.map((item, idx) => (
         <motion.div
-            initial={{ opacity: 0, y: 50 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, amount: 0.2 }}
-            transition={{ duration: 0.6, ease: 'easeOut' }}                        
+            transition={{ duration: 0.6, ease: 'easeOut' }}
             variants={childVariantStaggering}
             key={idx}
             className="w-full sm:w-[48%] lg:w-[48%] p-2"

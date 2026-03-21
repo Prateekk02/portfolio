@@ -11,9 +11,9 @@ const Experience: React.FC = () => {
       <motion.h1
         variants={fadeInUp}
         initial="hidden"
-        whileInView="show"
-        viewport={{ once: false, amount: 0.3 }} 
-        className="text-4xl font-bold mt-10 mb-8"
+        whileInView="visible"
+        viewport={{ once: false, amount: 0.2 }} 
+        className="text-2xl sm:text-3xl md:text-4xl font-bold mt-10 mb-8"
       >
         Experience
       </motion.h1>

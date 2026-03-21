@@ -13,7 +13,7 @@ const Footer: React.FC<FooterProps> = ({ itemList }) => {
     initial={{
       y:-10,
       opacity:0,
-      filter:'blur(30px)'
+      filter:'blur(8px)'
     }}
     animate={{
       y:0,
@@ -22,7 +22,7 @@ const Footer: React.FC<FooterProps> = ({ itemList }) => {
     }}
     transition={{
       duration:0.8,
-      ease: 'easeInOut'
+      ease: 'easeOut'
     }}
     viewport={{once:false, amount:0.2}}
     className="relative max-w-4xl mx-auto dark:border-blue-700 mt-16   text-sm text-neutral-600 dark:text-neutral-300">

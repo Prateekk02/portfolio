@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import { ThemeToggle } from './ui/ThemeToggle';
 import Link from 'next/link';
 import { Menu, X } from 'lucide-react';
-import { easeInOut, motion } from 'motion/react'
+import { motion } from 'motion/react'
 
 export default function Navbar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -32,24 +32,24 @@ export default function Navbar() {
     ];
 
     const navContainer = {
-        initial:{},
-        animate:{
+        hidden:{},
+        visible:{
             transition:{
-                staggerChildren:0.2
+                staggerChildren:0.1
             },
         },
-    }    
+    }
     const navItem = {
-        initial:{
+        hidden:{
             opacity:0,
             y:-20
-        }, 
-        animate:{
+        },
+        visible:{
             opacity:1,
             y:0,
             transition:{
                 duration: 0.3,
-                ease: 'easeInOut'
+                ease: 'easeOut'
             }
         }
     }
@@ -59,12 +59,12 @@ export default function Navbar() {
     };
 
     return (
-        <motion.div 
+        <motion.div
             initial={{
                 opacity: 0,
                 scale: 0.98,
                 y:-20,
-                filter: 'blur(10px)'
+                filter: 'blur(8px)'
             }}
             animate={{
                 opacity:1,
@@ -73,8 +73,8 @@ export default function Navbar() {
                 filter: 'blur(0px)'
             }}
             transition={{
-                duration: 0.5,
-                ease: easeInOut
+                duration: 0.8,
+                ease: 'easeOut'
             }}
             className="fixed top-0 left-0 right-0 z-50 bg-white/25 dark:bg-gray-900/20 backdrop-blur-xl border-b border-white/10 dark:border-gray-800/30 pt-6">
                 <nav className="flex justify-between items-center max-w-5xl mx-auto pt-3 px-4">
@@ -89,21 +89,21 @@ export default function Navbar() {
                         }}
                         transition={{
                             duration:0.3,
-                            ease: easeInOut
+                            ease: 'easeOut'
                         }}
                         className="px-2 py-1 rounded-full hover:scale-110 duration-300 bg-white/30 dark:bg-gray-800/30 backdrop-blur-lg shadow-md dark:shadow-blue-950/30 border border-white/20 dark:border-gray-700/20">
                             <ThemeToggle />
                     </motion.div>
-                    
+
                     {/* Desktop Navigation */}
-                    <motion.div 
+                    <motion.div
                         variants={navContainer}
-                        initial="initial"
-                        animate="animate"
+                        initial="hidden"
+                        animate="visible"
                         className="hidden md:flex py-2 justify-center items-center gap-4 bg-white/20 dark:bg-gray-800/20 backdrop-blur-lg shadow-lg dark:shadow-blue-950/30 rounded-full px-4 border border-white/20 dark:border-gray-700/20">
                         {listItems.map((item, idx) => (
                             <motion.div key={`desktop-nav-link-${idx}`} variants={navItem} >
-                                <Link                                
+                                <Link
                                 href={item.link}
                                 onClick={onItemClick}
                                 className='py-2 px-3 text-neutral-700 font-semibold text-md hover:text-black dark:text-neutral-300 dark:hover:text-white transition-colors relative group hover:scale-110 duration-300 '
@@ -114,9 +114,9 @@ export default function Navbar() {
                             </motion.div>
                         ))}
                     </motion.div>
-                    
+
                     {/* Mobile Menu Button */}
-                    <button 
+                    <button
                         className="md:hidden p-2 text-neutral-700 dark:text-white focus:outline-none bg-white/30 dark:bg-gray-800/30 rounded-full backdrop-blur-lg border border-white/20 dark:border-gray-700/20"
                         onClick={toggleMenu}
                         aria-label="Toggle menu"
@@ -128,7 +128,7 @@ export default function Navbar() {
                         )}
                     </button>
                 </nav>
-            
+
             {/* Mobile Navigation */}
             {isMenuOpen && (
                 <div className="md:hidden bg-white/30 dark:bg-gray-800/30 backdrop-blur-xl py-2 px-4 shadow-lg border-t border-white/10 dark:border-gray-700/20">
