@@ -1,15 +1,17 @@
 "use client"
 
-import * as React from "react"
-import {useState, useEffect} from 'react'
+import { useSyncExternalStore } from "react"
 import { Moon, Sun } from "lucide-react"
 import { useTheme } from "next-themes"
 
 export function ThemeToggle() {
   const { theme, setTheme } = useTheme()
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => setMounted(true), [])
+  // false during SSR and hydration, true on the client afterwards
+  const mounted = useSyncExternalStore(
+    () => () => {},
+    () => true,
+    () => false,
+  )
 
   const toggleTheme = () => {
     setTheme(theme === "dark" ? "light" : "dark")
