@@ -1,114 +1,48 @@
 # Portfolio
 
-This repository contains a personal portfolio website built using Next.js and TypeScript. The application showcases projects, skills, and experiences, providing a comprehensive overview of professional accomplishments.
+Personal site and blog for Prateek Kumar. Monorepo with a Next.js frontend and a FastAPI backend.
 
-## Overview
+> Status: the site is being rebuilt in phases (see `v1-portfolio`). The frontend works today; the backend, admin panel and blog land in later phases.
 
-The portfolio is designed to provide a responsive and interactive user experience. It includes sections such as:
+## Target architecture
 
-- Introduction
-
-- About
-
-- Projects
-
-- Skills
-
-- Contact
-
-The live version of the portfolio is available at: https://www.prateekkumar.dev
-
-## Features
-### Responsive Design
--  Ensures compatibility across various devices and screen sizes.
-
-### Interactive UI 
-- Engaging user interface with smooth transitions and animations.
-
-### Project Showcase 
-- Detailed display of projects with descriptions and links (live & deployed).
-
-### Blogs
-- List of blogs which I have written across platforms related to tech and latest trends in AI. 
-
-### Resources and Snippets
-- List of all the resources (youtube channels, documentations, research papers, white papers) which I follow to learn new tech stacks and acquire knowledge.
-
-- Code snippets to obtain pre build UI components, Machine learning Colab templates etc. 
-
-### Contact Form
-- Allows visitors to send messages directly through the website.
-- For each message send, I receive an email notification.
-
-## Tech Stack
-- <b>Framework</b> : Next.js
-- <b>Language</b> : TypeScript
-- <b>Styling</b> : Tailwind CSS & Framer motion
-- <b>Database</b> : Prisma & PostgreSQL
-- <b>Deployment</b> : Vercel
-- <b>Domain</b> : Cloudflare
-- <b>Email Notification</b> : Resend  
-
-## Getting Started
-To run this project locally, follow these steps:
-
-1. <b>Clone this repository</b>   
-
-    ```bash
-        git clone https://github.com/Prateekk02/portfolio.git
-        cd portfolio 
-    ```
-2. <b>Install dependencies</b>
-    ```bash
-        npm install
-    ```
-
-3. <b>Run the development server</b>
-
-    ```bash 
-        npm run dev
-    ```
-4. <b>Open the application</b>
-
-    Navigate to http://localhost:3000 in your browser to view the website.
-
-## Project Structure
-
-The repository is organized as follows:
-
-- app/: Contains the main application components and pages.
-
-- components/: Reusable UI components used throughout the application.
-
-- data/: Static data such as project details and personal information.
-
-- hooks/: Custom React hooks for state management and other functionalities.
-
-- lib/: Utility functions and libraries.
-
-- prisma/: Prisma schema and database configurations.
-
-- public/: Static assets like images and fonts.
-
-- styles/: Global and component-specific styles.
-
-- README.md: Project documentation.
-
-- package.json: Project metadata and scripts.
-
-# Deployment
-
-The application is deployed on Vercel. For deployment, ensure that the Vercel CLI is installed and configured:
-
-```bash
-vercel login
-vercel
+```text
+Visitor --> Vercel (Next.js)  --reads-->  Cloud Run (FastAPI)  --SQL-->  Neon Postgres
+              |  public pages are static/ISR, served from the CDN
+              |  /admin is auth-gated (GitHub + Google OAuth, single admin)
+              '-- /api/revalidate is called by the backend when content changes
 ```
 
-Follow the prompts to deploy the application.
+## Repo layout
 
+```text
+frontend/   Next.js app (src/app, src/components, src/lib, tests/)
+backend/    FastAPI service (placeholder until Phase 3)
+infra/      docker-compose and deployment reference (Phase 3 onwards)
+.github/    CI, CodeQL and Dependabot
+Makefile    common tasks
+```
 
+## Getting started
 
-# License
+Requirements: Node 22+, `make`. (Python 3.12 and `uv` are needed from Phase 3.)
 
-This project is licensed under the MIT License.
+```bash
+make setup          # install dependencies and git hooks
+cp frontend/.env.example frontend/.env.local
+make dev            # http://localhost:3000
+```
+
+## Common commands
+
+| Command          | What it does                       |
+| ---------------- | ---------------------------------- |
+| `make check`     | lint, typecheck and unit tests     |
+| `make test`      | unit tests                         |
+| `make build`     | production build                   |
+| `make lint`      | ESLint                             |
+| `make typecheck` | TypeScript                         |
+
+## Contributing workflow
+
+One phase per branch (`v1/phase-N-...`), one Conventional Commit per task, and a pull request that passes the `ci` checks before merging to `main`.
