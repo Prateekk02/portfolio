@@ -18,13 +18,13 @@ export default function Navbar() {
             link: "/"
         },{
             name: "Blog",
-            link: "blog",
+            link: "/blog",
         },{
             name: "Resources",
-            link: "resources"
+            link: "/resources"
         },{
             name: "Projects",
-            link: "projects"
+            link: "/projects"
         }
     ];
 
