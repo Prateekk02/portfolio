@@ -4,12 +4,10 @@ import { FaXTwitter, FaLinkedinIn } from "react-icons/fa6";
 import Link from "next/link";
 import { motion } from "motion/react";
 import { MdEmail } from "react-icons/md";
-import { FaWhatsapp } from "react-icons/fa6";
 import React from "react";
 import { SocialMediaBtnProps } from "@/lib/types";
 
 const email = process.env.NEXT_PUBLIC_EMAIL_ADDRESS;
-const phone = process.env.NEXT_PUBLIC_PHONE_NUMBER;
 
 export const TwitterBtn = () => {
   return (
@@ -73,30 +71,6 @@ export const EmailBtn = () => {
           aria-label="Send Email"
         >
           <MdEmail className="text-white dark:text-white text-2xl sm:text-3xl" />
-        </Link>
-      </motion.div>
-    </div>
-  );
-};
-
-export const WhatsAppBtn = () => {
-  if (!phone) return null;
-
-  return (
-    <div className="flex justify-center items-center mt-2">
-      <motion.div
-        whileTap={{ scale: 0.9 }}
-        whileHover={{ scale: 1.2 }}
-        transition={{ duration: 0.3, ease: "easeInOut" }}
-        className="bg-green-500 dark:bg-green-600 p-2 rounded-full shadow-md hover:shadow-lg transition duration-300 ease-in-out"
-      >
-        <Link
-          href={`https://wa.me/${phone}`}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Chat on WhatsApp"
-        >
-          <FaWhatsapp className="text-white dark:text-white text-2xl sm:text-3xl" />
         </Link>
       </motion.div>
     </div>
