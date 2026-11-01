@@ -1,84 +1,62 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import { ThemeProvider } from "../lib/providers/ThemeProviderWrapper";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-import { footerContent } from "@/data/content";
-import Resume from "@/components/ResumeBtn";
+import localFont from "next/font/local";
+import { ThemeProvider } from "next-themes";
+import { SiteFooter } from "@/components/site/SiteFooter";
+import { SiteHeader } from "@/components/site/SiteHeader";
+import { SITE_URL } from "@/data/profile";
 import "./globals.css";
-import MessageBtn from "@/components/MessageBtn";
-import { BackgroundBeams } from "@/components/ui/background-beams";
-import { ToastContainer } from "react-toastify";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+const sans = localFont({
+  src: "./fonts/instrument-sans-latin-wght-normal.woff2",
+  variable: "--font-instrument",
+  weight: "400 700",
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+const mono = localFont({
+  src: "./fonts/jetbrains-mono-latin-wght-normal.woff2",
+  variable: "--font-jetbrains",
+  weight: "400 700",
+  display: "swap",
 });
+
+const DESCRIPTION =
+  "AI engineer in Bengaluru building LLM agents and the pipelines that ship them.";
 
 export const metadata: Metadata = {
-  title: {
-    default: "Prateek Kumar — Fullstack Developer & AI Engineer",
-    template: "%s | Prateek Kumar",
-  },
-  description:
-    "Full-stack developer bridging AI research and software engineering. Building intelligent systems with Next.js, Node.js, NLP, GenAI, and computer vision.",
-  metadataBase: new URL("https://www.prateekkumar.dev"),
+  metadataBase: new URL(SITE_URL),
+  title: { default: "Prateek Kumar, AI engineer", template: "%s | Prateek Kumar" },
+  description: DESCRIPTION,
+  alternates: { canonical: "./" },
   openGraph: {
-    title: "Prateek Kumar — Fullstack Developer & AI Engineer",
-    description:
-      "Full-stack developer bridging AI research and software engineering.",
-    url: "https://www.prateekkumar.dev",
+    title: "Prateek Kumar, AI engineer",
+    description: DESCRIPTION,
+    url: SITE_URL,
     siteName: "Prateek Kumar",
     locale: "en_US",
     type: "website",
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "Prateek Kumar — Fullstack Developer & AI Engineer",
-    description:
-      "Full-stack developer bridging AI research and software engineering.",
-    creator: "@codeWalker66",
-  },
-  robots: {
-    index: true,
-    follow: true,
-  },
+  twitter: { card: "summary", creator: "@codeWalker66" },
+  robots: { index: true, follow: true },
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} antialiased h-full`}
-      suppressHydrationWarning
-    >
-      <body className="relative font-serif h-full flex flex-col">
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="light"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <Resume />
-          <MessageBtn />
-          <Navbar />
-
-          <main className="flex-1 container lg:max-w-4xl mx-auto pt-20 px-4">
+    <html lang="en" className={`${sans.variable} ${mono.variable}`} suppressHydrationWarning>
+      <body className="min-h-dvh bg-paper font-sans text-ink antialiased">
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+          <a
+            href="#main"
+            className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:bg-ink focus:px-3 focus:py-2 focus:text-paper"
+          >
+            Skip to content
+          </a>
+          <SiteHeader />
+          <main id="main" className="mx-auto w-full max-w-[42rem] px-5 pb-24 pt-10 sm:pt-16">
             {children}
           </main>
-          <Footer itemList={footerContent} />
-          <ToastContainer />
+          <SiteFooter />
         </ThemeProvider>
-        <BackgroundBeams className="z-[-10] min-h-screen text-neutral-300" />
       </body>
     </html>
   );
