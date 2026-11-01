@@ -19,8 +19,8 @@ typecheck: ## tsc
 test: ## unit tests (backend tests arrive in Phase 3)
 	cd $(FRONTEND) && npm test
 
-e2e: ## end-to-end tests (Phase 2)
-	@echo "e2e arrives in Phase 2"
+e2e: ## end-to-end and accessibility tests against a production build
+	cd $(FRONTEND) && npm run build && npm run test:e2e
 
 check: lint typecheck test ## what CI runs
 

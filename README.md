@@ -39,6 +39,7 @@ make dev            # http://localhost:3000
 | ---------------- | ---------------------------------- |
 | `make check`     | lint, typecheck and unit tests     |
 | `make test`      | unit tests                         |
+| `make e2e`       | build, then Playwright and axe     |
 | `make build`     | production build                   |
 | `make lint`      | ESLint                             |
 | `make typecheck` | TypeScript                         |
