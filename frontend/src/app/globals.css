@@ -1,0 +1,109 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --paper: #f7f8f6;
+  --ink: #15181b;
+  --ink-soft: #4f565e;
+  --line: #dcdfda;
+  --mark: #ffe27a;
+  --mark-ink: #15181b;
+  --mark-wash: #ffefa8;
+  color-scheme: light;
+}
+
+.dark {
+  --paper: oklch(0.2099 0.0341 263.44);
+  --ink: #eaeef7;
+  --ink-soft: #aab3c5;
+  --line: oklch(1 0 0 / 14%);
+  --mark: #e3b341;
+  --mark-ink: #101728;
+  --mark-wash: #4a3b0f;
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-line: var(--line);
+  --color-mark: var(--mark);
+  --color-mark-ink: var(--mark-ink);
+  --color-mark-wash: var(--mark-wash);
+  --font-sans: var(--font-instrument), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-size: 1.0625rem;
+    line-height: 1.65;
+  }
+  ::selection {
+    background: var(--mark);
+    color: var(--mark-ink);
+  }
+  :focus-visible {
+    outline: 2px solid var(--ink);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+}
+
+@layer components {
+  /* Links: quiet underline, highlighter on hover. */
+  .link {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.2em;
+    text-decoration-color: color-mix(in oklab, currentColor 35%, transparent);
+  }
+  .link:hover {
+    background: var(--mark);
+    color: var(--mark-ink);
+    text-decoration-color: transparent;
+  }
+}
+
+@layer components {
+  .beams {
+    position: fixed;
+    inset: 0;
+    z-index: -10;
+    overflow: hidden;
+    pointer-events: none;
+    color: var(--ink-soft);
+    opacity: 0.3;
+  }
+  .dark .beams {
+    opacity: 0.35;
+  }
+  /* A short bright drop slides along each curve. pathLength is 100, so the
+     8-unit dash and 100-unit gap show exactly one drop per beam. */
+  .beam-drop {
+    stroke-dasharray: 8 100;
+    stroke-dashoffset: 8;
+    animation: beam-drop var(--beam-duration, 14s) linear var(--beam-delay, 0s) infinite;
+  }
+  @keyframes beam-drop {
+    from {
+      stroke-dashoffset: 8;
+    }
+    to {
+      stroke-dashoffset: -100;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .beam-drop {
+      animation: none;
+      stroke-dashoffset: -30;
+    }
+  }
+}
