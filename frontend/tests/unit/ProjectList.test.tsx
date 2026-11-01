@@ -14,7 +14,9 @@ const base: Project = {
 describe("ProjectList", () => {
   it("shows title, summary and stack in the full variant", () => {
     render(<ProjectList projects={[base]} />);
-    expect(screen.getByRole("heading", { name: "Demo project" })).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", { name: "Demo project" }),
+    ).toBeInTheDocument();
     expect(screen.getByText("Does a demo.")).toBeInTheDocument();
     expect(screen.getByText("Python, FastAPI")).toBeInTheDocument();
   });
@@ -32,9 +34,16 @@ describe("ProjectList", () => {
       caseStudy: [{ heading: "Problem", body: "text" }],
     };
     render(<ProjectList projects={[project]} />);
-    expect(screen.getByRole("link", { name: "Read the case study" })).toHaveAttribute("href", "/projects/demo");
-    expect(screen.getByRole("link", { name: /Source on GitHub/ })).toHaveAttribute("href", "https://github.com/x/y");
-    expect(screen.getByRole("link", { name: /Live demo/ })).toHaveAttribute("href", "https://demo.example.com");
+    expect(
+      screen.getByRole("link", { name: "Read the case study" }),
+    ).toHaveAttribute("href", "/projects/demo");
+    expect(
+      screen.getByRole("link", { name: /Source on GitHub/ }),
+    ).toHaveAttribute("href", "https://github.com/x/y");
+    expect(screen.getByRole("link", { name: /Live demo/ })).toHaveAttribute(
+      "href",
+      "https://demo.example.com",
+    );
   });
 
   it("renders no links for a project without any", () => {

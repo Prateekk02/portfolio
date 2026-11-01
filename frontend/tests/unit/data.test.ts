@@ -2,12 +2,18 @@ import { describe, expect, it } from "vitest";
 import { education } from "@/data/education";
 import { experience } from "@/data/experience";
 import { profile } from "@/data/profile";
-import { earlierProjects, featuredProjects, getProject, projects } from "@/data/projects";
+import {
+  earlierProjects,
+  featuredProjects,
+  getProject,
+  projects,
+} from "@/data/projects";
 import { recommendations } from "@/data/recommendations";
 import { resourceGroups } from "@/data/resources";
 import { writing } from "@/data/writing";
 
-const urls = (list: (string | undefined)[]) => list.filter((u): u is string => Boolean(u));
+const urls = (list: (string | undefined)[]) =>
+  list.filter((u): u is string => Boolean(u));
 
 describe("project data", () => {
   it("has unique, url-safe slugs", () => {
@@ -17,7 +23,9 @@ describe("project data", () => {
   });
 
   it("splits cleanly into featured and earlier work", () => {
-    expect(featuredProjects.length + earlierProjects.length).toBe(projects.length);
+    expect(featuredProjects.length + earlierProjects.length).toBe(
+      projects.length,
+    );
     expect(featuredProjects.length).toBeGreaterThan(0);
   });
 
@@ -57,7 +65,8 @@ describe("other content", () => {
     expect(experience.length).toBeGreaterThan(0);
     expect(education.length).toBeGreaterThan(0);
     expect(recommendations.length).toBeGreaterThan(0);
-    for (const job of experience) expect(job.highlights.length).toBeGreaterThan(0);
+    for (const job of experience)
+      expect(job.highlights.length).toBeGreaterThan(0);
   });
 
   it("does not expose a phone number anywhere in the profile", () => {

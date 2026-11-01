@@ -15,3 +15,12 @@ Object.defineProperty(window, "matchMedia", {
     dispatchEvent: vi.fn(),
   })),
 });
+
+// jsdom does not implement IntersectionObserver, which in-view animations use.
+class IntersectionObserverStub {
+  observe = vi.fn();
+  unobserve = vi.fn();
+  disconnect = vi.fn();
+  takeRecords = vi.fn(() => []);
+}
+vi.stubGlobal("IntersectionObserver", IntersectionObserverStub);

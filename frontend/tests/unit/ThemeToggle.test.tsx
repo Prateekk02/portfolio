@@ -21,10 +21,14 @@ describe("ThemeToggle", () => {
   it("switches the document to dark mode and back, updating its label", async () => {
     renderToggle();
 
-    await userEvent.click(screen.getByRole("button", { name: "Switch to dark theme" }));
+    await userEvent.click(
+      screen.getByRole("button", { name: "Switch to dark theme" }),
+    );
     expect(document.documentElement).toHaveClass("dark");
 
-    await userEvent.click(screen.getByRole("button", { name: "Switch to light theme" }));
+    await userEvent.click(
+      screen.getByRole("button", { name: "Switch to light theme" }),
+    );
     expect(document.documentElement).not.toHaveClass("dark");
   });
 });

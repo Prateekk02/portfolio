@@ -1,0 +1,81 @@
+import { expect, test } from "@playwright/test";
+
+test.describe("dark theme", () => {
+  test.use({ colorScheme: "dark" });
+
+  test("uses the deep blue background", async ({ page }) => {
+    await page.goto("/");
+    // Resolve the computed colour (possibly oklch) to real RGB through a canvas.
+    const [r, g, b] = await page.evaluate(() => {
+      const ctx = document
+        .createElement("canvas")
+        .getContext("2d", { willReadFrequently: true })!;
+      ctx.fillStyle = getComputedStyle(document.body).backgroundColor;
+      ctx.fillRect(0, 0, 1, 1);
+      return Array.from(ctx.getImageData(0, 0, 1, 1).data);
+    });
+    // Blue channel clearly dominates: navy, not neutral grey.
+    expect(b).toBeGreaterThan(r + 15);
+    expect(b).toBeGreaterThan(g + 8);
+    expect(b).toBeLessThan(80); // still a dark surface
+  });
+
+  test("shows the background beams without blocking clicks or the accessibility tree", async ({
+    page,
+  }) => {
+    await page.goto("/");
+    const beams = page.getByTestId("background-beams");
+    await expect(beams).toBeAttached();
+    await expect(beams).toHaveAttribute("aria-hidden", "true");
+    expect(await beams.evaluate((el) => getComputedStyle(el).opacity)).toBe(
+      "1",
+    );
+    await page.getByRole("link", { name: "Contact" }).click();
+    await expect(page).toHaveURL(/\/contact$/);
+  });
+});
+
+test("beams are subdued in the light theme", async ({ page }) => {
+  await page.emulateMedia({ colorScheme: "light" });
+  await page.goto("/");
+  const opacity = await page
+    .getByTestId("background-beams")
+    .evaluate((el) => getComputedStyle(el).opacity);
+  expect(Number(opacity)).toBeLessThan(0.5);
+});
+
+test("sections reveal on scroll and end fully visible", async ({ page }) => {
+  await page.goto("/");
+  const heading = page.getByRole("heading", { name: "Writing" });
+  await heading.scrollIntoViewIfNeeded();
+  const body = page.locator("#writing-heading + div");
+  await expect(body).toHaveCSS("opacity", "1");
+});
+
+test("with reduced motion the page is fully visible immediately", async ({
+  page,
+}) => {
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await page.goto("/");
+  await expect(page.locator("#work-heading + div")).toBeVisible();
+});
+
+test("the beams do not shift layout", async ({ page }) => {
+  await page.goto("/");
+  const cls = await page.evaluate(
+    () =>
+      new Promise<number>((resolve) => {
+        let total = 0;
+        new PerformanceObserver((list) => {
+          for (const e of list.getEntries() as unknown as {
+            value: number;
+            hadRecentInput: boolean;
+          }[]) {
+            if (!e.hadRecentInput) total += e.value;
+          }
+        }).observe({ type: "layout-shift", buffered: true });
+        setTimeout(() => resolve(total), 1500);
+      }),
+  );
+  expect(cls).toBeLessThan(0.02);
+});

@@ -12,14 +12,19 @@ describe("TextLink", () => {
 
   it("opens external links in a new tab safely and announces it", () => {
     render(<TextLink href="https://github.com/Prateekk02">GitHub</TextLink>);
-    const link = screen.getByRole("link", { name: "GitHub (opens in a new tab)" });
+    const link = screen.getByRole("link", {
+      name: "GitHub (opens in a new tab)",
+    });
     expect(link).toHaveAttribute("target", "_blank");
     expect(link).toHaveAttribute("rel", "noopener noreferrer");
   });
 
   it("treats a file path such as the resume PDF as a file, not a route", () => {
     render(<TextLink href="/Prateek_Kumar.pdf">Resume</TextLink>);
-    expect(screen.getByRole("link", { name: /Resume/ })).toHaveAttribute("target", "_blank");
+    expect(screen.getByRole("link", { name: /Resume/ })).toHaveAttribute(
+      "target",
+      "_blank",
+    );
   });
 
   it("keeps mailto links in the same tab", () => {

@@ -12,7 +12,12 @@ describe("NavLinks", () => {
 
   it("links to every top-level page with an absolute href", () => {
     render(<NavLinks />);
-    const expected = { Projects: "/projects", Experience: "/experience", Blog: "/blog", Contact: "/contact" };
+    const expected = {
+      Projects: "/projects",
+      Experience: "/experience",
+      Blog: "/blog",
+      Contact: "/contact",
+    };
     for (const [name, href] of Object.entries(expected)) {
       expect(screen.getByRole("link", { name })).toHaveAttribute("href", href);
     }
@@ -26,14 +31,22 @@ describe("NavLinks", () => {
   it("marks the matching link as current", () => {
     pathname.value = "/blog";
     render(<NavLinks />);
-    expect(screen.getByRole("link", { name: "Blog" })).toHaveAttribute("aria-current", "page");
-    expect(screen.getByRole("link", { name: "Projects" })).not.toHaveAttribute("aria-current");
+    expect(screen.getByRole("link", { name: "Blog" })).toHaveAttribute(
+      "aria-current",
+      "page",
+    );
+    expect(screen.getByRole("link", { name: "Projects" })).not.toHaveAttribute(
+      "aria-current",
+    );
   });
 
   it("keeps the parent link current on nested routes", () => {
     pathname.value = "/projects/agentic-failure-triage";
     render(<NavLinks />);
-    expect(screen.getByRole("link", { name: "Projects" })).toHaveAttribute("aria-current", "page");
+    expect(screen.getByRole("link", { name: "Projects" })).toHaveAttribute(
+      "aria-current",
+      "page",
+    );
   });
 
   it("does not treat a similar prefix as the same section", () => {
