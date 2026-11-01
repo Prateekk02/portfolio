@@ -38,6 +38,8 @@ export interface Recommendation {
   quote: string;
   name: string;
   role: string;
+  /** Path under /public to a portrait of the person. */
+  photo: string;
 }
 
 export interface WritingItem {
