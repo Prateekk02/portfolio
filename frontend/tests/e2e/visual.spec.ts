@@ -104,7 +104,8 @@ for (const scheme of ["light", "dark"] as const) {
       expect(style.bg).not.toMatch(/rgb\(\d+, \d+, \d+\)$/); // translucent, not opaque
     });
 
-    test("gains a deeper shadow when hovered", async ({ page }) => {
+    test("gains a deeper shadow when hovered", async ({ page, isMobile }) => {
+      test.skip(isMobile, "touch screens have no hover");
       await page.goto("/");
       const tile = page.getByTestId("site-header-tile");
       const shadow = () =>
@@ -149,4 +150,21 @@ test("a drop travels along the beams instead of lighting the whole line", async 
     expect(v).toBeGreaterThanOrEqual(-100);
     expect(v).toBeLessThanOrEqual(8);
   }
+});
+
+test("recommendations show portraits and can be stepped through", async ({
+  page,
+}) => {
+  await page.goto("/");
+  const section = page.locator("#recommendations-heading").locator("xpath=..");
+  await section.scrollIntoViewIfNeeded();
+  const name = section.getByRole("heading", { level: 3 });
+  const first = await name.textContent();
+  await expect(section.getByRole("img")).toHaveCount(4);
+  await section.getByRole("button", { name: "Next recommendation" }).click();
+  await expect(name).not.toHaveText(first ?? "");
+  await section
+    .getByRole("button", { name: "Previous recommendation" })
+    .click();
+  await expect(name).toHaveText(first ?? "");
 });
