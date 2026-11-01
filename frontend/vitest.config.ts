@@ -16,8 +16,7 @@ export default defineConfig({
       provider: "v8",
       include: ["src/lib/**", "src/components/**"],
       reporter: ["text-summary", "lcov"],
-      // Floor only. Raised to 75% in Phase 2 when the components are rewritten with tests.
-      thresholds: { lines: 5, functions: 5, statements: 5, branches: 5 },
+      thresholds: { lines: 75, functions: 75, statements: 75, branches: 75 },
     },
   },
 });
