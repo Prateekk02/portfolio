@@ -2,9 +2,9 @@ export const SITE_URL = "https://www.prateekkumar.dev";
 
 export const profile = {
   name: "Prateek Kumar",
-  headline: "I build LLM agents and the pipelines that ship them.",
+  headline: "I turn language models into software you can trust: right, fast and cheap, all at once.",
   intro: [
-    "I work on test automation and generative AI tooling. I like problems where a model has to be right, cheap and fast at the same time.",
+    "I work on LLM agents, retrieval and evaluation, and on the pipelines that take them from a notebook to production.",
     "Before that I used deep learning to cut a CFD simulation from 40 minutes to 4 as an intern at BITS Pilani, Goa.",
   ],
   location: "Bengaluru",
