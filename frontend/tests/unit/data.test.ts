@@ -87,6 +87,11 @@ describe("profile copy", () => {
     expect(copy).not.toMatch(/test automation/i);
   });
 
+  it("does not mention the internship in the home intro", () => {
+    expect(copy).not.toMatch(/bits|pilani|goa|intern/i);
+    expect(profile.intro).toHaveLength(1);
+  });
+
   it("never names an employer", () => {
     expect(copy).not.toMatch(/zebra|tcs|tata/i);
   });
