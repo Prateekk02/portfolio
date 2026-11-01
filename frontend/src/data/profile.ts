@@ -4,7 +4,7 @@ export const profile = {
   name: "Prateek Kumar",
   headline: "I build LLM agents and the pipelines that ship them.",
   intro: [
-    "I'm a systems engineer in Bengaluru working on test automation and generative AI tooling. I like problems where a model has to be right, cheap and fast at the same time.",
+    "I work on test automation and generative AI tooling. I like problems where a model has to be right, cheap and fast at the same time.",
     "Before that I used deep learning to cut a CFD simulation from 40 minutes to 4 as an intern at BITS Pilani, Goa.",
   ],
   location: "Bengaluru",
