@@ -1,3 +1,5 @@
+import { existsSync } from "node:fs";
+import { join } from "node:path";
 import { describe, expect, it } from "vitest";
 import { education } from "@/data/education";
 import { experience } from "@/data/experience";
@@ -94,5 +96,17 @@ describe("profile copy", () => {
 
   it("never names an employer", () => {
     expect(copy).not.toMatch(/zebra|tcs|tata/i);
+  });
+});
+
+describe("recommendations", () => {
+  it("each has a portrait that exists under public/", () => {
+    for (const item of recommendations) {
+      expect(item.photo.startsWith("/recommendations/"), item.name).toBe(true);
+      expect(
+        existsSync(join(process.cwd(), "public", item.photo)),
+        item.photo,
+      ).toBe(true);
+    }
   });
 });
