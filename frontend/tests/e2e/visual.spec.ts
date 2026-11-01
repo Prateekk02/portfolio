@@ -104,6 +104,19 @@ for (const scheme of ["light", "dark"] as const) {
       expect(style.bg).not.toMatch(/rgb\(\d+, \d+, \d+\)$/); // translucent, not opaque
     });
 
+    test("gains a deeper shadow when hovered", async ({ page }) => {
+      await page.goto("/");
+      const tile = page.getByTestId("site-header-tile");
+      const shadow = () =>
+        tile.evaluate((el) => getComputedStyle(el).boxShadow);
+      const resting = await shadow();
+      await tile.hover({ position: { x: 4, y: 4 } });
+      await page.waitForTimeout(500);
+      const hovered = await shadow();
+      expect(hovered).not.toBe(resting);
+      expect(hovered).not.toBe("none");
+    });
+
     test("floats and stays in view while scrolling", async ({ page }) => {
       await page.goto("/");
       const tile = page.getByTestId("site-header-tile");
@@ -116,3 +129,24 @@ for (const scheme of ["light", "dark"] as const) {
     });
   });
 }
+
+test("a drop travels along the beams instead of lighting the whole line", async ({
+  page,
+}) => {
+  await page.goto("/");
+  const offsets = async () =>
+    page.$$eval(".beam-drop", (els) =>
+      els.map((el) => parseFloat(getComputedStyle(el).strokeDashoffset)),
+    );
+  const first = await offsets();
+  await page.waitForTimeout(1200);
+  const second = await offsets();
+  expect(first).toHaveLength(13);
+  // Moving: at least most drops advanced, and each stays within its own path length.
+  const moved = second.filter((v, i) => v !== first[i]).length;
+  expect(moved).toBeGreaterThan(9);
+  for (const v of second) {
+    expect(v).toBeGreaterThanOrEqual(-100);
+    expect(v).toBeLessThanOrEqual(8);
+  }
+});
