@@ -1,9 +1,11 @@
 import Image from "next/image";
 import { ProjectList } from "@/components/site/ProjectList";
+import { AnimatedRecommendations } from "@/components/site/AnimatedRecommendations";
 import { Section } from "@/components/site/Section";
 import { TextLink } from "@/components/site/TextLink";
 import { WritingList } from "@/components/site/WritingList";
 import { profile, SITE_URL } from "@/data/profile";
+import { recommendations } from "@/data/recommendations";
 import { featuredProjects } from "@/data/projects";
 import { writing } from "@/data/writing";
 
@@ -13,7 +15,12 @@ const jsonLd = {
   name: profile.name,
   url: SITE_URL,
   jobTitle: "Systems Engineer",
-  sameAs: [profile.links.github, profile.links.linkedin, profile.links.x, profile.links.medium],
+  sameAs: [
+    profile.links.github,
+    profile.links.linkedin,
+    profile.links.x,
+    profile.links.medium,
+  ],
 };
 
 export default function HomePage() {
@@ -21,7 +28,9 @@ export default function HomePage() {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
+        }}
       />
 
       <div className="flex items-center gap-4">
@@ -75,6 +84,10 @@ export default function HomePage() {
         <p className="mt-5">
           <TextLink href="/blog">All writing</TextLink>
         </p>
+      </Section>
+
+      <Section id="recommendations" title="Recommendations">
+        <AnimatedRecommendations items={recommendations} />
       </Section>
     </>
   );

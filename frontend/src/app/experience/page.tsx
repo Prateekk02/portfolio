@@ -3,6 +3,7 @@ import { PageHeader } from "@/components/site/PageHeader";
 import { Section } from "@/components/site/Section";
 import { education, schooling } from "@/data/education";
 import { experience } from "@/data/experience";
+import { AnimatedRecommendations } from "@/components/site/AnimatedRecommendations";
 import { recommendations } from "@/data/recommendations";
 
 export const metadata: Metadata = {
@@ -31,7 +32,9 @@ export default function ExperiencePage() {
                   <li key={item}>{item}</li>
                 ))}
               </ul>
-              <p className="mt-4 text-sm text-ink-soft">{job.stack.join(", ")}</p>
+              <p className="mt-4 text-sm text-ink-soft">
+                {job.stack.join(", ")}
+              </p>
             </article>
           ))}
         </div>
@@ -67,18 +70,7 @@ export default function ExperiencePage() {
       </Section>
 
       <Section id="recommendations" title="Recommendations">
-        <div className="space-y-8">
-          {recommendations.map((item) => (
-            <figure key={item.name} className="border-l-2 border-line pl-5">
-              <blockquote>
-                <p className="max-w-[36rem]">{item.quote}</p>
-              </blockquote>
-              <figcaption className="mt-3 text-sm text-ink-soft">
-                {item.name}, {item.role}
-              </figcaption>
-            </figure>
-          ))}
-        </div>
+        <AnimatedRecommendations items={recommendations} />
       </Section>
     </>
   );
