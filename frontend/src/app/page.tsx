@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { LogExcerpt } from "@/components/site/LogExcerpt";
 import { ProjectList } from "@/components/site/ProjectList";
 import { Section } from "@/components/site/Section";
 import { TextLink } from "@/components/site/TextLink";
@@ -63,8 +62,6 @@ export default function HomePage() {
           <TextLink href={profile.resumeHref}>Resume</TextLink>
         </li>
       </ul>
-
-      <LogExcerpt />
 
       <Section id="work" title="Selected work">
         <ProjectList projects={featuredProjects} />
