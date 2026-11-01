@@ -85,7 +85,7 @@
     mask: url("/beams.svg") center / cover no-repeat;
   }
   .dark .beams {
-    opacity: 1;
+    opacity: 0.35;
   }
   .beams-sweep {
     position: absolute;
