@@ -73,3 +73,21 @@ describe("other content", () => {
     expect(JSON.stringify(profile)).not.toMatch(/\+?\d[\d\s-]{9,}\d/);
   });
 });
+
+describe("profile copy", () => {
+  const copy = [profile.headline, ...profile.intro].join(" ");
+
+  it("leads with the AI engineering positioning", () => {
+    expect(profile.headline).toBe(
+      "I turn language models into software you can trust: right, fast and cheap, all at once.",
+    );
+  });
+
+  it("keeps the intro focused on AI work, not on testing", () => {
+    expect(copy).not.toMatch(/test automation/i);
+  });
+
+  it("never names an employer", () => {
+    expect(copy).not.toMatch(/zebra|tcs|tata/i);
+  });
+});

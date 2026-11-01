@@ -23,7 +23,7 @@ describe("pages", () => {
   it("home leads with the headline and links to the main sections", () => {
     render(<HomePage />);
     expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent(
-      /LLM agents/,
+      /language models into software you can trust/,
     );
     expect(
       screen.getByRole("heading", { name: "Selected work" }),

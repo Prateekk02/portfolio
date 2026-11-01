@@ -27,9 +27,12 @@ test.describe("dark theme", () => {
     const beams = page.getByTestId("background-beams");
     await expect(beams).toBeAttached();
     await expect(beams).toHaveAttribute("aria-hidden", "true");
-    expect(await beams.evaluate((el) => getComputedStyle(el).opacity)).toBe(
-      "1",
+    // Visible, but quiet enough that text stays easy to read.
+    const opacity = Number(
+      await beams.evaluate((el) => getComputedStyle(el).opacity),
     );
+    expect(opacity).toBeGreaterThan(0.15);
+    expect(opacity).toBeLessThanOrEqual(0.4);
     await page.getByRole("link", { name: "Contact" }).click();
     await expect(page).toHaveURL(/\/contact$/);
   });
@@ -79,3 +82,37 @@ test("the beams do not shift layout", async ({ page }) => {
   );
   expect(cls).toBeLessThan(0.02);
 });
+
+for (const scheme of ["light", "dark"] as const) {
+  test.describe(`${scheme} header tile`, () => {
+    test.use({ colorScheme: scheme });
+
+    test("is frosted glass with curved corners", async ({ page }) => {
+      await page.goto("/");
+      const tile = page.getByTestId("site-header-tile");
+      const style = await tile.evaluate((el) => {
+        const s = getComputedStyle(el);
+        return {
+          blur:
+            s.backdropFilter || s.getPropertyValue("-webkit-backdrop-filter"),
+          radius: parseFloat(s.borderTopLeftRadius),
+          bg: s.backgroundColor,
+        };
+      });
+      expect(style.blur).toContain("blur");
+      expect(style.radius).toBeGreaterThanOrEqual(12);
+      expect(style.bg).not.toMatch(/rgb\(\d+, \d+, \d+\)$/); // translucent, not opaque
+    });
+
+    test("floats and stays in view while scrolling", async ({ page }) => {
+      await page.goto("/");
+      const tile = page.getByTestId("site-header-tile");
+      const before = await tile.boundingBox();
+      await page.mouse.wheel(0, 900);
+      await page.waitForTimeout(300);
+      const after = await tile.boundingBox();
+      expect(before!.y).toBeGreaterThan(4);
+      expect(Math.abs(after!.y - before!.y)).toBeLessThan(2);
+    });
+  });
+}
