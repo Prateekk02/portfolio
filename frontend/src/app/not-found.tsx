@@ -1,18 +1,13 @@
-import Link from "next/link";
+import { PageHeader } from "@/components/site/PageHeader";
+import { TextLink } from "@/components/site/TextLink";
 
 export default function NotFound() {
   return (
-    <div className="flex flex-col items-center justify-center min-h-[60vh] text-center">
-      <h1 className="text-6xl font-bold mb-4">404</h1>
-      <p className="text-xl text-neutral-600 dark:text-neutral-300 mb-8">
-        This page could not be found.
+    <>
+      <PageHeader title="Page not found" lede="This page does not exist or has moved." />
+      <p className="mt-8">
+        <TextLink href="/">Go to the home page</TextLink>
       </p>
-      <Link
-        href="/"
-        className="px-6 py-3 bg-neutral-900 dark:bg-white text-white dark:text-black rounded-lg font-medium hover:opacity-90 transition-opacity"
-      >
-        Go back home
-      </Link>
-    </div>
+    </>
   );
 }
