@@ -13,7 +13,7 @@ export const profile = {
   links: {
     github: "https://github.com/Prateekk02",
     linkedin: "https://www.linkedin.com/in/prateekk02/",
-    x: "https://x.com/codeWalker66",
+    x: "https://x.com/_codewalker66",
     medium: "https://medium.com/@codeWalker66",
     kaggle: "https://www.kaggle.com/prateekk02",
     leetcode: "https://leetcode.com/u/codeWalker66/",
