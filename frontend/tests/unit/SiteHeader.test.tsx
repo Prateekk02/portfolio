@@ -19,7 +19,15 @@ describe("SiteHeader", () => {
     render(<SiteHeader />);
     const tile = screen.getByTestId("site-header-tile");
     expect(tile).toHaveClass("rounded-2xl", "backdrop-blur-xl");
-    expect(tile.className).toMatch(/bg-paper\/\d+/);
+    expect(tile).toHaveClass("bg-paper/40");
+  });
+
+  it("emits a shadow on hover and eases it in", () => {
+    render(<SiteHeader />);
+    const tile = screen.getByTestId("site-header-tile");
+    expect(tile.className).toMatch(/hover:shadow-/);
+    expect(tile.className).toMatch(/dark:hover:shadow-/);
+    expect(tile).toHaveClass("transition-shadow");
   });
 
   it("sticks to the top with a gap so it floats", () => {
