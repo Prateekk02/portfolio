@@ -18,6 +18,7 @@ Prateek's work is reading noisy logs and finding the one line that matters. The 
 | line | `#DCDFDA` | `#272B2F` | hairlines between rows |
 | mark | `#FFE27A` | `#E3B341` | the highlighter: anomaly line, link hover |
 | mark-ink | `#15181B` | `#111315` | text on top of mark |
+| mark-wash | `#FFEFA8` | `#4A3B0F` | background wash behind the anomaly line |
 
 Contrast: ink on paper and ink-soft on paper are above 7:1 in both themes; mark-ink on mark is above 9:1.
 
