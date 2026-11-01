@@ -13,12 +13,38 @@ describe("BackgroundBeams", () => {
     );
   });
 
-  it("contains a single sweep layer and no focusable content", () => {
+  it("has no focusable content", () => {
     const { container } = render(<BackgroundBeams />);
-    expect(container.querySelectorAll(".beams-sweep")).toHaveLength(1);
     expect(
       container.querySelectorAll("a, button, input, [tabindex]"),
     ).toHaveLength(0);
+  });
+
+  it("draws the faint lines for all 50 beams in one path", () => {
+    const { container } = render(<BackgroundBeams />);
+    const lines = container.querySelector("svg > path:not([data-drop])");
+    expect(lines?.getAttribute("d")?.match(/M-?\d+ -?\d+C/g)).toHaveLength(50);
+  });
+
+  it("sends a drop along every fourth beam, normalised so one drop shows at a time", () => {
+    const { container } = render(<BackgroundBeams />);
+    const drops = container.querySelectorAll("path[data-drop]");
+    expect(drops).toHaveLength(13);
+    for (const drop of drops) {
+      expect(drop).toHaveAttribute("pathLength", "100");
+      expect(drop).toHaveClass("beam-drop");
+    }
+  });
+
+  it("gives each drop its own speed and start so they do not move in lockstep", () => {
+    const { container } = render(<BackgroundBeams />);
+    const timings = Array.from(
+      container.querySelectorAll<SVGPathElement>("path[data-drop]"),
+    ).map(
+      (p) =>
+        `${p.style.getPropertyValue("--beam-duration")}/${p.style.getPropertyValue("--beam-delay")}`,
+    );
+    expect(new Set(timings).size).toBeGreaterThan(8);
   });
 
   it("renders the same markup every time so hydration matches", () => {
@@ -28,23 +54,20 @@ describe("BackgroundBeams", () => {
   });
 });
 
-describe("beams mask and styles", () => {
+describe("beam styles", () => {
   const css = readFileSync(join(process.cwd(), "src/app/globals.css"), "utf8");
 
-  it("ships the mask with all 50 beam curves", () => {
-    const svg = readFileSync(join(process.cwd(), "public/beams.svg"), "utf8");
-    expect(svg.match(/M-?\d+ -?\d+C/g)).toHaveLength(50);
+  it("slides a short dash along the curve, from the start to past the end", () => {
+    expect(css).toMatch(/stroke-dasharray:\s*8 100/);
+    const keyframes =
+      /@keyframes beam-drop \{[\s\S]*?\n {2}\}/.exec(css)?.[0] ?? "";
+    expect(keyframes).toContain("stroke-dashoffset: 8");
+    expect(keyframes).toContain("stroke-dashoffset: -100");
   });
 
-  it("animates only transform and stops for reduced motion", () => {
-    const keyframes =
-      /@keyframes beams-sweep \{[\s\S]*?\n {2}\}/.exec(css)?.[0] ?? "";
-    expect(keyframes).toContain("transform");
-    expect(keyframes).not.toMatch(
-      /\b(left|top|width|height|filter|opacity)\s*:/,
-    );
+  it("stops moving for visitors who prefer reduced motion", () => {
     expect(css).toMatch(
-      /prefers-reduced-motion: reduce\) \{\s*\.beams-sweep \{\s*animation: none/,
+      /prefers-reduced-motion: reduce\) \{\s*\.beam-drop \{\s*animation: none/,
     );
   });
 });

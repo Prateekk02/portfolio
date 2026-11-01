@@ -35,11 +35,11 @@ Contrast: ink on paper and ink-soft on paper are above 7:1 in both themes; mark-
 - The header is solid (no blur), wordmark left and four links right. On narrow screens the links wrap under the wordmark; there is no hamburger.
 
 ## Motion
-- Allowed properties: `transform` and `opacity`. Nothing else is animated, and never `filter`.
-- Background beams: a CSS-only sweep of colour behind a static mask, compositor-only (transform), no JavaScript, still for reduced motion.
+- Allowed properties: `transform` and `opacity`, plus `stroke-dashoffset` on the decorative background beams only. Never `filter`.
+- Background beams: faint curved lines with a short bright drop sliding along every fourth one (CSS `stroke-dashoffset`, 13 animated paths, no JavaScript). Each drop has its own speed and start. Still for reduced motion.
 - Reveal: each home section fades in and lifts 12px once when it scrolls into view, using Motion with `LazyMotion` (`domAnimation`, about 15 KB) and `MotionConfig reducedMotion="user"`. Only opacity and transform.
 - Hover and focus changes are instant colour changes; links get the highlighter on hover.
-- `prefers-reduced-motion` stops the beams and the reveal. The beam sweep is the only infinite animation, and it is compositor-only.
+- `prefers-reduced-motion` stops the beams and the reveal. The beam drops are the only infinite animation.
 
 ## Review notes
 First draft reached for a cream background with a serif, then for rounded cards with soft shadows. Both are the common defaults and say nothing about this person, so they were dropped in favour of the paper/ink palette, the blue dark theme and hairline rows.

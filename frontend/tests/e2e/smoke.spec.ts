@@ -103,7 +103,8 @@ test.describe("reduced motion", () => {
   test("stops the background sweep", async ({ page }) => {
     await page.goto("/");
     const name = await page
-      .locator(".beams-sweep")
+      .locator(".beam-drop")
+      .first()
       .evaluate((el) => getComputedStyle(el).animationName);
     expect(name).toBe("none");
   });
