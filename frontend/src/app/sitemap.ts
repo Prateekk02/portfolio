@@ -1,12 +1,13 @@
 import type { MetadataRoute } from "next";
+import { SITE_URL } from "@/data/profile";
+import { projects } from "@/data/projects";
+
+const STATIC_ROUTES = ["", "/projects", "/experience", "/blog", "/resources", "/contact"];
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://www.prateekkumar.dev";
-
-  return [
-    { url: baseUrl, lastModified: new Date(), changeFrequency: "monthly", priority: 1 },
-    { url: `${baseUrl}/projects`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.8 },
-    { url: `${baseUrl}/blog`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.8 },
-    { url: `${baseUrl}/resources`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.7 },
-  ];
+  const caseStudies = projects.filter((p) => p.caseStudy).map((p) => `/projects/${p.slug}`);
+  return [...STATIC_ROUTES, ...caseStudies].map((path) => ({
+    url: `${SITE_URL}${path}`,
+    lastModified: new Date(),
+  }));
 }
