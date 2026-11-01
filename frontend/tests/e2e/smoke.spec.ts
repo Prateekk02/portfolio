@@ -50,7 +50,7 @@ test("external links open safely in a new tab", async ({ page }) => {
   for (const route of ROUTES) {
     await page.goto(route);
     const unsafe = await page.$$eval('a[target="_blank"]', (links) =>
-      links.filter((a) => !/noopener/.test(a.rel)).map((a) => a.getAttribute("href")),
+      links.filter((a) => !/noopener/.test(a.getAttribute("rel") ?? "")).map((a) => a.getAttribute("href")),
     );
     expect(unsafe, `unsafe links on ${route}`).toEqual([]);
   }
