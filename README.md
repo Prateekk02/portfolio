@@ -47,3 +47,11 @@ make dev            # http://localhost:3000
 ## Contributing workflow
 
 One phase per branch (`v1/phase-N-...`), one Conventional Commit per task, and a pull request that passes the `ci` checks before merging to `main`.
+
+## How to add a check
+
+Every merge must pass the single `ci-gate` job in `.github/workflows/ci.yml`.
+
+- A new test file or a new linter inside an existing job needs nothing else.
+- A new job needs one line: add its name to `needs:` of `ci-gate`.
+- Do not add `paths:` filters to the `pull_request` trigger. A required job that never starts blocks merging forever.
