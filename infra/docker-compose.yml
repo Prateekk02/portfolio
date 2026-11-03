@@ -1,0 +1,36 @@
+name: portfolio
+services:
+  db:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: portfolio
+      POSTGRES_PASSWORD: portfolio
+      POSTGRES_DB: portfolio
+    ports: ["5432:5432"]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U portfolio -d portfolio"]
+      interval: 3s
+      timeout: 3s
+      retries: 20
+  api:
+    build: ../backend
+    command: >
+      sh -c "alembic upgrade head &&
+      uvicorn app.main:app_factory --factory --host 0.0.0.0 --port 8080 --reload"
+    environment:
+      ENV: local
+      DATABASE_URL: postgresql://portfolio:portfolio@db:5432/portfolio
+      CORS_ORIGINS: '["http://localhost:3000"]'
+    volumes: ["../backend/app:/app/app"]
+    ports: ["8080:8080"]
+    depends_on:
+      db: { condition: service_healthy }
+  web:
+    image: node:22-slim
+    working_dir: /web
+    command: sh -c "npm ci && npm run dev -- -H 0.0.0.0"
+    environment:
+      NEXT_PUBLIC_API_URL: http://localhost:8080
+    volumes: ["../frontend:/web"]
+    ports: ["3000:3000"]
+    depends_on: [api]
