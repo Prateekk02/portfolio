@@ -13,7 +13,7 @@ const FOOTER_LINKS = [
 export function SiteFooter() {
   return (
     <footer className="border-t border-line">
-      <div className="mx-auto w-full max-w-[42rem] px-5 py-10 text-sm text-ink-soft">
+      <div className="mx-auto w-full max-w-[42rem] px-5 pt-10 pb-[max(2.5rem,env(safe-area-inset-bottom))] text-sm text-ink-soft">
         <ul className="flex flex-wrap gap-x-5 gap-y-2">
           {FOOTER_LINKS.map(({ label, href }) => (
             <li key={label}>
@@ -21,7 +21,9 @@ export function SiteFooter() {
             </li>
           ))}
         </ul>
-        <p className="mt-6">© {new Date().getFullYear()} {profile.name}</p>
+        <p className="mt-6">
+          © {new Date().getFullYear()} {profile.name}
+        </p>
       </div>
     </footer>
   );

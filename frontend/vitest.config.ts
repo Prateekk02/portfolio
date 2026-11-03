@@ -14,7 +14,7 @@ export default defineConfig({
     include: ["tests/unit/**/*.test.{ts,tsx}"],
     coverage: {
       provider: "v8",
-      include: ["src/lib/**", "src/components/**"],
+      include: ["src/lib/**", "src/components/**", "src/app/error.tsx", "src/app/robots.ts"],
       reporter: ["text-summary", "lcov"],
       thresholds: { lines: 75, functions: 75, statements: 75, branches: 75 },
     },
