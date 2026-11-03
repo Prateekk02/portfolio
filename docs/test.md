@@ -35,11 +35,13 @@ Selenium note: Playwright already covers these journeys, so Selenium is delibera
 | Mobile layout (no overflow, tap targets, header inside tile) | no | no | add Playwright test at 320/360/390 px |
 | Cross-browser | no | Chrome only | add Selenium suite |
 | Deployed sanity | no | no | add `scripts/smoke.sh` |
-| Backend (all) | none yet | n/a | built with Phase 3 onward (section 4) |
+| Backend (Phase 3 scope) | yes, 25 tests, 100% coverage | n/a | grows with each phase (section 4) |
 
 Coverage today: Vitest statements 93.65%, branches 95.91% (thresholds 75%). Coverage only measures `src/lib` and `src/components`, so pages and `app/*.ts` files are excluded and are covered by the page tests above.
 
-## 3. Work to add (frontend)
+## 3. Work added in Phase 3 (frontend)
+
+Status 2026-11-04: items 1, 2 and 4 are done and verified locally. Item 3 (Selenium) is written and wired into CI; it could not be run locally (driver mismatch in the dev container), so its first real run is the CI `selenium` job.
 
 1. **Unit** `tests/unit/`:
    - `MotionProvider.test.tsx`: renders children, wraps in LazyMotion strict and reduced motion config.
@@ -55,7 +57,7 @@ Coverage today: Vitest statements 93.65%, branches 95.91% (thresholds 75%). Cove
 3. **Selenium sanity** `tests/selenium/` (Python, pytest, selenium 4):
    - Home loads with the headline; navigation links reach each route; 404 page for an unknown route; theme toggle switches `html.dark`; project case study opens.
    - Runs headless Chrome and Firefox against `http://localhost:3100`.
-4. **Smoke** `scripts/smoke.sh BASE_URL`: home 200, `/blog` 200, `/robots.txt`, `/sitemap.xml`, plus backend `/health/live` and `/health/ready` when an API URL is given. Retries with backoff for cold starts.
+4. **Smoke** `scripts/smoke.sh BASE_URL`: home 200, `/blog` 200, `/robots.txt`, `/sitemap.xml`, plus backend `/healthz` and `/readyz` when an API URL is given. Retries with backoff for cold starts.
 
 ## 4. Backend plan (starts with Phase 3, grows each phase)
 

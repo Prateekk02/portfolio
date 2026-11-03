@@ -125,9 +125,50 @@ jobs:
           docker build -t portfolio-api:ci .
           test "$(docker run --rm --entrypoint id portfolio-api:ci -u)" != "0"
 
+  selenium:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+      - uses: astral-sh/setup-uv@v7
+      - run: npm ci && npm run build
+        working-directory: frontend
+      - name: Start the production build
+        run: |
+          nohup npm run start -- -p 3100 > /tmp/next.log 2>&1 &
+          npx --yes wait-on http://localhost:3100 --timeout 60000
+        working-directory: frontend
+      - name: Run the cross-browser sanity tests (Chrome and Firefox)
+        run: uv run --with selenium --with pytest pytest -q
+        working-directory: tests/selenium
+        env:
+          BASE_URL: http://localhost:3100
+
+  smoke-script:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+      - run: npm ci && npm run build
+        working-directory: frontend
+      - name: Start the site and run the smoke script against it
+        run: |
+          nohup npm run start -- -p 3100 > /tmp/next.log 2>&1 &
+          npx --yes wait-on http://localhost:3100 --timeout 60000
+          bash ../scripts/smoke.sh http://localhost:3100
+        working-directory: frontend
+
   ci-gate:
     if: always()
-    needs: [frontend, backend, e2e, lighthouse, security]
+    needs: [frontend, backend, e2e, selenium, smoke-script, lighthouse, security]
     runs-on: ubuntu-latest
     steps:
       - name: Fail unless every job succeeded
