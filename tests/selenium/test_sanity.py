@@ -2,6 +2,7 @@
 small second-engine (WebDriver, Chrome and Firefox) check of the core journeys."""
 
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
 
 
 def test_home_shows_the_headline(driver, base_url):
@@ -14,7 +15,9 @@ def test_navigation_reaches_each_section(driver, base_url):
     for name in ["Projects", "Experience", "Blog", "Contact"]:
         driver.get(base_url + "/")
         driver.find_element(By.CSS_SELECTOR, f'nav[aria-label="Main"] a[href="/{name.lower()}"]').click()
-        assert driver.current_url.rstrip("/").endswith("/" + name.lower())
+        WebDriverWait(driver, 10).until(
+            lambda d, n=name: d.current_url.rstrip("/").endswith("/" + n.lower())
+        )
         assert len(driver.find_elements(By.TAG_NAME, "h1")) == 1
 
 
@@ -35,7 +38,7 @@ def test_unknown_route_shows_the_not_found_page(driver, base_url):
 def test_case_study_opens_from_projects(driver, base_url):
     driver.get(base_url + "/projects")
     driver.find_element(By.PARTIAL_LINK_TEXT, "Read the case study").click()
-    assert "/projects/" in driver.current_url
+    WebDriverWait(driver, 10).until(lambda d: "/projects/" in d.current_url)
     assert driver.find_element(By.TAG_NAME, "h1").text
 
 
