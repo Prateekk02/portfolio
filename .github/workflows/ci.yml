@@ -90,9 +90,44 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+  backend:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: backend
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_USER: portfolio
+          POSTGRES_PASSWORD: portfolio
+          POSTGRES_DB: portfolio_test
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd "pg_isready -U portfolio -d portfolio_test"
+          --health-interval 5s --health-timeout 5s --health-retries 10
+    env:
+      TEST_DATABASE_URL: postgresql://portfolio:portfolio@localhost:5432/portfolio_test
+    steps:
+      - uses: actions/checkout@v7
+      - uses: astral-sh/setup-uv@v7
+        with:
+          enable-cache: true
+          cache-dependency-glob: backend/uv.lock
+      - run: uv sync --frozen
+      - run: uv run ruff check .
+      - run: uv run ruff format --check .
+      - run: uv run mypy app
+      - run: uv run pytest --cov=app --cov-fail-under=85
+      - run: uv run pip-audit
+      - name: Build the image and check it runs as non-root
+        run: |
+          docker build -t portfolio-api:ci .
+          test "$(docker run --rm --entrypoint id portfolio-api:ci -u)" != "0"
+
   ci-gate:
     if: always()
-    needs: [frontend, e2e, lighthouse, security]
+    needs: [frontend, backend, e2e, lighthouse, security]
     runs-on: ubuntu-latest
     steps:
       - name: Fail unless every job succeeded
