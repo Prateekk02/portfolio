@@ -16,7 +16,7 @@ export function NavLinks() {
 
   return (
     <nav aria-label="Main">
-      <ul className="flex items-center gap-5 text-[0.9375rem]">
+      <ul className="flex items-center justify-between gap-2 text-[0.9375rem] sm:justify-start sm:gap-5">
         {NAV_LINKS.map(({ href, label }) => {
           const current = pathname === href || pathname.startsWith(`${href}/`);
           return (
@@ -25,7 +25,7 @@ export function NavLinks() {
                 href={href}
                 aria-current={current ? "page" : undefined}
                 className={cn(
-                  "inline-block py-2 hover:text-ink",
+                  "inline-flex min-h-11 items-center hover:text-ink",
                   current
                     ? "text-ink underline decoration-1 underline-offset-[0.35em]"
                     : "text-ink-soft",

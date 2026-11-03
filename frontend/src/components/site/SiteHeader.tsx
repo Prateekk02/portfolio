@@ -13,14 +13,19 @@ export function SiteHeader() {
     <header className="sticky top-3 z-40 mt-3 px-3">
       <div
         data-testid="site-header-tile"
-        className="mx-auto flex w-full max-w-[42rem] flex-wrap items-center justify-between gap-x-6 rounded-2xl border border-ink/10 bg-paper/40 px-5 py-1 shadow-[0_4px_16px_rgb(0_0_0/0.05)] backdrop-blur-xl backdrop-saturate-150 transition-shadow duration-300 hover:shadow-[0_14px_44px_rgb(0_0_0/0.22)] dark:shadow-[0_4px_16px_rgb(0_0_0/0.25)] dark:hover:shadow-[0_0_36px_rgb(99_68_245/0.45)]"
+        className="mx-auto flex w-full max-w-[42rem] flex-wrap items-center justify-between gap-x-4 rounded-2xl border border-ink/10 bg-paper/40 px-5 py-1 shadow-[0_4px_16px_rgb(0_0_0/0.05)] backdrop-blur-xl backdrop-saturate-150 transition-shadow duration-300 hover:shadow-[0_14px_44px_rgb(0_0_0/0.22)] dark:shadow-[0_4px_16px_rgb(0_0_0/0.25)] dark:hover:shadow-[0_0_36px_rgb(99_68_245/0.45)]"
       >
-        <Link href="/" className="py-2 font-semibold tracking-tight">
+        <Link
+          href="/"
+          className="order-1 mr-auto inline-flex min-h-11 items-center font-semibold tracking-tight"
+        >
           {profile.name}
         </Link>
-        <div className="flex items-center gap-3">
-          <NavLinks />
+        <div className="order-2 sm:order-3">
           <ThemeToggle />
+        </div>
+        <div className="order-3 w-full sm:order-2 sm:mr-3 sm:w-auto">
+          <NavLinks />
         </div>
       </div>
     </header>

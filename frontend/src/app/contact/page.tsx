@@ -13,7 +13,7 @@ export default function ContactPage() {
     ...(profile.email ? [{ label: "Email", href: `mailto:${profile.email}`, text: profile.email }] : []),
     { label: "LinkedIn", href: profile.links.linkedin, text: "prateekk02" },
     { label: "GitHub", href: profile.links.github, text: "Prateekk02" },
-    { label: "X", href: profile.links.x, text: "@codeWalker66" },
+    { label: "X", href: profile.links.x, text: "@_codewalker66" },
   ];
 
   return (

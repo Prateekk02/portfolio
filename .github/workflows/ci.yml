@@ -89,3 +89,91 @@ jobs:
         uses: gitleaks/gitleaks-action@v3
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  backend:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: backend
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_USER: portfolio
+          POSTGRES_PASSWORD: portfolio
+          POSTGRES_DB: portfolio_test
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd "pg_isready -U portfolio -d portfolio_test"
+          --health-interval 5s --health-timeout 5s --health-retries 10
+    env:
+      TEST_DATABASE_URL: postgresql://portfolio:portfolio@localhost:5432/portfolio_test
+    steps:
+      - uses: actions/checkout@v7
+      - uses: astral-sh/setup-uv@v7
+        with:
+          enable-cache: true
+          cache-dependency-glob: backend/uv.lock
+      - run: uv sync --frozen
+      - run: uv run ruff check .
+      - run: uv run ruff format --check .
+      - run: uv run mypy app
+      - run: uv run pytest --cov=app --cov-fail-under=85
+      - run: uv run pip-audit
+      - name: Build the image and check it runs as non-root
+        run: |
+          docker build -t portfolio-api:ci .
+          test "$(docker run --rm --entrypoint id portfolio-api:ci -u)" != "0"
+
+  selenium:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+      - uses: astral-sh/setup-uv@v7
+      - run: npm ci && npm run build
+        working-directory: frontend
+      - name: Start the production build
+        run: |
+          nohup npm run start -- -p 3100 > /tmp/next.log 2>&1 &
+          npx --yes wait-on http://localhost:3100 --timeout 60000
+        working-directory: frontend
+      - name: Run the cross-browser sanity tests (Chrome and Firefox)
+        run: uv run --with selenium --with pytest pytest -q
+        working-directory: tests/selenium
+        env:
+          BASE_URL: http://localhost:3100
+
+  smoke-script:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+      - run: npm ci && npm run build
+        working-directory: frontend
+      - name: Start the site and run the smoke script against it
+        run: |
+          nohup npm run start -- -p 3100 > /tmp/next.log 2>&1 &
+          npx --yes wait-on http://localhost:3100 --timeout 60000
+          bash ../scripts/smoke.sh http://localhost:3100
+        working-directory: frontend
+
+  ci-gate:
+    if: always()
+    needs: [frontend, backend, e2e, selenium, smoke-script, lighthouse, security]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Fail unless every job succeeded
+        run: |
+          echo '${{ toJSON(needs) }}'
+          test "${{ contains(needs.*.result, 'failure') }}" = "false"
+          test "${{ contains(needs.*.result, 'cancelled') }}" = "false"
+          test "${{ contains(needs.*.result, 'skipped') }}" = "false"

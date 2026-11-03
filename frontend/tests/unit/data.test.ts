@@ -110,3 +110,9 @@ describe("recommendations", () => {
     }
   });
 });
+
+describe("social links", () => {
+  it("uses the _codewalker66 handle on X", () => {
+    expect(profile.links.x).toBe("https://x.com/_codewalker66");
+  });
+});
